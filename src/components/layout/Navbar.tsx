@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useAuth } from "@/context/AuthContext";
 
 export default function Navbar() {
@@ -22,6 +22,10 @@ export default function Navbar() {
       gtSelect.dispatchEvent(new Event("change"));
     }
   };
+
+  // Hide the full navbar on dashboard pages (they have their own sidebar)
+  const isDashboard = pathname.startsWith("/dashboard/seller") || pathname.startsWith("/dashboard/admin");
+  if (isDashboard) return null;
 
   return (
     <header className="w-full bg-brand-green-950 text-white sticky top-0 z-50 shadow-lg">
@@ -52,11 +56,34 @@ export default function Navbar() {
               <Link href="/login?role=buyer" className="hover:text-brand-amber transition">Buyer Login</Link>
               <Link href="/login?role=seller" className="hover:text-brand-amber transition">Seller Login</Link>
             </>
+          ) : role === "admin" ? (
+            <>
+              <Link href="/dashboard/admin" className="hover:text-brand-amber transition font-bold">
+                <i className="fa-solid fa-shield-halved mr-2"></i>Admin Panel
+              </Link>
+              <button 
+                onClick={() => { logout(); router.push("/"); }} 
+                className="hover:text-red-400 transition ml-4"
+              >
+                Logout
+              </button>
+            </>
+          ) : role === "seller" ? (
+            <>
+              <Link href="/dashboard/seller" className="hover:text-brand-amber transition font-bold">
+                <i className="fa-solid fa-store mr-2"></i>My Dashboard
+              </Link>
+              <button 
+                onClick={() => { logout(); router.push("/"); }} 
+                className="hover:text-red-400 transition ml-4"
+              >
+                Logout
+              </button>
+            </>
           ) : (
             <>
-              <Link href={`/dashboard/${role}`} className="hover:text-brand-amber transition font-bold">
-                <i className={`fa-solid ${role === "seller" ? "fa-store" : "fa-user"} mr-2`}></i>
-                {role === "seller" ? "Seller Dashboard" : "Buyer Dashboard"}
+              <Link href="/dashboard/buyer" className="hover:text-brand-amber transition font-bold">
+                <i className="fa-solid fa-user mr-2"></i>Buyer Dashboard
               </Link>
               <button 
                 onClick={() => { logout(); router.push("/"); }} 
@@ -101,8 +128,12 @@ export default function Navbar() {
 
           <div className="flex gap-3">
             {role === "seller" ? (
-              <Link href="/dashboard/seller#products" className="px-4 py-2 bg-brand-amber text-brand-ink rounded font-bold hover:bg-amber-400 transition text-sm">
+              <Link href="/dashboard/seller" className="px-4 py-2 bg-brand-amber text-brand-ink rounded font-bold hover:bg-amber-400 transition text-sm">
                 <i className="fa-solid fa-plus mr-2"></i>Add New Product
+              </Link>
+            ) : role === "admin" ? (
+              <Link href="/dashboard/admin" className="px-4 py-2 bg-brand-amber text-brand-ink rounded font-bold hover:bg-amber-400 transition text-sm">
+                <i className="fa-solid fa-shield-halved mr-2"></i>Admin Panel
               </Link>
             ) : (
               <Link href="#rfq" className="px-4 py-2 bg-brand-amber text-brand-ink rounded font-bold hover:bg-amber-400 transition text-sm">
@@ -125,10 +156,17 @@ export default function Navbar() {
           ) : role === "seller" ? (
             <>
               <Link href="/" className={`transition ${pathname === "/" ? "text-brand-amber" : "hover:text-brand-amber"}`}>Home</Link>
-              <Link href="/dashboard/seller#listings" className={`transition ${pathname === "/dashboard/seller" ? "text-brand-amber" : "hover:text-brand-amber"}`}>My Listings</Link>
-              <Link href="/dashboard/seller#rfqs" className={`transition ${pathname === "/dashboard/seller" ? "text-brand-amber" : "hover:text-brand-amber"}`}>Incoming RFQs</Link>
-              <Link href="/dashboard/seller#fulfillment" className={`transition ${pathname === "/dashboard/seller" ? "text-brand-amber" : "hover:text-brand-amber"}`}>Fulfillment</Link>
-              <Link href="/dashboard/seller#payouts" className={`transition ${pathname === "/dashboard/seller" ? "text-brand-amber" : "hover:text-brand-amber"}`}>Payouts</Link>
+              <Link href="/dashboard/seller" className={`transition ${pathname === "/dashboard/seller" ? "text-brand-amber" : "hover:text-brand-amber"}`}>My Listings</Link>
+              <Link href="/dashboard/seller" className={`transition hover:text-brand-amber`}>Incoming RFQs</Link>
+              <Link href="/dashboard/seller" className={`transition hover:text-brand-amber`}>Fulfillment</Link>
+              <Link href="/dashboard/seller" className={`transition hover:text-brand-amber`}>Payouts</Link>
+            </>
+          ) : role === "admin" ? (
+            <>
+              <Link href="/" className={`transition ${pathname === "/" ? "text-brand-amber" : "hover:text-brand-amber"}`}>Home</Link>
+              <Link href="/dashboard/admin" className={`transition ${pathname === "/dashboard/admin" ? "text-brand-amber" : "hover:text-brand-amber"}`}>Admin Dashboard</Link>
+              <Link href="/certificates" className={`transition ${pathname === "/certificates" ? "text-brand-amber" : "hover:text-brand-amber"}`}>Certificates</Link>
+              <Link href="/contact" className={`transition ${pathname === "/contact" ? "text-brand-amber" : "hover:text-brand-amber"}`}>Contact</Link>
             </>
           ) : (
             <>
