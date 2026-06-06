@@ -22,6 +22,10 @@ function AgricultureHubContent({ allProducts }: { allProducts: Product[] }) {
   const [activeTab, setActiveTab] = useState(TABS.includes(initialTab) || initialTab !== "All" ? initialTab : "All");
   const [searchQuery, setSearchQuery] = useState(initialSearch);
 
+  React.useEffect(() => {
+    setSearchQuery(searchParams.get("search") || "");
+  }, [searchParams]);
+
   // Fallback to initial tab if it's not strictly in the predefined array but passed via URL (e.g. "clove" -> Valluvam)
   // Actually, we'll map any custom url tab to predefined ones if possible.
   let currentActiveTab = activeTab;

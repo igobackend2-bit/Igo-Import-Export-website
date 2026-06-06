@@ -6,19 +6,19 @@ export default function Services() {
     {
       title: "Contract Farming & Sourcing",
       desc: "Direct procurement from farmers via 'Farmers Factory'. Guaranteed volume and quality without middlemen markups.",
-      image: "https://images.unsplash.com/photo-1592982537447-6f296c09b0b1?auto=format&fit=crop&w=800&q=80",
+      image: "/images/gallery_farm_sourcing.png",
       icon: "fa-tractor"
     },
     {
       title: "Quality Control & Processing",
       desc: "State-of-the-art sorting, grading, and cleaning facilities. Every batch meets strict European and US FDA standards.",
-      image: "https://images.unsplash.com/photo-1587595431973-160d0d94add1?auto=format&fit=crop&w=800&q=80",
+      image: "/images/gallery_quality_inspection.png",
       icon: "fa-magnifying-glass-chart"
     },
     {
       title: "Global Logistics (FOB/CIF)",
       desc: "Complete freight forwarding, custom clearance, and multi-modal transport from Indian ports to your destination.",
-      image: "https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&w=800&q=80",
+      image: "/images/gallery_port_logistics.png",
       icon: "fa-globe"
     }
   ];

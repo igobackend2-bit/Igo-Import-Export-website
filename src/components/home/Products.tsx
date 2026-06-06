@@ -5,14 +5,14 @@ export default function Products() {
   const categories = [
     {
       title: 'Agri Commodities',
-      image: encodeURI('/products/Farmer Factory/Valluvam/cloves.jpg'),
+      image: encodeURI('/products/Farmer Factory/Valluvam/clove.jpg'),
       outcome: 'Fumigated, Certified, and FOB Ready.',
       items: ['Rice & Grains', 'Spices & Herbs', 'Sugar & Pulses'],
       search: "Valluvam"
     },
     {
       title: 'Nursery & Live Plants',
-      image: encodeURI('/products/Nursery/indoor/Areca_Palm.png'),
+      image: encodeURI('/products/Nursery/indoor/Areca_Palm.webp'),
       outcome: 'Phytosanitary cleared for global transit.',
       items: ['Indoor Foliage', 'Fruit Saplings', 'Tissue Culture'],
       search: "indoor"

@@ -24,7 +24,7 @@ export default async function AgricultureHubPage() {
       
       {/* 1. Agri-Commodities Hero */}
       <div className="bg-brand-green-950 text-white pt-12 pb-16 border-b-4 border-brand-amber relative overflow-hidden">
-        <div className="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1500937386664-56d1dfefcb19?auto=format&fit=crop&w=1600&q=80')] bg-cover bg-center"></div>
+        <div className="absolute inset-0 opacity-20 bg-[url('/images/gallery_farm_sourcing.png')] bg-cover bg-center"></div>
         <div className="container mx-auto px-4 relative z-10">
           <nav className="text-sm text-white/60 mb-6 font-medium">
             <Link href="/" className="hover:text-white transition">Home</Link>

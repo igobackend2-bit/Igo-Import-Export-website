@@ -81,15 +81,23 @@ export default function Navbar() {
           </Link>
 
           {/* Search Bar */}
-          <div className="hidden lg:flex flex-1 max-w-md mx-8 relative">
+          <form 
+            onSubmit={(e) => {
+              e.preventDefault();
+              const query = (e.currentTarget.elements.namedItem('search') as HTMLInputElement).value;
+              if (query) router.push(`/hub/agriculture?search=${encodeURIComponent(query)}`);
+            }}
+            className="hidden lg:flex flex-1 max-w-md mx-8 relative"
+          >
             <input 
+              name="search"
               type="text" 
               placeholder="Search verified export commodities..." 
               className="w-full bg-white/10 border border-white/20 rounded-full py-2 px-5 pl-10 text-sm text-white placeholder-white/50 focus:outline-none focus:border-brand-amber focus:bg-white/20 transition"
             />
             <i className="fa-solid fa-magnifying-glass absolute left-4 top-1/2 transform -translate-y-1/2 text-white/50"></i>
-            <button className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-brand-amber text-brand-ink text-xs font-bold px-3 py-1 rounded-full hover:bg-amber-400 transition">Search</button>
-          </div>
+            <button type="submit" className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-brand-amber text-brand-ink text-xs font-bold px-3 py-1 rounded-full hover:bg-amber-400 transition">Search</button>
+          </form>
 
           <div className="flex gap-3">
             {role === "seller" ? (

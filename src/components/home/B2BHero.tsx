@@ -6,7 +6,11 @@ export default function B2BHero() {
     <section className="relative pt-20 pb-24 md:pt-32 md:pb-40 flex items-center justify-center overflow-hidden">
       {/* Massive Background Image */}
       <div className="absolute inset-0 bg-brand-green-950">
-        <div className="absolute inset-0 opacity-40 bg-[url('https://images.unsplash.com/photo-1595804369527-30e52dd040f7?auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center mix-blend-overlay"></div>
+        <img 
+          src="/images/b2b_hero_banner.png" 
+          alt="B2B Wholesale Trade Desk" 
+          className="w-full h-full object-cover opacity-60"
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-brand-green-950/80 via-brand-green-950/40 to-brand-paper"></div>
       </div>
 

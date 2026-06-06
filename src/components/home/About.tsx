@@ -15,17 +15,15 @@ export default function About() {
           <div className="w-full lg:w-1/2 grid grid-cols-2 gap-4 relative z-10">
             <div className="flex flex-col gap-4 pt-12">
               <div className="rounded-2xl overflow-hidden shadow-2xl h-64 relative group">
-                <img src="https://images.unsplash.com/photo-1590682680695-43b964a3ae17?auto=format&fit=crop&w=600&q=80" alt="Sourcing" className="w-full h-full object-cover transform group-hover:scale-110 transition duration-700" />
-                <div className="absolute inset-0 bg-brand-green-950/20"></div>
+                <img src="/images/gallery_farm_sourcing.png" alt="Sourcing" className="w-full h-full object-cover transform group-hover:scale-110 transition duration-700" />
               </div>
-              <div className="rounded-2xl overflow-hidden shadow-2xl h-48 relative group">
-                <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?auto=format&fit=crop&w=600&q=80" alt="Logistics" className="w-full h-full object-cover transform group-hover:scale-110 transition duration-700" />
-                <div className="absolute inset-0 bg-brand-amber/20"></div>
+              <div className="h-40 md:h-48 rounded-2xl overflow-hidden border-2 border-white shadow-xl mt-8 group">
+                <img src="/images/gallery_port_logistics.png" alt="Logistics" className="w-full h-full object-cover transform group-hover:scale-110 transition duration-700" />
               </div>
             </div>
             <div className="flex flex-col gap-4">
-              <div className="rounded-2xl overflow-hidden shadow-2xl h-80 relative group">
-                <img src="https://images.unsplash.com/photo-1587595431973-160d0d94add1?auto=format&fit=crop&w=600&q=80" alt="Quality Control" className="w-full h-full object-cover transform group-hover:scale-110 transition duration-700" />
+              <div className="h-48 md:h-64 rounded-2xl overflow-hidden border-2 border-white shadow-xl mb-8 group">
+                <img src="/images/gallery_quality_inspection.png" alt="Quality Control" className="w-full h-full object-cover transform group-hover:scale-110 transition duration-700" />
                 <div className="absolute inset-0 bg-brand-green-950/20"></div>
               </div>
               

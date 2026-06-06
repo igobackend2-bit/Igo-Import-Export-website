@@ -2,12 +2,12 @@ import React from 'react';
 
 export default function GalleryPage() {
   const photos = [
-    { src: "https://images.unsplash.com/photo-1587595431973-160d0d94add1?auto=format&fit=crop&w=600&q=80", title: "Container Loading" },
-    { src: "https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?auto=format&fit=crop&w=600&q=80", title: "Quality Inspection" },
-    { src: "https://images.unsplash.com/photo-1596558450268-9c27524ba856?auto=format&fit=crop&w=600&q=80", title: "Farm Sourcing" },
-    { src: "https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&w=600&q=80", title: "Port Logistics" },
-    { src: "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=600&q=80", title: "Warehouse Storage" },
-    { src: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80", title: "Lab Testing" },
+    { src: "/images/gallery_container_loading.png", title: "Container Loading" },
+    { src: "/images/gallery_quality_inspection.png", title: "Quality Inspection" },
+    { src: "/images/gallery_farm_sourcing.png", title: "Farm Sourcing" },
+    { src: "/images/gallery_port_logistics.png", title: "Port Logistics" },
+    { src: "/images/gallery_warehouse_storage.png", title: "Warehouse Storage" },
+    { src: "/images/gallery_lab_testing.png", title: "Lab Testing" },
   ];
 
   return (
