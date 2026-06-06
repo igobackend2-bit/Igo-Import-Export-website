@@ -1,0 +1,2494 @@
+[
+  {
+    "id": "crop-care-1",
+    "name": "Ammonium Nitrate",
+    "category": "Chemical Fertilizers",
+    "origin": "Crop Care",
+    "image_url": "/products/Crop Care/Chemical Fertilizers/Ammonium_Nitrate.webp"
+  },
+  {
+    "id": "crop-care-2",
+    "name": "Ammonium Sulphate",
+    "category": "Chemical Fertilizers",
+    "origin": "Crop Care",
+    "image_url": "/products/Crop Care/Chemical Fertilizers/Ammonium_Sulphate.webp"
+  },
+  {
+    "id": "crop-care-3",
+    "name": "Calcium Ammonium Nitrate (CAN)",
+    "category": "Chemical Fertilizers",
+    "origin": "Crop Care",
+    "image_url": "/products/Crop Care/Chemical Fertilizers/Calcium_Ammonium_Nitrate__CAN_.webp"
+  },
+  {
+    "id": "crop-care-4",
+    "name": "DAP (Di-Ammonium Phosphate)",
+    "category": "Chemical Fertilizers",
+    "origin": "Crop Care",
+    "image_url": "/products/Crop Care/Chemical Fertilizers/DAP__Di-Ammonium_Phosphate_.webp"
+  },
+  {
+    "id": "crop-care-5",
+    "name": "Sodium Nitrate",
+    "category": "Chemical Fertilizers",
+    "origin": "Crop Care",
+    "image_url": "/products/Crop Care/Chemical Fertilizers/Sodium_Nitrate.webp"
+  },
+  {
+    "id": "crop-care-6",
+    "name": "UREA",
+    "category": "Chemical Fertilizers",
+    "origin": "Crop Care",
+    "image_url": "/products/Crop Care/Chemical Fertilizers/UREA.webp"
+  },
+  {
+    "id": "crop-care-7",
+    "name": "Groundnut",
+    "category": "Field Seeds",
+    "origin": "Crop Care",
+    "image_url": "/products/Crop Care/Field Seeds/Groundnut.webp"
+  },
+  {
+    "id": "crop-care-8",
+    "name": "Maize Corn",
+    "category": "Field Seeds",
+    "origin": "Crop Care",
+    "image_url": "/products/Crop Care/Field Seeds/Maize_Corn.webp"
+  },
+  {
+    "id": "crop-care-9",
+    "name": "Paddy",
+    "category": "Field Seeds",
+    "origin": "Crop Care",
+    "image_url": "/products/Crop Care/Field Seeds/Paddy.webp"
+  },
+  {
+    "id": "crop-care-10",
+    "name": "Wheat Seed",
+    "category": "Field Seeds",
+    "origin": "Crop Care",
+    "image_url": "/products/Crop Care/Field Seeds/Wheat_Seed.webp"
+  },
+  {
+    "id": "crop-care-11",
+    "name": "Calendula",
+    "category": "Flowers",
+    "origin": "Crop Care",
+    "image_url": "/products/Crop Care/Flowers/Calendula.webp"
+  },
+  {
+    "id": "crop-care-12",
+    "name": "Dianthus",
+    "category": "Flowers",
+    "origin": "Crop Care",
+    "image_url": "/products/Crop Care/Flowers/Dianthus.webp"
+  },
+  {
+    "id": "crop-care-13",
+    "name": "JAsmine",
+    "category": "Flowers",
+    "origin": "Crop Care",
+    "image_url": "/products/Crop Care/Flowers/JAsmine.webp"
+  },
+  {
+    "id": "crop-care-14",
+    "name": "Sunflower",
+    "category": "Flowers",
+    "origin": "Crop Care",
+    "image_url": "/products/Crop Care/Flowers/Sunflower.webp"
+  },
+  {
+    "id": "crop-care-15",
+    "name": "Grapes",
+    "category": "Fruit Seed",
+    "origin": "Crop Care",
+    "image_url": "/products/Crop Care/Fruit Seed/Grapes.webp"
+  },
+  {
+    "id": "crop-care-16",
+    "name": "Guava",
+    "category": "Fruit Seed",
+    "origin": "Crop Care",
+    "image_url": "/products/Crop Care/Fruit Seed/Guava.webp"
+  },
+  {
+    "id": "crop-care-17",
+    "name": "MuskMelon",
+    "category": "Fruit Seed",
+    "origin": "Crop Care",
+    "image_url": "/products/Crop Care/Fruit Seed/MuskMelon.webp"
+  },
+  {
+    "id": "crop-care-18",
+    "name": "Pomegranate",
+    "category": "Fruit Seed",
+    "origin": "Crop Care",
+    "image_url": "/products/Crop Care/Fruit Seed/Pomegranate.webp"
+  },
+  {
+    "id": "crop-care-19",
+    "name": "Watermelon seed",
+    "category": "Fruit Seed",
+    "origin": "Crop Care",
+    "image_url": "/products/Crop Care/Fruit Seed/Watermelon_seed.webp"
+  },
+  {
+    "id": "crop-care-20",
+    "name": "Amino Acid Fertilizer",
+    "category": "liquid",
+    "origin": "Crop Care",
+    "image_url": "/products/Crop Care/liquid/Amino_Acid_Fertilizer.png"
+  },
+  {
+    "id": "crop-care-21",
+    "name": "Calcium Nitrate Liquid",
+    "category": "liquid",
+    "origin": "Crop Care",
+    "image_url": "/products/Crop Care/liquid/Calcium_Nitrate_Liquid.png"
+  },
+  {
+    "id": "crop-care-22",
+    "name": "Humic Acid",
+    "category": "liquid",
+    "origin": "Crop Care",
+    "image_url": "/products/Crop Care/liquid/Humic_Acid.png"
+  },
+  {
+    "id": "crop-care-23",
+    "name": "Liquid Copper",
+    "category": "liquid",
+    "origin": "Crop Care",
+    "image_url": "/products/Crop Care/liquid/Liquid_Copper.png"
+  },
+  {
+    "id": "crop-care-24",
+    "name": "Liquid Iron",
+    "category": "liquid",
+    "origin": "Crop Care",
+    "image_url": "/products/Crop Care/liquid/Liquid_Iron.png"
+  },
+  {
+    "id": "crop-care-25",
+    "name": "Liquid NPK 00-00-50",
+    "category": "liquid",
+    "origin": "Crop Care",
+    "image_url": "/products/Crop Care/liquid/Liquid_NPK_00-00-50.png"
+  },
+  {
+    "id": "crop-care-26",
+    "name": "Liquid Urea",
+    "category": "liquid",
+    "origin": "Crop Care",
+    "image_url": "/products/Crop Care/liquid/Liquid_Urea.png"
+  },
+  {
+    "id": "crop-care-27",
+    "name": "Liquid Zinc",
+    "category": "liquid",
+    "origin": "Crop Care",
+    "image_url": "/products/Crop Care/liquid/Liquid_Zinc.png"
+  },
+  {
+    "id": "crop-care-28",
+    "name": "NPK-12-61-00",
+    "category": "liquid",
+    "origin": "Crop Care",
+    "image_url": "/products/Crop Care/liquid/NPK-12-61-00.png"
+  },
+  {
+    "id": "crop-care-29",
+    "name": "Urea Ammonium Nitrate (UAN)",
+    "category": "liquid",
+    "origin": "Crop Care",
+    "image_url": "/products/Crop Care/liquid/Urea_Ammonium_Nitrate__UAN_.jpeg"
+  },
+  {
+    "id": "crop-care-30",
+    "name": "Bio Composer",
+    "category": "Organic Fertilizers",
+    "origin": "Crop Care",
+    "image_url": "/products/Crop Care/Organic Fertilizers/Bio_Composer.webp"
+  },
+  {
+    "id": "crop-care-31",
+    "name": "CoCo Peat",
+    "category": "Organic Fertilizers",
+    "origin": "Crop Care",
+    "image_url": "/products/Crop Care/Organic Fertilizers/CoCo_Peat.webp"
+  },
+  {
+    "id": "crop-care-32",
+    "name": "Cow Dung",
+    "category": "Organic Fertilizers",
+    "origin": "Crop Care",
+    "image_url": "/products/Crop Care/Organic Fertilizers/Cow_Dung.webp"
+  },
+  {
+    "id": "crop-care-33",
+    "name": "Kitchen Waste Compost",
+    "category": "Organic Fertilizers",
+    "origin": "Crop Care",
+    "image_url": "/products/Crop Care/Organic Fertilizers/Kitchen_Waste_Compost.webp"
+  },
+  {
+    "id": "crop-care-34",
+    "name": "Leaf Composer",
+    "category": "Organic Fertilizers",
+    "origin": "Crop Care",
+    "image_url": "/products/Crop Care/Organic Fertilizers/Leaf_Composer.webp"
+  },
+  {
+    "id": "crop-care-35",
+    "name": "Amino Acid Powder",
+    "category": "powder",
+    "origin": "Crop Care",
+    "image_url": "/products/Crop Care/powder/Amino_Acid_Powder.jpeg"
+  },
+  {
+    "id": "crop-care-36",
+    "name": "Azospirillum Powder",
+    "category": "powder",
+    "origin": "Crop Care",
+    "image_url": "/products/Crop Care/powder/Azospirillum_Powder.jpeg"
+  },
+  {
+    "id": "crop-care-37",
+    "name": "Boron 20%",
+    "category": "powder",
+    "origin": "Crop Care",
+    "image_url": "/products/Crop Care/powder/Boron_20_.jpeg"
+  },
+  {
+    "id": "crop-care-38",
+    "name": "Calcium Nitrate",
+    "category": "powder",
+    "origin": "Crop Care",
+    "image_url": "/products/Crop Care/powder/Calcium_Nitrate.jpeg"
+  },
+  {
+    "id": "crop-care-39",
+    "name": "Copper Sulphate",
+    "category": "powder",
+    "origin": "Crop Care",
+    "image_url": "/products/Crop Care/powder/Copper_Sulphate.jpeg"
+  },
+  {
+    "id": "crop-care-40",
+    "name": "DAP",
+    "category": "powder",
+    "origin": "Crop Care",
+    "image_url": "/products/Crop Care/powder/DAP.jpeg"
+  },
+  {
+    "id": "crop-care-41",
+    "name": "Humic Acid Powder",
+    "category": "powder",
+    "origin": "Crop Care",
+    "image_url": "/products/Crop Care/powder/Humic_Acid_Powder.jpeg"
+  },
+  {
+    "id": "crop-care-42",
+    "name": "Magnesium Sulphate",
+    "category": "powder",
+    "origin": "Crop Care",
+    "image_url": "/products/Crop Care/powder/Magnesium_Sulphate.jpeg"
+  },
+  {
+    "id": "crop-care-43",
+    "name": "NPK 12-61-00 (MAP)",
+    "category": "powder",
+    "origin": "Crop Care",
+    "image_url": "/products/Crop Care/powder/NPK_12-61-00__MAP_.jpeg"
+  },
+  {
+    "id": "crop-care-44",
+    "name": "NPK 13-00-45 (Potassium Nitrate)",
+    "category": "powder",
+    "origin": "Crop Care",
+    "image_url": "/products/Crop Care/powder/NPK_13-00-45__Potassium_Nitrate_.jpeg"
+  },
+  {
+    "id": "crop-care-45",
+    "name": "Zinc Sulphate",
+    "category": "powder",
+    "origin": "Crop Care",
+    "image_url": "/products/Crop Care/powder/Zinc_Sulphate.jpeg"
+  },
+  {
+    "id": "crop-care-46",
+    "name": "Bitter Guard",
+    "category": "Vegetable Seeds",
+    "origin": "Crop Care",
+    "image_url": "/products/Crop Care/Vegetable Seeds/Bitter_Guard.webp"
+  },
+  {
+    "id": "crop-care-47",
+    "name": "Brinjal",
+    "category": "Vegetable Seeds",
+    "origin": "Crop Care",
+    "image_url": "/products/Crop Care/Vegetable Seeds/Brinjal.webp"
+  },
+  {
+    "id": "crop-care-48",
+    "name": "Cucumber",
+    "category": "Vegetable Seeds",
+    "origin": "Crop Care",
+    "image_url": "/products/Crop Care/Vegetable Seeds/Cucumber.webp"
+  },
+  {
+    "id": "crop-care-49",
+    "name": "Ladiesfinger",
+    "category": "Vegetable Seeds",
+    "origin": "Crop Care",
+    "image_url": "/products/Crop Care/Vegetable Seeds/Ladiesfinger.webp"
+  },
+  {
+    "id": "crop-care-50",
+    "name": "Pumpkin",
+    "category": "Vegetable Seeds",
+    "origin": "Crop Care",
+    "image_url": "/products/Crop Care/Vegetable Seeds/Pumpkin.webp"
+  },
+  {
+    "id": "farmer-factory-51",
+    "name": "amla",
+    "category": "Fruits",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Fruits/amla.jfif"
+  },
+  {
+    "id": "farmer-factory-52",
+    "name": "apple",
+    "category": "Fruits",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Fruits/apple.jfif"
+  },
+  {
+    "id": "farmer-factory-53",
+    "name": "BananaElakki",
+    "category": "Fruits",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Fruits/BananaElakki.jfif"
+  },
+  {
+    "id": "farmer-factory-54",
+    "name": "BananaKarpooravalli",
+    "category": "Fruits",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Fruits/BananaKarpooravalli.jfif"
+  },
+  {
+    "id": "farmer-factory-55",
+    "name": "BananaNendhiram",
+    "category": "Fruits",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Fruits/BananaNendhiram.jfif"
+  },
+  {
+    "id": "farmer-factory-56",
+    "name": "BananaPoovan",
+    "category": "Fruits",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Fruits/BananaPoovan.jfif"
+  },
+  {
+    "id": "farmer-factory-57",
+    "name": "droganfruit",
+    "category": "Fruits",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Fruits/droganfruit.jfif"
+  },
+  {
+    "id": "farmer-factory-58",
+    "name": "GuavaWhite",
+    "category": "Fruits",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Fruits/GuavaWhite.jfif"
+  },
+  {
+    "id": "farmer-factory-59",
+    "name": "kiwi",
+    "category": "Fruits",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Fruits/kiwi.jfif"
+  },
+  {
+    "id": "farmer-factory-60",
+    "name": "MangoBanganapalli",
+    "category": "Fruits",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Fruits/MangoBanganapalli.jfif"
+  },
+  {
+    "id": "farmer-factory-61",
+    "name": "MuskMelon",
+    "category": "Fruits",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Fruits/MuskMelon.jfif"
+  },
+  {
+    "id": "farmer-factory-62",
+    "name": "orange",
+    "category": "Fruits",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Fruits/orange.jfif"
+  },
+  {
+    "id": "farmer-factory-63",
+    "name": "papaya",
+    "category": "Fruits",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Fruits/papaya.jfif"
+  },
+  {
+    "id": "farmer-factory-64",
+    "name": "pineapple",
+    "category": "Fruits",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Fruits/pineapple.jfif"
+  },
+  {
+    "id": "farmer-factory-65",
+    "name": "Pomegranate",
+    "category": "Fruits",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Fruits/Pomegranate.jfif"
+  },
+  {
+    "id": "farmer-factory-66",
+    "name": "redbanana",
+    "category": "Fruits",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Fruits/redbanana.jfif"
+  },
+  {
+    "id": "farmer-factory-67",
+    "name": "Sapota",
+    "category": "Fruits",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Fruits/Sapota.jfif"
+  },
+  {
+    "id": "farmer-factory-68",
+    "name": "SenthooraMango",
+    "category": "Fruits",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Fruits/SenthooraMango.webp"
+  },
+  {
+    "id": "farmer-factory-69",
+    "name": "Strawberry",
+    "category": "Fruits",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Fruits/Strawberry.jfif"
+  },
+  {
+    "id": "farmer-factory-70",
+    "name": "SweetLime",
+    "category": "Fruits",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Fruits/SweetLime.jfif"
+  },
+  {
+    "id": "farmer-factory-71",
+    "name": "WatermelonKiran",
+    "category": "Fruits",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Fruits/WatermelonKiran.jfif"
+  },
+  {
+    "id": "farmer-factory-72",
+    "name": "WatermelonStrips",
+    "category": "Fruits",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Fruits/WatermelonStrips.jfif"
+  },
+  {
+    "id": "farmer-factory-73",
+    "name": "BarnyardMillet",
+    "category": "Valluvam",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Valluvam/BarnyardMillet.jpg"
+  },
+  {
+    "id": "farmer-factory-74",
+    "name": "bayleaves",
+    "category": "Valluvam",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Valluvam/bayleaves.jpg"
+  },
+  {
+    "id": "farmer-factory-75",
+    "name": "BrowntopMillet",
+    "category": "Valluvam",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Valluvam/BrowntopMillet.jpg"
+  },
+  {
+    "id": "farmer-factory-76",
+    "name": "buffalo(250)",
+    "category": "Valluvam",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Valluvam/buffalo_250_.jpg"
+  },
+  {
+    "id": "farmer-factory-77",
+    "name": "Cardamom",
+    "category": "Valluvam",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Valluvam/Cardamom.jpg"
+  },
+  {
+    "id": "farmer-factory-78",
+    "name": "CashewNutsWhole",
+    "category": "Valluvam",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Valluvam/CashewNutsWhole.jpg"
+  },
+  {
+    "id": "farmer-factory-79",
+    "name": "CashewSplit",
+    "category": "Valluvam",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Valluvam/CashewSplit.jpg"
+  },
+  {
+    "id": "farmer-factory-80",
+    "name": "chiaseeds",
+    "category": "Valluvam",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Valluvam/chiaseeds.jpg"
+  },
+  {
+    "id": "farmer-factory-81",
+    "name": "Cinnamon",
+    "category": "Valluvam",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Valluvam/Cinnamon.jpg"
+  },
+  {
+    "id": "farmer-factory-82",
+    "name": "clove",
+    "category": "Valluvam",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Valluvam/clove.jpg"
+  },
+  {
+    "id": "farmer-factory-83",
+    "name": "coconut-1L",
+    "category": "Valluvam",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Valluvam/coconut-1L.jpg"
+  },
+  {
+    "id": "farmer-factory-84",
+    "name": "coconutoil250",
+    "category": "Valluvam",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Valluvam/coconutoil250.jpg"
+  },
+  {
+    "id": "farmer-factory-85",
+    "name": "CucumberSeeds",
+    "category": "Valluvam",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Valluvam/CucumberSeeds.jpg"
+  },
+  {
+    "id": "farmer-factory-86",
+    "name": "date",
+    "category": "Valluvam",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Valluvam/date.jpg"
+  },
+  {
+    "id": "farmer-factory-87",
+    "name": "DryGrapesBlack",
+    "category": "Valluvam",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Valluvam/DryGrapesBlack.jpg"
+  },
+  {
+    "id": "farmer-factory-88",
+    "name": "drygrapesgreen",
+    "category": "Valluvam",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Valluvam/drygrapesgreen.jpg"
+  },
+  {
+    "id": "farmer-factory-89",
+    "name": "drykiwi",
+    "category": "Valluvam",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Valluvam/drykiwi.jpg"
+  },
+  {
+    "id": "farmer-factory-90",
+    "name": "FennelSeeds",
+    "category": "Valluvam",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Valluvam/FennelSeeds.jpg"
+  },
+  {
+    "id": "farmer-factory-91",
+    "name": "fig",
+    "category": "Valluvam",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Valluvam/fig.jpg"
+  },
+  {
+    "id": "farmer-factory-92",
+    "name": "flaxseeds",
+    "category": "Valluvam",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Valluvam/flaxseeds.jpg"
+  },
+  {
+    "id": "farmer-factory-93",
+    "name": "foxtail-thinai",
+    "category": "Valluvam",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Valluvam/foxtail-thinai.jpg"
+  },
+  {
+    "id": "farmer-factory-94",
+    "name": "FoxtailMillet",
+    "category": "Valluvam",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Valluvam/FoxtailMillet.jpg"
+  },
+  {
+    "id": "farmer-factory-95",
+    "name": "Ghee250",
+    "category": "Valluvam",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Valluvam/Ghee250.jpg"
+  },
+  {
+    "id": "farmer-factory-96",
+    "name": "ground-1L",
+    "category": "Valluvam",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Valluvam/ground-1L.jpg"
+  },
+  {
+    "id": "farmer-factory-97",
+    "name": "groundnutoil250",
+    "category": "Valluvam",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Valluvam/groundnutoil250.jpg"
+  },
+  {
+    "id": "farmer-factory-98",
+    "name": "honey",
+    "category": "Valluvam",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Valluvam/honey.jpeg"
+  },
+  {
+    "id": "farmer-factory-99",
+    "name": "honeyamla",
+    "category": "Valluvam",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Valluvam/honeyamla.jpg"
+  },
+  {
+    "id": "farmer-factory-100",
+    "name": "jeera",
+    "category": "Valluvam",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Valluvam/jeera.jpg"
+  },
+  {
+    "id": "farmer-factory-101",
+    "name": "kodo-varagu",
+    "category": "Valluvam",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Valluvam/kodo-varagu.jpg"
+  },
+  {
+    "id": "farmer-factory-102",
+    "name": "LittleMillet",
+    "category": "Valluvam",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Valluvam/LittleMillet.jpg"
+  },
+  {
+    "id": "farmer-factory-103",
+    "name": "Methi",
+    "category": "Valluvam",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Valluvam/Methi.jpg"
+  },
+  {
+    "id": "farmer-factory-104",
+    "name": "MustardSeeds",
+    "category": "Valluvam",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Valluvam/MustardSeeds.jpg"
+  },
+  {
+    "id": "farmer-factory-105",
+    "name": "PadamPisin",
+    "category": "Valluvam",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Valluvam/PadamPisin.jpg"
+  },
+  {
+    "id": "farmer-factory-106",
+    "name": "palm-jaggery(500)",
+    "category": "Valluvam",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Valluvam/palm-jaggery_500_.jpeg"
+  },
+  {
+    "id": "farmer-factory-107",
+    "name": "PearlMillet",
+    "category": "Valluvam",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Valluvam/PearlMillet.jpg"
+  },
+  {
+    "id": "farmer-factory-108",
+    "name": "PepperBlack",
+    "category": "Valluvam",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Valluvam/PepperBlack.jpg"
+  },
+  {
+    "id": "farmer-factory-109",
+    "name": "pista",
+    "category": "Valluvam",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Valluvam/pista.jpg"
+  },
+  {
+    "id": "farmer-factory-110",
+    "name": "PumpkinSeeds",
+    "category": "Valluvam",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Valluvam/PumpkinSeeds.jpg"
+  },
+  {
+    "id": "farmer-factory-111",
+    "name": "sesame-1L",
+    "category": "Valluvam",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Valluvam/sesame-1L.jpg"
+  },
+  {
+    "id": "farmer-factory-112",
+    "name": "sesame500",
+    "category": "Valluvam",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Valluvam/sesame500.jpg"
+  },
+  {
+    "id": "farmer-factory-113",
+    "name": "Sorghum-Cholam(WHITE)",
+    "category": "Valluvam",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Valluvam/Sorghum-Cholam_WHITE_.jpg"
+  },
+  {
+    "id": "farmer-factory-114",
+    "name": "staranise",
+    "category": "Valluvam",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Valluvam/staranise.jpg"
+  },
+  {
+    "id": "farmer-factory-115",
+    "name": "sunflowerseeds",
+    "category": "Valluvam",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Valluvam/sunflowerseeds.jpg"
+  },
+  {
+    "id": "farmer-factory-116",
+    "name": "walnut",
+    "category": "Valluvam",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Valluvam/walnut.jpg"
+  },
+  {
+    "id": "farmer-factory-117",
+    "name": "AshGourd",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/AshGourd.jfif"
+  },
+  {
+    "id": "farmer-factory-118",
+    "name": "Avarakkai",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/Avarakkai.jfif"
+  },
+  {
+    "id": "farmer-factory-119",
+    "name": "BabyCorn",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/BabyCorn.jfif"
+  },
+  {
+    "id": "farmer-factory-120",
+    "name": "BabyPotato",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/BabyPotato.jfif"
+  },
+  {
+    "id": "farmer-factory-121",
+    "name": "BajiChilli",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/BajiChilli.jfif"
+  },
+  {
+    "id": "farmer-factory-122",
+    "name": "BananaFlower",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/BananaFlower.jfif"
+  },
+  {
+    "id": "farmer-factory-123",
+    "name": "BananaStem",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/BananaStem.jfif"
+  },
+  {
+    "id": "farmer-factory-124",
+    "name": "Beans",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/Beans.jfif"
+  },
+  {
+    "id": "farmer-factory-125",
+    "name": "beetroot",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/beetroot.jfif"
+  },
+  {
+    "id": "farmer-factory-126",
+    "name": "bitter-gourd",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/bitter-gourd.jpg"
+  },
+  {
+    "id": "farmer-factory-127",
+    "name": "BottleGourd",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/BottleGourd.jfif"
+  },
+  {
+    "id": "farmer-factory-128",
+    "name": "Brinjal",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/Brinjal.jfif"
+  },
+  {
+    "id": "farmer-factory-129",
+    "name": "BrinjalEggplant",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/BrinjalEggplant.jfif"
+  },
+  {
+    "id": "farmer-factory-130",
+    "name": "BrinjalVari",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/BrinjalVari.jfif"
+  },
+  {
+    "id": "farmer-factory-131",
+    "name": "Broccoli",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/Broccoli.jfif"
+  },
+  {
+    "id": "farmer-factory-132",
+    "name": "ButtonMushrooms",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/ButtonMushrooms.jfif"
+  },
+  {
+    "id": "farmer-factory-133",
+    "name": "Cabbage",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/Cabbage.jfif"
+  },
+  {
+    "id": "farmer-factory-134",
+    "name": "CapsicumGreen",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/CapsicumGreen.jfif"
+  },
+  {
+    "id": "farmer-factory-135",
+    "name": "CapsicumRed",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/CapsicumRed.jfif"
+  },
+  {
+    "id": "farmer-factory-136",
+    "name": "CapsicumYellow",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/CapsicumYellow.jfif"
+  },
+  {
+    "id": "farmer-factory-137",
+    "name": "Cauliflower",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/Cauliflower.jfif"
+  },
+  {
+    "id": "farmer-factory-138",
+    "name": "ChowChow",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/ChowChow.jfif"
+  },
+  {
+    "id": "farmer-factory-139",
+    "name": "ClusterBeans",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/ClusterBeans.jfif"
+  },
+  {
+    "id": "farmer-factory-140",
+    "name": "Coconut",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/Coconut.jfif"
+  },
+  {
+    "id": "farmer-factory-141",
+    "name": "CorianderLeaves",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/CorianderLeaves.jfif"
+  },
+  {
+    "id": "farmer-factory-142",
+    "name": "Cucumber",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/Cucumber.jfif"
+  },
+  {
+    "id": "farmer-factory-143",
+    "name": "CurryLeaves",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/CurryLeaves.jfif"
+  },
+  {
+    "id": "farmer-factory-144",
+    "name": "drumstick",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/drumstick.jpg"
+  },
+  {
+    "id": "farmer-factory-145",
+    "name": "Garlic",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/Garlic.jfif"
+  },
+  {
+    "id": "farmer-factory-146",
+    "name": "Ginger",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/Ginger.jfif"
+  },
+  {
+    "id": "farmer-factory-147",
+    "name": "Greenchili",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/Greenchili.jfif"
+  },
+  {
+    "id": "farmer-factory-148",
+    "name": "GreenPeas",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/GreenPeas.jfif"
+  },
+  {
+    "id": "farmer-factory-149",
+    "name": "Karunaikizhangu",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/Karunaikizhangu.jfif"
+  },
+  {
+    "id": "farmer-factory-150",
+    "name": "Kovaikkai",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/Kovaikkai.jfif"
+  },
+  {
+    "id": "farmer-factory-151",
+    "name": "LadiesFinger",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/LadiesFinger.jfif"
+  },
+  {
+    "id": "farmer-factory-152",
+    "name": "lemon",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/lemon.jfif"
+  },
+  {
+    "id": "farmer-factory-153",
+    "name": "MaravalliKilangu",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/MaravalliKilangu.jfif"
+  },
+  {
+    "id": "farmer-factory-154",
+    "name": "MintLeaves",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/MintLeaves.jfif"
+  },
+  {
+    "id": "farmer-factory-155",
+    "name": "MixedSprouts",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/MixedSprouts.jfif"
+  },
+  {
+    "id": "farmer-factory-156",
+    "name": "MoongGreenSprouts",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/MoongGreenSprouts.jfif"
+  },
+  {
+    "id": "farmer-factory-157",
+    "name": "nookal",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/nookal.webp"
+  },
+  {
+    "id": "farmer-factory-158",
+    "name": "onionbig",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/onionbig.jfif"
+  },
+  {
+    "id": "farmer-factory-159",
+    "name": "OnionNasik",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/OnionNasik.jfif"
+  },
+  {
+    "id": "farmer-factory-160",
+    "name": "Onionred",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/Onionred.jfif"
+  },
+  {
+    "id": "farmer-factory-161",
+    "name": "ooty-carrot",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/ooty-carrot.jpg"
+  },
+  {
+    "id": "farmer-factory-162",
+    "name": "potato",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/potato.jfif"
+  },
+  {
+    "id": "farmer-factory-163",
+    "name": "PumpkinYellow",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/PumpkinYellow.jfif"
+  },
+  {
+    "id": "farmer-factory-164",
+    "name": "PurpleCabbage",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/PurpleCabbage.jfif"
+  },
+  {
+    "id": "farmer-factory-165",
+    "name": "Radish",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/Radish.jfif"
+  },
+  {
+    "id": "farmer-factory-166",
+    "name": "RawBanana",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/RawBanana.jfif"
+  },
+  {
+    "id": "farmer-factory-167",
+    "name": "RawMango",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/RawMango.jfif"
+  },
+  {
+    "id": "farmer-factory-168",
+    "name": "Ridgegourd",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/Ridgegourd.jfif"
+  },
+  {
+    "id": "farmer-factory-169",
+    "name": "Seppankizhangu",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/Seppankizhangu.jfif"
+  },
+  {
+    "id": "farmer-factory-170",
+    "name": "SnakeGourd",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/SnakeGourd.jfif"
+  },
+  {
+    "id": "farmer-factory-171",
+    "name": "SpringOnion",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/SpringOnion.jfif"
+  },
+  {
+    "id": "farmer-factory-172",
+    "name": "sweetcorn",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/sweetcorn.jfif"
+  },
+  {
+    "id": "farmer-factory-173",
+    "name": "sweetpotato",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/sweetpotato.jfif"
+  },
+  {
+    "id": "farmer-factory-174",
+    "name": "TomatoBangalore",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/TomatoBangalore.jfif"
+  },
+  {
+    "id": "farmer-factory-175",
+    "name": "TomatoCountry",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/TomatoCountry.jfif"
+  },
+  {
+    "id": "farmer-factory-176",
+    "name": "ZucchiniGreen",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/ZucchiniGreen.jfif"
+  },
+  {
+    "id": "farmer-factory-177",
+    "name": "ZucchiniYellow",
+    "category": "Vegetables",
+    "origin": "Farmer Factory",
+    "image_url": "/products/Farmer Factory/Vegetables/ZucchiniYellow.jfif"
+  },
+  {
+    "id": "nursery-178",
+    "name": "aglaonema",
+    "category": "indoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/indoor/aglaonema.webp"
+  },
+  {
+    "id": "nursery-179",
+    "name": "AglaonemaHybridLipstickwithWhitePot",
+    "category": "indoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/indoor/AglaonemaHybridLipstickwithWhitePot.webp"
+  },
+  {
+    "id": "nursery-180",
+    "name": "Aloe",
+    "category": "indoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/indoor/Aloe.webp"
+  },
+  {
+    "id": "nursery-181",
+    "name": "Anthurium",
+    "category": "indoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/indoor/Anthurium.jpg"
+  },
+  {
+    "id": "nursery-182",
+    "name": "Areca_Palm",
+    "category": "indoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/indoor/Areca_Palm.webp"
+  },
+  {
+    "id": "nursery-183",
+    "name": "bamboo-palm",
+    "category": "indoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/indoor/bamboo-palm.webp"
+  },
+  {
+    "id": "nursery-184",
+    "name": "Bunny",
+    "category": "indoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/indoor/Bunny.jpg"
+  },
+  {
+    "id": "nursery-185",
+    "name": "Calathea",
+    "category": "indoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/indoor/Calathea.webp"
+  },
+  {
+    "id": "nursery-186",
+    "name": "Chinese_Evergreen",
+    "category": "indoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/indoor/Chinese_Evergreen.jpg"
+  },
+  {
+    "id": "nursery-187",
+    "name": "Echeveria",
+    "category": "indoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/indoor/Echeveria.jpg"
+  },
+  {
+    "id": "nursery-188",
+    "name": "Fairy",
+    "category": "indoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/indoor/Fairy.jpg"
+  },
+  {
+    "id": "nursery-189",
+    "name": "Ferns",
+    "category": "indoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/indoor/Ferns.webp"
+  },
+  {
+    "id": "nursery-190",
+    "name": "Fiddle Leaf Fig",
+    "category": "indoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/indoor/Fiddle_Leaf_Fig.webp"
+  },
+  {
+    "id": "nursery-191",
+    "name": "Fiddle",
+    "category": "indoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/indoor/Fiddle.webp"
+  },
+  {
+    "id": "nursery-192",
+    "name": "golden",
+    "category": "indoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/indoor/golden.webp"
+  },
+  {
+    "id": "nursery-193",
+    "name": "Jade",
+    "category": "indoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/indoor/Jade.jpg"
+  },
+  {
+    "id": "nursery-194",
+    "name": "Kalanchoe",
+    "category": "indoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/indoor/Kalanchoe.webp"
+  },
+  {
+    "id": "nursery-195",
+    "name": "Money_Plant",
+    "category": "indoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/indoor/Money_Plant.jpg"
+  },
+  {
+    "id": "nursery-196",
+    "name": "monstera",
+    "category": "indoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/indoor/monstera.png"
+  },
+  {
+    "id": "nursery-197",
+    "name": "Moon",
+    "category": "indoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/indoor/Moon.webp"
+  },
+  {
+    "id": "nursery-198",
+    "name": "Peace_Lily",
+    "category": "indoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/indoor/Peace_Lily.webp"
+  },
+  {
+    "id": "nursery-199",
+    "name": "Philodendron",
+    "category": "indoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/indoor/Philodendron.webp"
+  },
+  {
+    "id": "nursery-200",
+    "name": "Snake_Plant",
+    "category": "indoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/indoor/Snake_Plant.webp"
+  },
+  {
+    "id": "nursery-201",
+    "name": "Spider_Plant",
+    "category": "indoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/indoor/Spider_Plant.jpg"
+  },
+  {
+    "id": "nursery-202",
+    "name": "String",
+    "category": "indoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/indoor/String.webp"
+  },
+  {
+    "id": "nursery-203",
+    "name": "ZZplant",
+    "category": "indoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/indoor/ZZplant.jpg"
+  },
+  {
+    "id": "nursery-204",
+    "name": "Adenium",
+    "category": "outdoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/outdoor/Adenium.jpg"
+  },
+  {
+    "id": "nursery-205",
+    "name": "AONAL",
+    "category": "outdoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/outdoor/AONAL.jpg"
+  },
+  {
+    "id": "nursery-206",
+    "name": "ARJUN",
+    "category": "outdoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/outdoor/ARJUN.jpg"
+  },
+  {
+    "id": "nursery-207",
+    "name": "BANYAN",
+    "category": "outdoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/outdoor/BANYAN.jfif"
+  },
+  {
+    "id": "nursery-208",
+    "name": "Begonia",
+    "category": "outdoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/outdoor/Begonia.jfif"
+  },
+  {
+    "id": "nursery-209",
+    "name": "BOTTLE-PALM",
+    "category": "outdoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/outdoor/BOTTLE-PALM.webp"
+  },
+  {
+    "id": "nursery-210",
+    "name": "Bottlebrush",
+    "category": "outdoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/outdoor/Bottlebrush.jpg"
+  },
+  {
+    "id": "nursery-211",
+    "name": "BOUGAINVILLA",
+    "category": "outdoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/outdoor/BOUGAINVILLA.webp"
+  },
+  {
+    "id": "nursery-212",
+    "name": "Bougainvillea",
+    "category": "outdoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/outdoor/Bougainvillea.webp"
+  },
+  {
+    "id": "nursery-213",
+    "name": "BOXWOOD",
+    "category": "outdoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/outdoor/BOXWOOD.webp"
+  },
+  {
+    "id": "nursery-214",
+    "name": "Chrysanthemum",
+    "category": "outdoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/outdoor/Chrysanthemum.jpg"
+  },
+  {
+    "id": "nursery-215",
+    "name": "CLUSTER_FIG",
+    "category": "outdoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/outdoor/CLUSTER_FIG.jpg"
+  },
+  {
+    "id": "nursery-216",
+    "name": "DATE_PALM",
+    "category": "outdoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/outdoor/DATE_PALM.jpg"
+  },
+  {
+    "id": "nursery-217",
+    "name": "DURANTA_GOLDEN",
+    "category": "outdoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/outdoor/DURANTA_GOLDEN.webp"
+  },
+  {
+    "id": "nursery-218",
+    "name": "DURANTA_GREEN",
+    "category": "outdoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/outdoor/DURANTA_GREEN.jpg"
+  },
+  {
+    "id": "nursery-219",
+    "name": "ELEPHANT",
+    "category": "outdoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/outdoor/ELEPHANT.webp"
+  },
+  {
+    "id": "nursery-220",
+    "name": "EUCALYPTUS",
+    "category": "outdoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/outdoor/EUCALYPTUS.jfif"
+  },
+  {
+    "id": "nursery-221",
+    "name": "foxtail_palm",
+    "category": "outdoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/outdoor/foxtail_palm.webp"
+  },
+  {
+    "id": "nursery-222",
+    "name": "Geranium",
+    "category": "outdoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/outdoor/Geranium.jpg"
+  },
+  {
+    "id": "nursery-223",
+    "name": "Hibiscus",
+    "category": "outdoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/outdoor/Hibiscus.webp"
+  },
+  {
+    "id": "nursery-224",
+    "name": "ixora",
+    "category": "outdoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/outdoor/ixora.jfif"
+  },
+  {
+    "id": "nursery-225",
+    "name": "JAMUN",
+    "category": "outdoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/outdoor/JAMUN.jpg"
+  },
+  {
+    "id": "nursery-226",
+    "name": "JUNIPER",
+    "category": "outdoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/outdoor/JUNIPER.webp"
+  },
+  {
+    "id": "nursery-227",
+    "name": "LANTANA",
+    "category": "outdoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/outdoor/LANTANA.webp"
+  },
+  {
+    "id": "nursery-228",
+    "name": "LEMON",
+    "category": "outdoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/outdoor/LEMON.webp"
+  },
+  {
+    "id": "nursery-229",
+    "name": "LILYTURF",
+    "category": "outdoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/outdoor/LILYTURF.webp"
+  },
+  {
+    "id": "nursery-230",
+    "name": "LUNGWORT",
+    "category": "outdoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/outdoor/LUNGWORT.webp"
+  },
+  {
+    "id": "nursery-231",
+    "name": "Magnolia",
+    "category": "outdoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/outdoor/Magnolia.webp"
+  },
+  {
+    "id": "nursery-232",
+    "name": "MOHOGANY",
+    "category": "outdoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/outdoor/MOHOGANY.jfif"
+  },
+  {
+    "id": "nursery-233",
+    "name": "NEEM",
+    "category": "outdoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/outdoor/NEEM.jfif"
+  },
+  {
+    "id": "nursery-234",
+    "name": "Nerium",
+    "category": "outdoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/outdoor/Nerium.jpg"
+  },
+  {
+    "id": "nursery-235",
+    "name": "NEW_ZEALAND",
+    "category": "outdoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/outdoor/NEW_ZEALAND.webp"
+  },
+  {
+    "id": "nursery-236",
+    "name": "OLEANDER",
+    "category": "outdoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/outdoor/OLEANDER.webp"
+  },
+  {
+    "id": "nursery-237",
+    "name": "Paneer",
+    "category": "outdoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/outdoor/Paneer.webp"
+  },
+  {
+    "id": "nursery-238",
+    "name": "Plumeria",
+    "category": "outdoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/outdoor/Plumeria.webp"
+  },
+  {
+    "id": "nursery-239",
+    "name": "Portulaca",
+    "category": "outdoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/outdoor/Portulaca.webp"
+  },
+  {
+    "id": "nursery-240",
+    "name": "RAIN TREE",
+    "category": "outdoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/outdoor/RAIN_TREE.jfif"
+  },
+  {
+    "id": "nursery-241",
+    "name": "Rangoon",
+    "category": "outdoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/outdoor/Rangoon.jpg"
+  },
+  {
+    "id": "nursery-242",
+    "name": "RED_PALM",
+    "category": "outdoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/outdoor/RED_PALM.webp"
+  },
+  {
+    "id": "nursery-243",
+    "name": "ROYAL_PALM",
+    "category": "outdoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/outdoor/ROYAL_PALM.jpg"
+  },
+  {
+    "id": "nursery-244",
+    "name": "SANDALWOOD_RED",
+    "category": "outdoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/outdoor/SANDALWOOD_RED.webp"
+  },
+  {
+    "id": "nursery-245",
+    "name": "SANDALWOOD_WHITE",
+    "category": "outdoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/outdoor/SANDALWOOD_WHITE.webp"
+  },
+  {
+    "id": "nursery-246",
+    "name": "SONG_OF_INDIA",
+    "category": "outdoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/outdoor/SONG_OF_INDIA.jfif"
+  },
+  {
+    "id": "nursery-247",
+    "name": "Tabernaemontana",
+    "category": "outdoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/outdoor/Tabernaemontana.jpg"
+  },
+  {
+    "id": "nursery-248",
+    "name": "TAMARIND",
+    "category": "outdoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/outdoor/TAMARIND.jfif"
+  },
+  {
+    "id": "nursery-249",
+    "name": "TEAK",
+    "category": "outdoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/outdoor/TEAK.jfif"
+  },
+  {
+    "id": "nursery-250",
+    "name": "Tecoma",
+    "category": "outdoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/outdoor/Tecoma.webp"
+  },
+  {
+    "id": "nursery-251",
+    "name": "Thunbergia",
+    "category": "outdoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/outdoor/Thunbergia.jpg"
+  },
+  {
+    "id": "nursery-252",
+    "name": "traveller_palm",
+    "category": "outdoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/outdoor/traveller_palm.webp"
+  },
+  {
+    "id": "nursery-253",
+    "name": "Vernonia",
+    "category": "outdoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/outdoor/Vernonia.jpg"
+  },
+  {
+    "id": "nursery-254",
+    "name": "vinca",
+    "category": "outdoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/outdoor/vinca.jpg"
+  },
+  {
+    "id": "nursery-255",
+    "name": "Zamioculcas",
+    "category": "outdoor",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/outdoor/Zamioculcas.jpeg"
+  },
+  {
+    "id": "nursery-256",
+    "name": "9 DIY Vertical Gardens for Better Herbs",
+    "category": "product nursery",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/product nursery/9_DIY_Vertical_Gardens_for_Better_Herbs.jpg"
+  },
+  {
+    "id": "nursery-257",
+    "name": "96 Pcs 4 Inch Round Nursery Pots And 8 Pcs 12 Cell Plant Starter Trays Thick Stu",
+    "category": "product nursery",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/product nursery/96_Pcs_4_Inch_Round_Nursery_Pots_And_8_Pcs_12_Cell_Plant_Starter_Trays_Thick_Stu.jpg"
+  },
+  {
+    "id": "nursery-258",
+    "name": "cocopeat",
+    "category": "product nursery",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/product nursery/cocopeat.png"
+  },
+  {
+    "id": "nursery-259",
+    "name": "Creeper net",
+    "category": "product nursery",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/product nursery/Creeper_net.png"
+  },
+  {
+    "id": "nursery-260",
+    "name": "Durable Gardening Hand Tool for Gardening - Khurpi_Khurpa (3 Inch Blade)",
+    "category": "product nursery",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/product nursery/Durable_Gardening_Hand_Tool_for_Gardening_-_Khurpi_Khurpa__3_Inch_Blade_.jpg"
+  },
+  {
+    "id": "nursery-261",
+    "name": "Essential Garden Hand Tools",
+    "category": "product nursery",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/product nursery/Essential_Garden_Hand_Tools.jpg"
+  },
+  {
+    "id": "nursery-262",
+    "name": "Garden gloves",
+    "category": "product nursery",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/product nursery/Garden_gloves.png"
+  },
+  {
+    "id": "nursery-263",
+    "name": "Garden hoe",
+    "category": "product nursery",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/product nursery/Garden_hoe.png"
+  },
+  {
+    "id": "nursery-264",
+    "name": "gardening sscessories",
+    "category": "product nursery",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/product nursery/gardening_sscessories.jpg"
+  },
+  {
+    "id": "nursery-265",
+    "name": "GKanMore 2Pcs Plant Climbing Pole 12 Inch Coir Moss Totem Pole Coir Moss Stick for Plant Support Extension",
+    "category": "product nursery",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/product nursery/GKanMore_2Pcs_Plant_Climbing_Pole_12_Inch_Coir_Moss_Totem_Pole_Coir_Moss_Stick_for_Plant_Support_Extension.jpg"
+  },
+  {
+    "id": "nursery-266",
+    "name": "Hand cultivator",
+    "category": "product nursery",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/product nursery/Hand_cultivator.png"
+  },
+  {
+    "id": "nursery-267",
+    "name": "Hand trowel",
+    "category": "product nursery",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/product nursery/Hand_trowel.png"
+  },
+  {
+    "id": "nursery-268",
+    "name": "hand-weeder",
+    "category": "product nursery",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/product nursery/hand-weeder.png"
+  },
+  {
+    "id": "nursery-269",
+    "name": "Handegge verzinkt breit _ Manufactum",
+    "category": "product nursery",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/product nursery/Handegge_verzinkt_breit___Manufactum.jpg"
+  },
+  {
+    "id": "nursery-270",
+    "name": "Handmade to order",
+    "category": "product nursery",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/product nursery/Handmade_to_order.jpg"
+  },
+  {
+    "id": "nursery-271",
+    "name": "HDPE drainage cell",
+    "category": "product nursery",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/product nursery/HDPE_drainage_cell.jpg"
+  },
+  {
+    "id": "nursery-272",
+    "name": "Instahut 1_83x50m Heavy Duty Shade Cloth 30% UV Block Green",
+    "category": "product nursery",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/product nursery/Instahut_1_83x50m_Heavy_Duty_Shade_Cloth_30__UV_Block_Green.jpg"
+  },
+  {
+    "id": "nursery-273",
+    "name": "Khurpa(Khurpi)",
+    "category": "product nursery",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/product nursery/Khurpa_Khurpi_.png"
+  },
+  {
+    "id": "nursery-274",
+    "name": "moss-stick",
+    "category": "product nursery",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/product nursery/moss-stick.jpg"
+  },
+  {
+    "id": "nursery-275",
+    "name": "plant-cutter",
+    "category": "product nursery",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/product nursery/plant-cutter.jpg"
+  },
+  {
+    "id": "nursery-276",
+    "name": "Plastic Biltong Hooks (pack Of 100)",
+    "category": "product nursery",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/product nursery/Plastic_Biltong_Hooks__pack_Of_100_.jpg"
+  },
+  {
+    "id": "nursery-277",
+    "name": "Pots",
+    "category": "product nursery",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/product nursery/Pots.png"
+  },
+  {
+    "id": "nursery-278",
+    "name": "seedling-tray",
+    "category": "product nursery",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/product nursery/seedling-tray.jpg"
+  },
+  {
+    "id": "nursery-279",
+    "name": "shade-net",
+    "category": "product nursery",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/product nursery/shade-net.jpg"
+  },
+  {
+    "id": "nursery-280",
+    "name": "Sprayer head",
+    "category": "product nursery",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/product nursery/Sprayer_head.png"
+  },
+  {
+    "id": "nursery-281",
+    "name": "Sprayer",
+    "category": "product nursery",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/product nursery/Sprayer.png"
+  },
+  {
+    "id": "nursery-282",
+    "name": "Spraygun",
+    "category": "product nursery",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/product nursery/Spraygun.png"
+  },
+  {
+    "id": "nursery-283",
+    "name": "Square Mesh 10 1 mtr x 50 mtrs",
+    "category": "product nursery",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/product nursery/Square_Mesh_10_1_mtr_x_50_mtrs.jpg"
+  },
+  {
+    "id": "nursery-284",
+    "name": "Standard Cotto Terracotta Pot _ Burford Garden Co_",
+    "category": "product nursery",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/product nursery/Standard_Cotto_Terracotta_Pot___Burford_Garden_Co_.jpg"
+  },
+  {
+    "id": "nursery-285",
+    "name": "VIVOSUN Battery Powered Backpack Electric",
+    "category": "product nursery",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/product nursery/VIVOSUN_Battery_Powered_Backpack_Electric.jpg"
+  },
+  {
+    "id": "nursery-286",
+    "name": "amc-program",
+    "category": "services",
+    "origin": "Nursery",
+    "image_url": "/products/Nursery/services/amc-program.png"
+  },
+  {
+    "id": "palm-cafe-287",
+    "name": "Berry-Melon Refresher",
+    "category": "Drinks",
+    "origin": "Palm Cafe",
+    "image_url": "/products/Palm Cafe/Drinks/Berry-Melon_Refresher.png"
+  },
+  {
+    "id": "palm-cafe-288",
+    "name": "Citrus Carrot Booster",
+    "category": "Drinks",
+    "origin": "Palm Cafe",
+    "image_url": "/products/Palm Cafe/Drinks/Citrus_Carrot_Booster.png"
+  },
+  {
+    "id": "palm-cafe-289",
+    "name": "Citrus Pink Microgreen",
+    "category": "Drinks",
+    "origin": "Palm Cafe",
+    "image_url": "/products/Palm Cafe/Drinks/Citrus_Pink_Microgreen.png"
+  },
+  {
+    "id": "palm-cafe-290",
+    "name": "grapes lime",
+    "category": "Drinks",
+    "origin": "Palm Cafe",
+    "image_url": "/products/Palm Cafe/Drinks/grapes_lime.png"
+  },
+  {
+    "id": "palm-cafe-291",
+    "name": "joljira",
+    "category": "Drinks",
+    "origin": "Palm Cafe",
+    "image_url": "/products/Palm Cafe/Drinks/joljira.png"
+  },
+  {
+    "id": "palm-cafe-292",
+    "name": "Litchi Hydrant",
+    "category": "Drinks",
+    "origin": "Palm Cafe",
+    "image_url": "/products/Palm Cafe/Drinks/Litchi_Hydrant.png"
+  },
+  {
+    "id": "palm-cafe-293",
+    "name": "melon",
+    "category": "Drinks",
+    "origin": "Palm Cafe",
+    "image_url": "/products/Palm Cafe/Drinks/melon.png"
+  },
+  {
+    "id": "palm-cafe-294",
+    "name": "painapple lichi",
+    "category": "Drinks",
+    "origin": "Palm Cafe",
+    "image_url": "/products/Palm Cafe/Drinks/painapple_lichi.png"
+  },
+  {
+    "id": "palm-cafe-295",
+    "name": "pina colada",
+    "category": "Drinks",
+    "origin": "Palm Cafe",
+    "image_url": "/products/Palm Cafe/Drinks/pina_colada.png"
+  },
+  {
+    "id": "palm-cafe-296",
+    "name": "Pineapple Ginger Shot",
+    "category": "Drinks",
+    "origin": "Palm Cafe",
+    "image_url": "/products/Palm Cafe/Drinks/Pineapple_Ginger_Shot.png"
+  },
+  {
+    "id": "palm-cafe-297",
+    "name": "Purple Berry Microgreen",
+    "category": "Drinks",
+    "origin": "Palm Cafe",
+    "image_url": "/products/Palm Cafe/Drinks/Purple_Berry_Microgreen.png"
+  },
+  {
+    "id": "palm-cafe-298",
+    "name": "Tropical Detox Greens",
+    "category": "Drinks",
+    "origin": "Palm Cafe",
+    "image_url": "/products/Palm Cafe/Drinks/Tropical_Detox_Greens.png"
+  },
+  {
+    "id": "palm-cafe-299",
+    "name": "Acai Bowl",
+    "category": "Food & Snacks",
+    "origin": "Palm Cafe",
+    "image_url": "/products/Palm Cafe/Food & Snacks/Acai_Bowl.png"
+  },
+  {
+    "id": "palm-cafe-300",
+    "name": "Chia Pudding",
+    "category": "Food & Snacks",
+    "origin": "Palm Cafe",
+    "image_url": "/products/Palm Cafe/Food & Snacks/Chia_Pudding.png"
+  },
+  {
+    "id": "palm-cafe-301",
+    "name": "Multigrain Wrap",
+    "category": "Food & Snacks",
+    "origin": "Palm Cafe",
+    "image_url": "/products/Palm Cafe/Food & Snacks/Multigrain_Wrap.png"
+  },
+  {
+    "id": "palm-cafe-302",
+    "name": "Sprout Salad",
+    "category": "Food & Snacks",
+    "origin": "Palm Cafe",
+    "image_url": "/products/Palm Cafe/Food & Snacks/Sprout_Salad.png"
+  },
+  {
+    "id": "palm-cafe-303",
+    "name": "Creamy Fruits Custard Milk",
+    "category": "Healthy Bowls",
+    "origin": "Palm Cafe",
+    "image_url": "/products/Palm Cafe/Healthy Bowls/Creamy_Fruits_Custard_Milk.png"
+  },
+  {
+    "id": "palm-cafe-304",
+    "name": "Microgreen Berry Nuts Salad",
+    "category": "Healthy Bowls",
+    "origin": "Palm Cafe",
+    "image_url": "/products/Palm Cafe/Healthy Bowls/Microgreen_Berry_Nuts_Salad.png"
+  },
+  {
+    "id": "palm-cafe-305",
+    "name": "ABC Juice",
+    "category": "Juice",
+    "origin": "Palm Cafe",
+    "image_url": "/products/Palm Cafe/Juice/ABC_Juice.png"
+  },
+  {
+    "id": "palm-cafe-306",
+    "name": "Apple Juice",
+    "category": "Juice",
+    "origin": "Palm Cafe",
+    "image_url": "/products/Palm Cafe/Juice/Apple_Juice.png"
+  },
+  {
+    "id": "palm-cafe-307",
+    "name": "Blueberry Milkshake",
+    "category": "Juice",
+    "origin": "Palm Cafe",
+    "image_url": "/products/Palm Cafe/Juice/Blueberry_Milkshake.png"
+  },
+  {
+    "id": "palm-cafe-308",
+    "name": "Carrot Juice",
+    "category": "Juice",
+    "origin": "Palm Cafe",
+    "image_url": "/products/Palm Cafe/Juice/Carrot_Juice.png"
+  },
+  {
+    "id": "palm-cafe-309",
+    "name": "Chickoo Juice",
+    "category": "Juice",
+    "origin": "Palm Cafe",
+    "image_url": "/products/Palm Cafe/Juice/Chickoo_Juice.png"
+  },
+  {
+    "id": "palm-cafe-310",
+    "name": "Cucumber Lime Juice",
+    "category": "Juice",
+    "origin": "Palm Cafe",
+    "image_url": "/products/Palm Cafe/Juice/Cucumber_Lime_Juice.png"
+  },
+  {
+    "id": "palm-cafe-311",
+    "name": "Dragon Fruit Juice",
+    "category": "Juice",
+    "origin": "Palm Cafe",
+    "image_url": "/products/Palm Cafe/Juice/Dragon_Fruit_Juice.png"
+  },
+  {
+    "id": "palm-cafe-312",
+    "name": "Fig Juice",
+    "category": "Juice",
+    "origin": "Palm Cafe",
+    "image_url": "/products/Palm Cafe/Juice/Fig_Juice.png"
+  },
+  {
+    "id": "palm-cafe-313",
+    "name": "Grape Juice",
+    "category": "Juice",
+    "origin": "Palm Cafe",
+    "image_url": "/products/Palm Cafe/Juice/Grape_Juice.png"
+  },
+  {
+    "id": "palm-cafe-314",
+    "name": "Kiwi Juice",
+    "category": "Juice",
+    "origin": "Palm Cafe",
+    "image_url": "/products/Palm Cafe/Juice/Kiwi_Juice.png"
+  },
+  {
+    "id": "palm-cafe-315",
+    "name": "Lemon Mint",
+    "category": "Juice",
+    "origin": "Palm Cafe",
+    "image_url": "/products/Palm Cafe/Juice/Lemon_Mint.png"
+  },
+  {
+    "id": "palm-cafe-316",
+    "name": "Lemon Salt & Sweet",
+    "category": "Juice",
+    "origin": "Palm Cafe",
+    "image_url": "/products/Palm Cafe/Juice/Lemon_Salt___Sweet.png"
+  },
+  {
+    "id": "palm-cafe-317",
+    "name": "Mosambi Juice",
+    "category": "Juice",
+    "origin": "Palm Cafe",
+    "image_url": "/products/Palm Cafe/Juice/Mosambi_Juice.png"
+  },
+  {
+    "id": "palm-cafe-318",
+    "name": "Muskmelon",
+    "category": "Juice",
+    "origin": "Palm Cafe",
+    "image_url": "/products/Palm Cafe/Juice/Muskmelon.png"
+  },
+  {
+    "id": "palm-cafe-319",
+    "name": "Orange Juice",
+    "category": "Juice",
+    "origin": "Palm Cafe",
+    "image_url": "/products/Palm Cafe/Juice/Orange_Juice.png"
+  },
+  {
+    "id": "palm-cafe-320",
+    "name": "Papaya Juice",
+    "category": "Juice",
+    "origin": "Palm Cafe",
+    "image_url": "/products/Palm Cafe/Juice/Papaya_Juice.png"
+  },
+  {
+    "id": "palm-cafe-321",
+    "name": "Pineapple Juice",
+    "category": "Juice",
+    "origin": "Palm Cafe",
+    "image_url": "/products/Palm Cafe/Juice/Pineapple_Juice.png"
+  },
+  {
+    "id": "palm-cafe-322",
+    "name": "Pomegranate Juice",
+    "category": "Juice",
+    "origin": "Palm Cafe",
+    "image_url": "/products/Palm Cafe/Juice/Pomegranate_Juice.png"
+  },
+  {
+    "id": "palm-cafe-323",
+    "name": "Red Banana Juice",
+    "category": "Juice",
+    "origin": "Palm Cafe",
+    "image_url": "/products/Palm Cafe/Juice/Red_Banana_Juice.png"
+  },
+  {
+    "id": "palm-cafe-324",
+    "name": "Strawberry Milkshake",
+    "category": "Juice",
+    "origin": "Palm Cafe",
+    "image_url": "/products/Palm Cafe/Juice/Strawberry_Milkshake.png"
+  },
+  {
+    "id": "palm-cafe-325",
+    "name": "Watermelon Juice",
+    "category": "Juice",
+    "origin": "Palm Cafe",
+    "image_url": "/products/Palm Cafe/Juice/Watermelon_Juice.png"
+  },
+  {
+    "id": "palm-cafe-326",
+    "name": "ABC Immunity Boost",
+    "category": "palm cafe image",
+    "origin": "Palm Cafe",
+    "image_url": "/products/Palm Cafe/palm cafe image/ABC_Immunity_Boost.png"
+  },
+  {
+    "id": "palm-cafe-327",
+    "name": "Avocado Breezy Delight",
+    "category": "palm cafe image",
+    "origin": "Palm Cafe",
+    "image_url": "/products/Palm Cafe/palm cafe image/Avocado_Breezy_Delight.png"
+  },
+  {
+    "id": "palm-cafe-328",
+    "name": "Beet Berry Energizer",
+    "category": "palm cafe image",
+    "origin": "Palm Cafe",
+    "image_url": "/products/Palm Cafe/palm cafe image/Beet_Berry_Energizer.png"
+  },
+  {
+    "id": "palm-cafe-329",
+    "name": "Carrot Glow",
+    "category": "palm cafe image",
+    "origin": "Palm Cafe",
+    "image_url": "/products/Palm Cafe/palm cafe image/Carrot_Glow.png"
+  },
+  {
+    "id": "palm-cafe-330",
+    "name": "Chickoo Blast",
+    "category": "palm cafe image",
+    "origin": "Palm Cafe",
+    "image_url": "/products/Palm Cafe/palm cafe image/Chickoo_Blast.png"
+  },
+  {
+    "id": "palm-cafe-331",
+    "name": "Cocoberry Dream",
+    "category": "palm cafe image",
+    "origin": "Palm Cafe",
+    "image_url": "/products/Palm Cafe/palm cafe image/Cocoberry_Dream.png"
+  },
+  {
+    "id": "palm-cafe-332",
+    "name": "Dragon Eneregy Blend",
+    "category": "palm cafe image",
+    "origin": "Palm Cafe",
+    "image_url": "/products/Palm Cafe/palm cafe image/Dragon_Eneregy_Blend.png"
+  },
+  {
+    "id": "palm-cafe-333",
+    "name": "Fig Indulgence",
+    "category": "palm cafe image",
+    "origin": "Palm Cafe",
+    "image_url": "/products/Palm Cafe/palm cafe image/Fig_Indulgence.png"
+  },
+  {
+    "id": "palm-cafe-334",
+    "name": "Guva Mint Refresher",
+    "category": "palm cafe image",
+    "origin": "Palm Cafe",
+    "image_url": "/products/Palm Cafe/palm cafe image/Guva_Mint_Refresher.png"
+  },
+  {
+    "id": "palm-cafe-335",
+    "name": "Nuts & Seeds Pulse",
+    "category": "palm cafe image",
+    "origin": "Palm Cafe",
+    "image_url": "/products/Palm Cafe/palm cafe image/Nuts___Seeds_Pulse.png"
+  },
+  {
+    "id": "palm-cafe-336",
+    "name": "Papaya Paradise",
+    "category": "palm cafe image",
+    "origin": "Palm Cafe",
+    "image_url": "/products/Palm Cafe/palm cafe image/Papaya_Paradise.png"
+  },
+  {
+    "id": "palm-cafe-337",
+    "name": "Tender Coco fusion",
+    "category": "palm cafe image",
+    "origin": "Palm Cafe",
+    "image_url": "/products/Palm Cafe/palm cafe image/Tender_Coco_fusion.png"
+  },
+  {
+    "id": "protein-cuts-338",
+    "name": "b2b-supply",
+    "category": "Meat & Seafood",
+    "origin": "Protein Cuts",
+    "image_url": "/products/Protein Cuts/Meat & Seafood/b2b-supply.png"
+  },
+  {
+    "id": "protein-cuts-339",
+    "name": "blog-b2b-supply",
+    "category": "Meat & Seafood",
+    "origin": "Protein Cuts",
+    "image_url": "/products/Protein Cuts/Meat & Seafood/blog-b2b-supply.png"
+  },
+  {
+    "id": "protein-cuts-340",
+    "name": "blog-cold-chain",
+    "category": "Meat & Seafood",
+    "origin": "Protein Cuts",
+    "image_url": "/products/Protein Cuts/Meat & Seafood/blog-cold-chain.png"
+  },
+  {
+    "id": "protein-cuts-341",
+    "name": "blog-fresh-poultry",
+    "category": "Meat & Seafood",
+    "origin": "Protein Cuts",
+    "image_url": "/products/Protein Cuts/Meat & Seafood/blog-fresh-poultry.png"
+  },
+  {
+    "id": "protein-cuts-342",
+    "name": "facility",
+    "category": "narrative",
+    "origin": "Protein Cuts",
+    "image_url": "/products/Protein Cuts/narrative/facility.png"
+  },
+  {
+    "id": "protein-cuts-343",
+    "name": "farm",
+    "category": "narrative",
+    "origin": "Protein Cuts",
+    "image_url": "/products/Protein Cuts/narrative/farm.png"
+  },
+  {
+    "id": "protein-cuts-344",
+    "name": "packaging",
+    "category": "narrative",
+    "origin": "Protein Cuts",
+    "image_url": "/products/Protein Cuts/narrative/packaging.png"
+  },
+  {
+    "id": "protein-cuts-345",
+    "name": "chicken-breast",
+    "category": "Meat & Seafood",
+    "origin": "Protein Cuts",
+    "image_url": "/products/Protein Cuts/Meat & Seafood/chicken-breast.png"
+  },
+  {
+    "id": "protein-cuts-346",
+    "name": "chicken-whole",
+    "category": "Meat & Seafood",
+    "origin": "Protein Cuts",
+    "image_url": "/products/Protein Cuts/Meat & Seafood/chicken-whole.png"
+  },
+  {
+    "id": "protein-cuts-347",
+    "name": "eggs",
+    "category": "Meat & Seafood",
+    "origin": "Protein Cuts",
+    "image_url": "/products/Protein Cuts/Meat & Seafood/eggs.png"
+  },
+  {
+    "id": "protein-cuts-348",
+    "name": "mud-crab",
+    "category": "Meat & Seafood",
+    "origin": "Protein Cuts",
+    "image_url": "/products/Protein Cuts/Meat & Seafood/mud-crab.png"
+  },
+  {
+    "id": "protein-cuts-349",
+    "name": "mutton-curry",
+    "category": "Meat & Seafood",
+    "origin": "Protein Cuts",
+    "image_url": "/products/Protein Cuts/Meat & Seafood/mutton-curry.png"
+  },
+  {
+    "id": "protein-cuts-350",
+    "name": "mutton-keema",
+    "category": "Meat & Seafood",
+    "origin": "Protein Cuts",
+    "image_url": "/products/Protein Cuts/Meat & Seafood/mutton-keema.png"
+  },
+  {
+    "id": "protein-cuts-351",
+    "name": "naattu-kozhi",
+    "category": "Meat & Seafood",
+    "origin": "Protein Cuts",
+    "image_url": "/products/Protein Cuts/Meat & Seafood/naattu-kozhi.png"
+  },
+  {
+    "id": "protein-cuts-352",
+    "name": "quail",
+    "category": "Meat & Seafood",
+    "origin": "Protein Cuts",
+    "image_url": "/products/Protein Cuts/Meat & Seafood/quail.png"
+  },
+  {
+    "id": "protein-cuts-353",
+    "name": "salmon",
+    "category": "Meat & Seafood",
+    "origin": "Protein Cuts",
+    "image_url": "/products/Protein Cuts/Meat & Seafood/salmon.png"
+  },
+  {
+    "id": "protein-cuts-354",
+    "name": "seer-fish",
+    "category": "Meat & Seafood",
+    "origin": "Protein Cuts",
+    "image_url": "/products/Protein Cuts/Meat & Seafood/seer-fish.png"
+  },
+  {
+    "id": "protein-cuts-355",
+    "name": "tiger-prawns",
+    "category": "Meat & Seafood",
+    "origin": "Protein Cuts",
+    "image_url": "/products/Protein Cuts/Meat & Seafood/tiger-prawns.png"
+  },
+  {
+    "id": "protein-cuts-356",
+    "name": "traceability-scan",
+    "category": "Meat & Seafood",
+    "origin": "Protein Cuts",
+    "image_url": "/products/Protein Cuts/Meat & Seafood/traceability-scan.png"
+  }
+]

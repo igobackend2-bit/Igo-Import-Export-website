@@ -1,0 +1,144 @@
+"use client";
+
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { useAuth } from "@/context/AuthContext";
+
+export default function Navbar() {
+  const pathname = usePathname();
+  const router = useRouter();
+  const [currentLang, setCurrentLang] = useState("en");
+  const { role, logout } = useAuth();
+
+  const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const lang = e.target.value;
+    setCurrentLang(lang);
+    
+    // Find the hidden Google Translate dropdown and trigger a change
+    const gtSelect = document.querySelector(".goog-te-combo") as HTMLSelectElement;
+    if (gtSelect) {
+      gtSelect.value = lang;
+      gtSelect.dispatchEvent(new Event("change"));
+    }
+  };
+
+  return (
+    <header className="w-full bg-brand-green-950 text-white sticky top-0 z-50 shadow-lg">
+      {/* Topbar */}
+      <div className="bg-brand-ink text-xs py-2 px-4 border-b border-white/10 hidden md:flex justify-between items-center text-white/80">
+        <div className="flex gap-4">
+          <span><i className="fa-solid fa-envelope mr-2"></i>bankingbackend.indiagreen@gmail.com</span>
+          <span><i className="fa-solid fa-phone mr-2"></i>+91 73977 89803</span>
+          <span><i className="fa-brands fa-whatsapp text-green-400 mr-2"></i>WhatsApp: +91 73977 89803</span>
+        </div>
+        <div className="flex gap-4 items-center">
+          <span className="flex items-center gap-1 border-r border-white/20 pr-4">
+            <i className="fa-solid fa-language"></i>
+            <select 
+              className="bg-transparent text-white outline-none cursor-pointer"
+              value={currentLang}
+              onChange={handleLanguageChange}
+            >
+              <option className="text-black" value="en">English</option>
+              <option className="text-black" value="ta">Tamil</option>
+              <option className="text-black" value="hi">Hindi</option>
+              <option className="text-black" value="ar">Arabic</option>
+              <option className="text-black" value="es">Spanish</option>
+            </select>
+          </span>
+          {!role ? (
+            <>
+              <Link href="/login?role=buyer" className="hover:text-brand-amber transition">Buyer Login</Link>
+              <Link href="/login?role=seller" className="hover:text-brand-amber transition">Seller Login</Link>
+            </>
+          ) : (
+            <>
+              <Link href={`/dashboard/${role}`} className="hover:text-brand-amber transition font-bold">
+                <i className={`fa-solid ${role === "seller" ? "fa-store" : "fa-user"} mr-2`}></i>
+                {role === "seller" ? "Seller Dashboard" : "Buyer Dashboard"}
+              </Link>
+              <button 
+                onClick={() => { logout(); router.push("/"); }} 
+                className="hover:text-red-400 transition ml-4"
+              >
+                Logout
+              </button>
+            </>
+          )}
+        </div>
+      </div>
+
+      {/* Main Navbar */}
+      <div className="container mx-auto px-4 py-3">
+        <div className="flex justify-between items-center mb-3">
+          <Link href="/" className="flex items-center gap-3">
+            <div className="bg-brand-amber text-brand-ink font-bold text-2xl px-2 py-1 rounded">IGO</div>
+            <div className="flex flex-col">
+              <strong className="text-lg leading-tight">IGO Import & Export</strong>
+              <span className="text-xs text-brand-amber">Managed Trade Desk</span>
+            </div>
+          </Link>
+
+          {/* Search Bar */}
+          <div className="hidden lg:flex flex-1 max-w-md mx-8 relative">
+            <input 
+              type="text" 
+              placeholder="Search verified export commodities..." 
+              className="w-full bg-white/10 border border-white/20 rounded-full py-2 px-5 pl-10 text-sm text-white placeholder-white/50 focus:outline-none focus:border-brand-amber focus:bg-white/20 transition"
+            />
+            <i className="fa-solid fa-magnifying-glass absolute left-4 top-1/2 transform -translate-y-1/2 text-white/50"></i>
+            <button className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-brand-amber text-brand-ink text-xs font-bold px-3 py-1 rounded-full hover:bg-amber-400 transition">Search</button>
+          </div>
+
+          <div className="flex gap-3">
+            {role === "seller" ? (
+              <Link href="/dashboard/seller#products" className="px-4 py-2 bg-brand-amber text-brand-ink rounded font-bold hover:bg-amber-400 transition text-sm">
+                <i className="fa-solid fa-plus mr-2"></i>Add New Product
+              </Link>
+            ) : (
+              <Link href="#rfq" className="px-4 py-2 bg-brand-amber text-brand-ink rounded font-bold hover:bg-amber-400 transition text-sm">
+                <i className="fa-solid fa-file-signature mr-2"></i>Post RFQ (Request for Quote)
+              </Link>
+            )}
+          </div>
+        </div>
+
+        {/* Secondary Navigation (Links) */}
+        <nav className="hidden lg:flex gap-6 items-center text-sm font-medium border-t border-white/10 pt-3 overflow-x-auto whitespace-nowrap pb-1 scrollbar-hide">
+          {role === "buyer" ? (
+            <>
+              <Link href="/" className={`transition ${pathname === "/" ? "text-brand-amber" : "hover:text-brand-amber"}`}>Home</Link>
+              <Link href="/hub/agriculture" className={`transition ${pathname.startsWith("/hub/agriculture") ? "text-brand-amber" : "hover:text-brand-amber"}`}>Browse Catalog</Link>
+              <Link href="/dashboard/buyer#rfqs" className={`transition ${pathname === "/dashboard/buyer" ? "text-brand-amber" : "hover:text-brand-amber"}`}>My RFQs</Link>
+              <Link href="/dashboard/buyer#orders" className={`transition ${pathname === "/dashboard/buyer" ? "text-brand-amber" : "hover:text-brand-amber"}`}>Order Tracking</Link>
+              <Link href="/certificates" className={`transition ${pathname === "/certificates" ? "text-brand-amber" : "hover:text-brand-amber"}`}>Trade Certificates</Link>
+            </>
+          ) : role === "seller" ? (
+            <>
+              <Link href="/" className={`transition ${pathname === "/" ? "text-brand-amber" : "hover:text-brand-amber"}`}>Home</Link>
+              <Link href="/dashboard/seller#listings" className={`transition ${pathname === "/dashboard/seller" ? "text-brand-amber" : "hover:text-brand-amber"}`}>My Listings</Link>
+              <Link href="/dashboard/seller#rfqs" className={`transition ${pathname === "/dashboard/seller" ? "text-brand-amber" : "hover:text-brand-amber"}`}>Incoming RFQs</Link>
+              <Link href="/dashboard/seller#fulfillment" className={`transition ${pathname === "/dashboard/seller" ? "text-brand-amber" : "hover:text-brand-amber"}`}>Fulfillment</Link>
+              <Link href="/dashboard/seller#payouts" className={`transition ${pathname === "/dashboard/seller" ? "text-brand-amber" : "hover:text-brand-amber"}`}>Payouts</Link>
+            </>
+          ) : (
+            <>
+              <Link href="/" className={`transition ${pathname === "/" ? "text-brand-amber" : "hover:text-brand-amber"}`}>Home</Link>
+              <Link href="/about" className={`transition ${pathname === "/about" ? "text-brand-amber" : "hover:text-brand-amber"}`}>About Us</Link>
+              <Link href="/services" className={`transition ${pathname === "/services" ? "text-brand-amber" : "hover:text-brand-amber"}`}>Services</Link>
+              <Link href="/hub/agriculture" className={`transition ${pathname.startsWith("/hub/agriculture") ? "text-brand-amber" : "hover:text-brand-amber"}`}>Products</Link>
+              <Link href="/clients" className={`transition ${pathname === "/clients" ? "text-brand-amber" : "hover:text-brand-amber"}`}>Clients</Link>
+              <Link href="/certificates" className={`transition ${pathname === "/certificates" ? "text-brand-amber" : "hover:text-brand-amber"}`}>Certificates</Link>
+              <Link href="/brands" className={`transition ${pathname === "/brands" ? "text-brand-amber" : "hover:text-brand-amber"}`}>Our Brands</Link>
+              <Link href="/offers" className={`transition ${pathname === "/offers" ? "text-brand-amber" : "hover:text-brand-amber"}`}>Offers</Link>
+              <Link href="/events" className={`transition ${pathname === "/events" ? "text-brand-amber" : "hover:text-brand-amber"}`}>Trade & Events</Link>
+              <Link href="/gallery" className={`transition ${pathname === "/gallery" ? "text-brand-amber" : "hover:text-brand-amber"}`}>Gallery</Link>
+              <Link href="/contact" className={`transition ${pathname === "/contact" ? "text-brand-amber" : "hover:text-brand-amber"}`}>Contact Us</Link>
+            </>
+          )}
+        </nav>
+      </div>
+    </header>
+  );
+}
