@@ -3,7 +3,7 @@
 import { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
 import type { SellerProduct } from "@/types/product";
-import { getApprovedProducts } from "@/lib/productStorage";
+import { getApprovedProducts } from "@/lib/productService";
 
 export default function SellerProducts() {
   const [products, setProducts] = useState<SellerProduct[]>([]);
@@ -16,7 +16,16 @@ export default function SellerProducts() {
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
-    setProducts(getApprovedProducts());
+    const fetchProducts = async () => {
+      const prod = await getApprovedProducts();
+      const formatted = prod.map(p => ({
+        ...p,
+        submittedAt: typeof p.submittedAt === "object" && p.submittedAt !== null && "toDate" in p.submittedAt ? p.submittedAt.toDate().toISOString() : String(p.submittedAt || new Date().toISOString()),
+        updatedAt: typeof p.updatedAt === "object" && p.updatedAt !== null && "toDate" in p.updatedAt ? p.updatedAt.toDate().toISOString() : String(p.updatedAt || new Date().toISOString()),
+      })) as SellerProduct[];
+      setProducts(formatted);
+    };
+    fetchProducts();
   }, []);
 
   const sortedProducts = useMemo(() => {

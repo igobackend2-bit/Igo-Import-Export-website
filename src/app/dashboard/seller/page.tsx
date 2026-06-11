@@ -9,10 +9,9 @@ import {
   getProductsBySellerEmail,
   isSellerActive,
   getAdminSettings,
-  saveAllProducts,
-  syncApprovedProducts,
-  getAllProducts
-} from "@/lib/productStorage";
+  addProduct,
+  updateProduct,
+} from "@/lib/productService";
 
 type Tab = "overview" | "products" | "add";
 
@@ -42,11 +41,21 @@ export default function SellerDashboard() {
   const [toast, setToast] = useState<string | null>(null);
   const [mounted, setMounted] = useState(false);
 
-  const loadData = useCallback(() => {
+  const loadData = useCallback(async () => {
     if (!email) return;
-    setIsActive(isSellerActive(email));
-    setAdminSettings(getAdminSettings());
-    setProducts(getProductsBySellerEmail(email).sort((a, b) => new Date(b.submittedAt).getTime() - new Date(a.submittedAt).getTime()));
+    const active = await isSellerActive(email);
+    setIsActive(active);
+    const sets = await getAdminSettings();
+    setAdminSettings(sets);
+    
+    const prod = await getProductsBySellerEmail(email);
+    const formatted = prod.map(p => ({
+      ...p,
+      submittedAt: typeof p.submittedAt === "object" && p.submittedAt !== null && "toDate" in p.submittedAt ? p.submittedAt.toDate().toISOString() : String(p.submittedAt || new Date().toISOString()),
+      updatedAt: typeof p.updatedAt === "object" && p.updatedAt !== null && "toDate" in p.updatedAt ? p.updatedAt.toDate().toISOString() : String(p.updatedAt || new Date().toISOString()),
+    })) as SellerProduct[];
+    
+    setProducts(formatted.sort((a, b) => new Date(b.submittedAt).getTime() - new Date(a.submittedAt).getTime()));
   }, [email]);
 
   useEffect(() => {
@@ -113,22 +122,21 @@ export default function SellerDashboard() {
     setActiveTab("add");
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
-    if (!isSellerActive(email)) {
+    const active = await isSellerActive(email);
+    if (!active) {
       showToastMsg("Error: Account deactivated");
       return;
     }
 
-    const all = getAllProducts();
     const now = new Date().toISOString();
 
     if (editingId) {
       // Edit mode
-      const productIndex = all.findIndex(p => p.id === editingId);
-      if (productIndex > -1) {
-        const oldP = all[productIndex];
+      const oldP = products.find(p => p.id === editingId);
+      if (oldP) {
         const editHistory = oldP.editHistory || [];
         const priceHistory = oldP.priceHistory || [];
         
@@ -139,8 +147,8 @@ export default function SellerDashboard() {
           if (oldP[key] !== formData[key]) {
             editHistory.push({
               field: key,
-              oldValue: oldP[key],
-              newValue: formData[key],
+              oldValue: String(oldP[key] || ""),
+              newValue: String(formData[key] || ""),
               changedAt: now
             });
             fieldsChanged = true;
@@ -157,17 +165,12 @@ export default function SellerDashboard() {
         }
 
         if (fieldsChanged || oldP.status === "rejected") {
-          const updatedP: SellerProduct = {
-            ...oldP,
+          await updateProduct(editingId, {
             ...formData,
             status: "pending",
-            updatedAt: now,
             editHistory,
             priceHistory
-          };
-          all[productIndex] = updatedP;
-          saveAllProducts(all);
-          syncApprovedProducts(all);
+          } as any);
           showToastMsg("Changes submitted for admin re-approval");
         } else {
           showToastMsg("No changes detected");
@@ -176,22 +179,17 @@ export default function SellerDashboard() {
     } else {
       // Add mode
       const isAuto = adminSettings.autoApprove;
-      const newProduct: SellerProduct = {
-        id: Date.now().toString(),
-        sellerEmail: email,
-        submittedAt: now,
-        status: isAuto ? "approved" : "pending",
+      await addProduct({
         ...formData,
-      };
-      all.push(newProduct);
-      saveAllProducts(all);
-      if (isAuto) syncApprovedProducts(all);
+        sellerEmail: email,
+        status: isAuto ? "approved" : "pending",
+      } as any);
       showToastMsg(isAuto ? "Product automatically approved!" : "Product submitted for admin approval!");
     }
 
     setFormData(defaultFormData);
     setEditingId(null);
-    loadData();
+    await loadData();
     setActiveTab("products");
   };
 

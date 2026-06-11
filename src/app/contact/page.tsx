@@ -1,6 +1,44 @@
-import React from 'react';
+"use client";
+
+import React, { useState } from 'react';
+import { submitInquiry } from '@/lib/inquiryService';
 
 export default function ContactPage() {
+  const [formData, setFormData] = useState({
+    name: '',
+    company: '',
+    email: '',
+    product: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setError('');
+
+    try {
+      await submitInquiry({
+        type: 'contact',
+        name: formData.name,
+        email: formData.email,
+        company: formData.company,
+        product: formData.product,
+        message: formData.message,
+      });
+      setSuccess(true);
+      setFormData({ name: '', company: '', email: '', product: '', message: '' });
+      setTimeout(() => setSuccess(false), 5000);
+    } catch (err) {
+      console.error(err);
+      setError('Failed to send message. Please try again or use email/phone directly.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   return (
     <main className="min-h-screen bg-brand-paper py-20">
       <div className="container mx-auto px-4 max-w-6xl">
@@ -46,31 +84,41 @@ export default function ContactPage() {
           {/* Contact Form */}
           <div className="bg-white p-8 rounded-2xl shadow-xl border border-brand-line">
             <h3 className="text-2xl font-bold text-brand-ink mb-6">Send an Inquiry</h3>
-            <form className="space-y-4">
+            <form className="space-y-4" onSubmit={handleSubmit}>
+              {success && (
+                <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg text-sm mb-4">
+                  <i className="fa-solid fa-circle-check mr-2"></i> Message sent! We will contact you soon.
+                </div>
+              )}
+              {error && (
+                <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm mb-4">
+                  <i className="fa-solid fa-circle-exclamation mr-2"></i> {error}
+                </div>
+              )}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-bold text-brand-ink mb-1">Full Name *</label>
-                  <input type="text" className="w-full bg-brand-paper border border-brand-line rounded p-3 focus:outline-none focus:border-brand-amber transition" placeholder="John Doe" />
+                  <input type="text" required value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} className="w-full bg-brand-paper border border-brand-line rounded p-3 focus:outline-none focus:border-brand-amber transition" placeholder="John Doe" />
                 </div>
                 <div>
-                  <label className="block text-sm font-bold text-brand-ink mb-1">Company Name *</label>
-                  <input type="text" className="w-full bg-brand-paper border border-brand-line rounded p-3 focus:outline-none focus:border-brand-amber transition" placeholder="Global Imports Ltd" />
+                  <label className="block text-sm font-bold text-brand-ink mb-1">Company Name</label>
+                  <input type="text" value={formData.company} onChange={e => setFormData({...formData, company: e.target.value})} className="w-full bg-brand-paper border border-brand-line rounded p-3 focus:outline-none focus:border-brand-amber transition" placeholder="Global Imports Ltd" />
                 </div>
               </div>
               <div>
                 <label className="block text-sm font-bold text-brand-ink mb-1">Email Address *</label>
-                <input type="email" className="w-full bg-brand-paper border border-brand-line rounded p-3 focus:outline-none focus:border-brand-amber transition" placeholder="john@example.com" />
+                <input type="email" required value={formData.email} onChange={e => setFormData({...formData, email: e.target.value})} className="w-full bg-brand-paper border border-brand-line rounded p-3 focus:outline-none focus:border-brand-amber transition" placeholder="john@example.com" />
               </div>
               <div>
-                <label className="block text-sm font-bold text-brand-ink mb-1">Product of Interest *</label>
-                <input type="text" className="w-full bg-brand-paper border border-brand-line rounded p-3 focus:outline-none focus:border-brand-amber transition" placeholder="e.g. Sona Masoori Rice" />
+                <label className="block text-sm font-bold text-brand-ink mb-1">Product of Interest</label>
+                <input type="text" value={formData.product} onChange={e => setFormData({...formData, product: e.target.value})} className="w-full bg-brand-paper border border-brand-line rounded p-3 focus:outline-none focus:border-brand-amber transition" placeholder="e.g. Sona Masoori Rice" />
               </div>
               <div>
                 <label className="block text-sm font-bold text-brand-ink mb-1">Message *</label>
-                <textarea rows={4} className="w-full bg-brand-paper border border-brand-line rounded p-3 focus:outline-none focus:border-brand-amber transition" placeholder="Please specify quantity, destination port, etc."></textarea>
+                <textarea rows={4} required value={formData.message} onChange={e => setFormData({...formData, message: e.target.value})} className="w-full bg-brand-paper border border-brand-line rounded p-3 focus:outline-none focus:border-brand-amber transition" placeholder="Please specify quantity, destination port, etc."></textarea>
               </div>
-              <button type="button" className="w-full py-3 bg-brand-green-950 text-white font-bold rounded hover:bg-brand-green-850 transition mt-4">
-                Submit Inquiry
+              <button type="submit" disabled={isSubmitting} className="w-full py-3 bg-brand-green-950 text-white font-bold rounded hover:bg-brand-green-850 transition mt-4 disabled:opacity-70">
+                {isSubmitting ? 'Sending...' : 'Submit Inquiry'}
               </button>
             </form>
           </div>

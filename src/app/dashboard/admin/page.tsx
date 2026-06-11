@@ -15,10 +15,8 @@ import {
   isSellerActive,
   getAdminSettings,
   saveAdminSettings,
-  saveAllProducts,
-  syncApprovedProducts
-} from "@/lib/productStorage";
-import { STORAGE_KEYS } from "@/types/product";
+  updateProduct,
+} from "@/lib/productService";
 
 type Tab = "overview" | "pending" | "approved" | "rejected" | "all" | "sellers" | "activity" | "settings";
 type SortBy = "date" | "status" | "category";
@@ -55,11 +53,28 @@ export default function AdminDashboard() {
   const [resetConfirm, setResetConfirm] = useState("");
   const [showResetModal, setShowResetModal] = useState(false);
 
-  const loadData = useCallback(() => {
-    setAllProducts(getAllProducts());
-    setAdminLogs(getAdminLogs());
-    setSellerProfiles(getSellerProfiles());
-    setSettings(getAdminSettings());
+  const loadData = useCallback(async () => {
+    const products = await getAllProducts();
+    const logs = await getAdminLogs();
+    const profiles = await getSellerProfiles();
+    const sets = await getAdminSettings();
+    
+    // Convert timestamps for existing UI compatibility
+    const formattedProducts = products.map((p) => ({
+      ...p,
+      submittedAt: typeof p.submittedAt === "object" && p.submittedAt !== null && "toDate" in p.submittedAt ? p.submittedAt.toDate().toISOString() : String(p.submittedAt || new Date().toISOString()),
+      updatedAt: typeof p.updatedAt === "object" && p.updatedAt !== null && "toDate" in p.updatedAt ? p.updatedAt.toDate().toISOString() : String(p.updatedAt || new Date().toISOString()),
+    })) as SellerProduct[];
+    
+    const formattedLogs = logs.map(l => ({
+      ...l,
+      timestamp: typeof l.timestamp === "object" && l.timestamp !== null && "toDate" in l.timestamp ? l.timestamp.toDate().toISOString() : String(l.timestamp || new Date().toISOString()),
+    })) as AdminLog[];
+
+    setAllProducts(formattedProducts);
+    setAdminLogs(formattedLogs);
+    setSellerProfiles(profiles);
+    setSettings(sets);
   }, []);
 
   useEffect(() => {
@@ -89,9 +104,9 @@ export default function AdminDashboard() {
 
   const handleApprove = (id: string) => {
     setAnimatingOut(id);
-    setTimeout(() => {
-      approveProduct(id, adminEmail || "admin@igo.com", adminNote[id]);
-      loadData();
+    setTimeout(async () => {
+      await approveProduct(id, adminEmail || "admin@igo.com", adminNote[id]);
+      await loadData();
       setAnimatingOut(null);
       showToast("Product approved successfully!");
     }, 400);
@@ -100,9 +115,9 @@ export default function AdminDashboard() {
   const handleReject = (id: string) => {
     if (!rejectReason) return showToast("Reason is required");
     setAnimatingOut(id);
-    setTimeout(() => {
-      rejectProduct(id, adminEmail || "admin@igo.com", rejectReason, adminNote[id]);
-      loadData();
+    setTimeout(async () => {
+      await rejectProduct(id, adminEmail || "admin@igo.com", rejectReason, adminNote[id]);
+      await loadData();
       setRejectId(null);
       setRejectReason("");
       setAnimatingOut(null);
@@ -110,19 +125,15 @@ export default function AdminDashboard() {
     }, 400);
   };
   
-  const handleRevoke = (id: string) => {
-    revokeApproval(id, adminEmail || "admin@igo.com");
-    loadData();
+  const handleRevoke = async (id: string) => {
+    await revokeApproval(id, adminEmail || "admin@igo.com");
+    await loadData();
     showToast("Approval revoked.");
   };
 
-  const handleReconsider = (id: string) => {
-    // move back to pending
-    const all = getAllProducts();
-    const updated = all.map(p => p.id === id ? { ...p, status: "pending" as const, updatedAt: new Date().toISOString() } : p);
-    saveAllProducts(updated);
-    syncApprovedProducts(updated);
-    loadData();
+  const handleReconsider = async (id: string) => {
+    await updateProduct(id, { status: "pending" });
+    await loadData();
     showToast("Product moved back to pending.");
   };
 
@@ -134,51 +145,54 @@ export default function AdminDashboard() {
   };
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const handleBulkAction = (action: string) => {
-    Array.from(selectedIds).forEach(id => approveProduct(id, adminEmail || "admin@igo.com", adminNote[id]));
+  const handleBulkAction = async (action: string) => {
+    for (const id of Array.from(selectedIds)) {
+      await approveProduct(id, adminEmail || "admin@igo.com", adminNote[id]);
+    }
     setSelectedIds(new Set());
-    loadData();
+    await loadData();
     showToast(`Approved ${selectedIds.size} products.`);
   };
 
-  const handleBulkApprove = () => {
-    Array.from(selectedIds).forEach(id => approveProduct(id, adminEmail || "admin@igo.com", adminNote[id]));
+  const handleBulkApprove = async () => {
+    for (const id of Array.from(selectedIds)) {
+      await approveProduct(id, adminEmail || "admin@igo.com", adminNote[id]);
+    }
     setSelectedIds(new Set());
-    loadData();
+    await loadData();
     showToast(`Approved ${selectedIds.size} products.`);
   };
 
-  const handleBulkReject = () => {
+  const handleBulkReject = async () => {
     if (!bulkRejectReason) return showToast("Reason is required for bulk reject");
-    Array.from(selectedIds).forEach(id => rejectProduct(id, adminEmail || "admin@igo.com", bulkRejectReason, adminNote[id]));
+    for (const id of Array.from(selectedIds)) {
+      await rejectProduct(id, adminEmail || "admin@igo.com", bulkRejectReason, adminNote[id]);
+    }
     setSelectedIds(new Set());
     setBulkRejectReason("");
     setShowBulkReject(false);
-    loadData();
+    await loadData();
     showToast(`Rejected ${selectedIds.size} products.`);
   };
 
-  const handleToggleSeller = (email: string, active: boolean) => {
-    toggleSellerActive(email, active, adminEmail || "admin@igo.com");
-    loadData();
+  const handleToggleSeller = async (email: string, active: boolean) => {
+    await toggleSellerActive(email, active, adminEmail || "admin@igo.com");
+    await loadData();
     showToast(active ? "Seller activated" : "Seller deactivated");
   };
 
-  const handleSaveSettings = () => {
-    saveAdminSettings(settings);
-    loadData();
+  const handleSaveSettings = async () => {
+    await saveAdminSettings(settings);
+    await loadData();
     showToast("Settings saved");
   };
 
   const handleResetData = () => {
     if (resetConfirm === "RESET") {
-      localStorage.removeItem(STORAGE_KEYS.PENDING_PRODUCTS);
-      localStorage.removeItem(STORAGE_KEYS.APPROVED_PRODUCTS);
-      localStorage.removeItem(STORAGE_KEYS.ADMIN_LOGS);
-      loadData();
+      // Disabled for production Firebase setup
       setShowResetModal(false);
       setResetConfirm("");
-      showToast("Data reset successful");
+      showToast("Data reset disabled in production environment.");
     } else {
       showToast("Type RESET to confirm");
     }
@@ -218,7 +232,10 @@ export default function AdminDashboard() {
     s[p.status]++;
     if (new Date(p.submittedAt) < new Date(s.firstSubmission)) s.firstSubmission = p.submittedAt;
   });
-  const sellersList = Array.from(sellersMap.values()).map(s => ({ ...s, isActive: isSellerActive(s.email) }));
+  const sellersList = Array.from(sellersMap.values()).map(s => {
+    const profile = sellerProfiles[s.email];
+    return { ...s, isActive: profile ? profile.isActive : true };
+  });
   const activeSellersCount = sellersList.filter(s => s.isActive).length;
 
   const stats = {
