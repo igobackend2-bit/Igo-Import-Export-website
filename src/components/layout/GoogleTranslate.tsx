@@ -5,7 +5,7 @@ import Script from "next/script";
 
 declare global {
   interface Window {
-    google: any;
+    google: unknown;
     googleTranslateElementInit: () => void;
   }
 }
@@ -13,7 +13,7 @@ declare global {
 export default function GoogleTranslate() {
   useEffect(() => {
     window.googleTranslateElementInit = () => {
-      new window.google.translate.TranslateElement(
+      new (window as unknown as { google: { translate: { TranslateElement: new (options: object, id: string) => void } } }).google.translate.TranslateElement(
         {
           pageLanguage: "en",
           autoDisplay: false,

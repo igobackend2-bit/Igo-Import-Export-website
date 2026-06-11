@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, Suspense } from 'react';
-import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 
 type Product = {
@@ -23,6 +22,7 @@ function AgricultureHubContent({ allProducts }: { allProducts: Product[] }) {
   const [searchQuery, setSearchQuery] = useState(initialSearch);
 
   React.useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setSearchQuery(searchParams.get("search") || "");
   }, [searchParams]);
 

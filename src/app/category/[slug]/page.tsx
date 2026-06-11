@@ -183,7 +183,7 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
             
             <div className="bg-brand-green-950 rounded-xl p-6 text-white shadow-xl">
               <h3 className="font-serif text-xl font-bold mb-2 text-brand-amber">IGO Quality Assurance Protocol</h3>
-              <p className="text-sm text-white/80 mb-6">We don't just connect you to suppliers. We ensure what ships meets your exact specifications.</p>
+              <p className="text-sm text-white/80 mb-6">We don&apos;t just connect you to suppliers. We ensure what ships meets your exact specifications.</p>
               
               <ul className="space-y-4">
                 <li className="flex gap-3 items-start">

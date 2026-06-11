@@ -9,7 +9,8 @@ export default function Navbar() {
   const pathname = usePathname();
   const router = useRouter();
   const [currentLang, setCurrentLang] = useState("en");
-  const { role, logout } = useAuth();
+  const { role, email, isAuthenticated, logout } = useAuth();
+  const truncateEmail = (e: string | null) => e ? (e.length > 20 ? e.slice(0, 20) + "..." : e) : "";
 
   const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const lang = e.target.value;
@@ -51,40 +52,33 @@ export default function Navbar() {
               <option className="text-black" value="es">Spanish</option>
             </select>
           </span>
-          {!role ? (
+          {!isAuthenticated ? (
             <>
               <Link href="/login?role=buyer" className="hover:text-brand-amber transition">Buyer Login</Link>
               <Link href="/login?role=seller" className="hover:text-brand-amber transition">Seller Login</Link>
-            </>
-          ) : role === "admin" ? (
-            <>
-              <Link href="/dashboard/admin" className="hover:text-brand-amber transition font-bold">
-                <i className="fa-solid fa-shield-halved mr-2"></i>Admin Panel
-              </Link>
-              <button 
-                onClick={() => { logout(); router.push("/"); }} 
-                className="hover:text-red-400 transition ml-4"
-              >
-                Logout
-              </button>
-            </>
-          ) : role === "seller" ? (
-            <>
-              <Link href="/dashboard/seller" className="hover:text-brand-amber transition font-bold">
-                <i className="fa-solid fa-store mr-2"></i>My Dashboard
-              </Link>
-              <button 
-                onClick={() => { logout(); router.push("/"); }} 
-                className="hover:text-red-400 transition ml-4"
-              >
-                Logout
-              </button>
+              <Link href="/login?role=admin" className="hover:text-brand-amber transition text-amber-500">Admin Login</Link>
             </>
           ) : (
             <>
-              <Link href="/dashboard/buyer" className="hover:text-brand-amber transition font-bold">
-                <i className="fa-solid fa-user mr-2"></i>Buyer Dashboard
-              </Link>
+              <span className="text-brand-amber text-xs mr-2 border-r border-white/20 pr-4 flex items-center">
+                <i className="fa-solid fa-user-circle mr-1"></i>
+                {truncateEmail(email)}
+              </span>
+              {role === "admin" && (
+                <Link href="/dashboard/admin" className="hover:text-brand-amber transition font-bold">
+                  <i className="fa-solid fa-shield-halved mr-2"></i>Admin Panel
+                </Link>
+              )}
+              {role === "seller" && (
+                <Link href="/dashboard/seller" className="hover:text-brand-amber transition font-bold">
+                  <i className="fa-solid fa-store mr-2"></i>My Dashboard
+                </Link>
+              )}
+              {role === "buyer" && (
+                <Link href="/dashboard/buyer" className="hover:text-brand-amber transition font-bold">
+                  <i className="fa-solid fa-user mr-2"></i>Buyer Dashboard
+                </Link>
+              )}
               <button 
                 onClick={() => { logout(); router.push("/"); }} 
                 className="hover:text-red-400 transition ml-4"

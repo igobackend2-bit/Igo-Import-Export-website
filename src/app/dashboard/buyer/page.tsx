@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
 
@@ -63,3 +64,4 @@ export default function BuyerDashboard() {
     </div>
   );
 }
+

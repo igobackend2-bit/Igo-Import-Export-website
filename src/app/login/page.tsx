@@ -22,6 +22,7 @@ function LoginForm() {
   const { login } = useAuth();
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
   }, []);
 
@@ -132,13 +133,6 @@ function LoginForm() {
 
         {/* Form */}
         <form className="px-8 pb-8 space-y-4" onSubmit={handleLogin}>
-          {error && (
-            <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm flex items-center gap-2 animate-[fadeInUp_0.3s_ease-out]">
-              <i className="fa-solid fa-circle-exclamation"></i>
-              {error}
-            </div>
-          )}
-
           <div>
             <label
               className={`block text-sm font-medium mb-1.5 ${isAdmin ? "text-slate-300" : "text-brand-ink"}`}
@@ -205,20 +199,6 @@ function LoginForm() {
             </div>
           )}
 
-          {activeTab === "seller" && (
-            <div className="bg-brand-sage/50 border border-brand-green-500/20 rounded-lg px-4 py-2.5 text-xs text-brand-green-700 flex items-center gap-2">
-              <i className="fa-solid fa-circle-info"></i>
-              <span>Demo mode: use any email with password <strong>seller123</strong></span>
-            </div>
-          )}
-
-          {activeTab === "admin" && (
-            <div className="bg-slate-800/50 border border-slate-600 rounded-lg px-4 py-2.5 text-xs text-slate-400 flex items-center gap-2">
-              <i className="fa-solid fa-shield-halved"></i>
-              <span>Restricted access — authorized personnel only</span>
-            </div>
-          )}
-
           <button
             type="submit"
             disabled={isLoading}
@@ -242,6 +222,19 @@ function LoginForm() {
               </>
             )}
           </button>
+
+          {error && (
+            <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm flex items-center gap-2 animate-[fadeInUp_0.3s_ease-out]">
+              <i className="fa-solid fa-circle-exclamation"></i>
+              {error}
+            </div>
+          )}
+
+          <div className={`border rounded-lg px-4 py-3 text-xs flex flex-col gap-1 ${isAdmin ? "bg-slate-800/50 border-slate-600 text-slate-300" : "bg-gray-50 border-gray-200 text-brand-muted"}`}>
+            <div className="font-bold mb-1 flex items-center gap-1.5"><i className="fa-solid fa-circle-info"></i> Demo Credentials</div>
+            <div><strong>Admin:</strong> admin@igo.com / admin123</div>
+            <div><strong>Seller:</strong> any email / seller123</div>
+          </div>
         </form>
       </div>
 

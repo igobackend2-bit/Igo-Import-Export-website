@@ -32,6 +32,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     const savedRole = localStorage.getItem("igo_role") as Role;
     const savedEmail = localStorage.getItem("igo_email");
     if (savedRole === "buyer" || savedRole === "seller" || savedRole === "admin") {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setRole(savedRole);
       setEmail(savedEmail);
     }
