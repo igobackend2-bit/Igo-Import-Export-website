@@ -31,7 +31,7 @@ export default async function AgricultureHubPage() {
             <span className="mx-2">/</span>
             <span className="text-brand-amber">Agriculture Hub</span>
           </nav>
-          <h1 className="text-4xl md:text-6xl font-serif font-bold mb-4">IGO Agri-Commodities Hub</h1>
+          <h1 className="text-4xl md:text-6xl font-serif font-bold mb-4 text-white">IGO Agri-Commodities Hub</h1>
           <p className="text-lg text-white/80 max-w-2xl">
             The ultimate sovereign gateway to Indian agriculture. Explore our complete export catalog from Crop Care to Protein Cuts, meticulously sourced and inspected.
           </p>

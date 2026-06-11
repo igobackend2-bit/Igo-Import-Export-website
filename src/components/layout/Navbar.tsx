@@ -56,7 +56,6 @@ export default function Navbar() {
             <>
               <Link href="/login?role=buyer" className="hover:text-brand-amber transition">Buyer Login</Link>
               <Link href="/login?role=seller" className="hover:text-brand-amber transition">Seller Login</Link>
-              <Link href="/login?role=admin" className="hover:text-brand-amber transition text-amber-500">Admin Login</Link>
             </>
           ) : (
             <>
