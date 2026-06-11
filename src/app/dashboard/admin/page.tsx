@@ -510,7 +510,7 @@ export default function AdminDashboard() {
                         {rejectId === p.id ? (
                           <div className="flex gap-2 items-center">
                                   <input 
-                                  onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setEditForm(prev => prev ? {...prev, [e.target.name]: e.target.value} : null)} placeholder="Reason" className="border rounded px-2 py-1 text-sm" />
+                                  onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setRejectReason(e.target.value)} placeholder="Reason" className="border rounded px-2 py-1 text-sm" />
                             <button onClick={() => handleReject(p.id)} className="px-3 py-1.5 bg-red-600 text-white rounded text-sm font-bold">Reject</button>
                             <button onClick={() => setRejectId(null)} className="px-2 text-brand-muted text-sm">Cancel</button>
                           </div>
@@ -633,7 +633,7 @@ export default function AdminDashboard() {
             <h1 className="text-3xl font-bold font-serif text-brand-green-950 mb-6">Activity Log</h1>
             <div className="flex gap-2 mb-4">
               {["all", "approvals", "rejections", "seller"].map(f => (
-                <button key={f} onClick={() => setLogFilter(f as string)} className={`px-4 py-1.5 rounded-full text-sm font-bold capitalize ${logFilter === f ? "bg-slate-900 text-white" : "bg-gray-200 text-brand-muted hover:bg-gray-300"}`}>{f}</button>
+                <button key={f} onClick={() => setLogFilter(f as "all" | "approvals" | "rejections" | "seller")} className={`px-4 py-1.5 rounded-full text-sm font-bold capitalize ${logFilter === f ? "bg-slate-900 text-white" : "bg-gray-200 text-brand-muted hover:bg-gray-300"}`}>{f}</button>
               ))}
             </div>
             <div className="bg-white rounded-xl border border-brand-line shadow-sm divide-y divide-brand-line/50">
