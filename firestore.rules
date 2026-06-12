@@ -1,0 +1,26 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isOwner(uid) {
+      return isAuthenticated() && request.auth.uid == uid;
+    }
+
+    // Users Collection
+    // An authenticated user can read and write their own document
+    match /users/{uid} {
+      allow read, write: if isOwner(uid);
+    }
+
+    // Other collections can be read temporarily (or properly locked down depending on the app needs)
+    match /{document=**} {
+      allow read, write: if true; // TODO: Restrict this in production!
+    }
+  }
+}

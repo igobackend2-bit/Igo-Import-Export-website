@@ -94,7 +94,8 @@ export async function getUserRole(uid: string): Promise<UserRole> {
       return (userDoc.data()?.role as UserRole) || "buyer";
     }
     return "buyer";
-  } catch {
+  } catch (err) {
+    console.log("getUserRole catch block error:", err);
     return "buyer";
   }
 }

@@ -25,7 +25,7 @@ type FilterStatus = "all" | "pending" | "approved" | "rejected";
 
 export default function AdminDashboard() {
   const router = useRouter();
-  const { role, email: adminEmail, isAuthenticated, logout } = useAuth();
+  const { role, email: adminEmail, isAuthenticated, isLoading, logout } = useAuth();
   
   const [activeTab, setActiveTab] = useState<Tab>("overview");
   const [allProducts, setAllProducts] = useState<SellerProduct[]>([]);
@@ -93,19 +93,21 @@ export default function AdminDashboard() {
   }, []);
 
   useEffect(() => {
-    if (mounted && (!isAuthenticated || role !== "admin")) {
+    console.log("Admin Dashboard - Current Role:", role, "isLoading:", isLoading);
+    if (mounted && !isLoading && (!isAuthenticated || role !== "admin")) {
       router.push("/login?role=admin");
     }
-  }, [mounted, isAuthenticated, role, router]);
+  }, [mounted, isLoading, isAuthenticated, role, router]);
 
   useEffect(() => {
-    if (mounted && role === "admin") {
+    if (mounted && !isLoading && role === "admin") {
       // eslint-disable-next-line react-hooks/set-state-in-effect
       loadData();
     }
-  }, [mounted, role, loadData]);
+  }, [mounted, isLoading, role, loadData]);
 
-  if (!mounted || role !== "admin") return null;
+  if (!mounted || isLoading) return <div className="min-h-screen flex items-center justify-center text-brand-muted">Loading Admin Dashboard...</div>;
+  if (role !== "admin") return null;
 
   const showToast = (msg: string) => {
     setToast(msg);
