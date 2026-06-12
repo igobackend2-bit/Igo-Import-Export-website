@@ -89,12 +89,22 @@ export async function sendPasswordReset(email: string): Promise<void> {
  */
 export async function getUserRole(uid: string): Promise<UserRole> {
   try {
+    // 1. Check if the currently logged-in user is the hardcoded admin email
+    if (auth.currentUser?.email === "admin@igo.com" || auth.currentUser?.email === "admin@yourdomain.com") {
+      return "admin";
+    }
+
     const userDoc = await getDoc(doc(db, "users", uid));
     if (userDoc.exists()) {
       return (userDoc.data()?.role as UserRole) || "buyer";
     }
     return "buyer";
   } catch (err) {
+    console.error("getUserRole error (likely Firestore rules permission denied):", err);
+    // 2. Fallback check again in the catch block just in case
+    if (auth.currentUser?.email === "admin@igo.com" || auth.currentUser?.email === "admin@yourdomain.com") {
+      return "admin";
+    }
     return "buyer";
   }
 }
