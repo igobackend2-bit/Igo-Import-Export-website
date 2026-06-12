@@ -88,14 +88,19 @@ export async function sendPasswordReset(email: string): Promise<void> {
  * Falls back to "buyer" if no role document exists.
  */
 export async function getUserRole(uid: string): Promise<UserRole> {
+  console.log("[DEBUG] getUserRole called with uid:", uid);
   try {
     const userDoc = await getDoc(doc(db, "users", uid));
+    console.log("[DEBUG] doc exists:", userDoc.exists());
+    console.log("[DEBUG] doc data:", userDoc.data());
     if (userDoc.exists()) {
-      return (userDoc.data()?.role as UserRole) || "buyer";
+      const r = (userDoc.data()?.role as UserRole) || "buyer";
+      console.log("[DEBUG] resolved role:", r);
+      return r;
     }
     return "buyer";
-  } catch (err) {
-    console.log("getUserRole catch block error:", err);
+  } catch (e) {
+    console.error("[DEBUG] getUserRole error:", e);
     return "buyer";
   }
 }
