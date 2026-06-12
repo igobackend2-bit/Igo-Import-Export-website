@@ -8,23 +8,37 @@ import { getApprovedProducts } from '@/lib/productService';
 
 // This function runs on the server to read from Firebase
 async function getProducts() {
+  let products: any[] = [];
   try {
-    const products = await getApprovedProducts();
-    if (products && products.length > 0) {
-      return products;
-    }
-    
-    // Fallback: If DB is empty, load from local file for initial seed view
+    products = await getApprovedProducts();
+  } catch (error) {
+    console.error("Failed to load products from Firebase, falling back to local data:", error);
+  }
+
+  if (products && products.length > 0) {
+    // Map FirestoreProduct to the expected Product type if necessary
+    // Firestore uses 'imageUrl' instead of 'image_url', we should map it
+    return products.map(p => ({
+      id: p.id,
+      name: p.name,
+      category: p.category || '',
+      origin: p.originCountry || '',
+      image_url: p.imageUrl || ''
+    }));
+  }
+  
+  // Fallback: If DB is empty or failed, load from local file for initial seed view
+  try {
     const filePath = path.join(process.cwd(), 'public', 'data', 'products.json');
     if (fs.existsSync(filePath)) {
       const fileContents = fs.readFileSync(filePath, 'utf8');
       return JSON.parse(fileContents);
     }
-    return [];
-  } catch (error) {
-    console.error("Failed to load products:", error);
-    return [];
+  } catch (err) {
+    console.error("Failed to read local products.json:", err);
   }
+  
+  return [];
 }
 
 export default async function AgricultureHubPage() {

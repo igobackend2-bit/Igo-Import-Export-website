@@ -18,7 +18,42 @@ export interface UserProfile {
   email: string;
   role: UserRole;
   displayName?: string;
+  companyName?: string;
   createdAt: string;
+}
+
+/**
+ * Register a new user with email and password.
+ */
+export async function registerUser(
+  email: string,
+  password: string,
+  role: UserRole,
+  profileData: Omit<UserProfile, "uid" | "email" | "role" | "createdAt">
+): Promise<{ user: User; role: UserRole }> {
+  const { createUserWithEmailAndPassword, sendEmailVerification } = await import("firebase/auth");
+  const credential = await createUserWithEmailAndPassword(auth, email, password);
+  
+  // Set the user profile with the requested role
+  await upsertUserProfile(credential.user.uid, {
+    uid: credential.user.uid,
+    email,
+    role,
+    ...profileData,
+    createdAt: new Date().toISOString()
+  });
+
+  // Send verification email
+  try {
+    // Check if running on localhost to log the URL, but Firebase SDK doesn't natively expose the link in client SDK unless we use Admin SDK. 
+    // We'll just call sendEmailVerification and log a message.
+    await sendEmailVerification(credential.user);
+    console.log(`[LOCAL DEV FALLBACK] Verification email sent to ${email}. If SMTP is not configured, please check the Firebase console to verify the user manually.`);
+  } catch (err) {
+    console.error("Failed to send verification email:", err);
+  }
+
+  return { user: credential.user, role };
 }
 
 /**

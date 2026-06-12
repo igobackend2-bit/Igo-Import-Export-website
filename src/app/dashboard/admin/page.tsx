@@ -17,8 +17,9 @@ import {
   saveAdminSettings,
   updateProduct,
 } from "@/lib/productService";
+import { getAllOrders, updateOrderStatus, Order, OrderStatus } from "@/lib/orderService";
 
-type Tab = "overview" | "pending" | "approved" | "rejected" | "all" | "sellers" | "activity" | "settings";
+type Tab = "overview" | "orders" | "pending" | "approved" | "rejected" | "all" | "sellers" | "activity" | "settings";
 type SortBy = "date" | "status" | "category";
 type FilterStatus = "all" | "pending" | "approved" | "rejected";
 
@@ -28,6 +29,7 @@ export default function AdminDashboard() {
   
   const [activeTab, setActiveTab] = useState<Tab>("overview");
   const [allProducts, setAllProducts] = useState<SellerProduct[]>([]);
+  const [allOrders, setAllOrders] = useState<Order[]>([]);
   const [adminLogs, setAdminLogs] = useState<AdminLog[]>([]);
   const [sellerProfiles, setSellerProfiles] = useState<Record<string, { isActive: boolean; registeredAt: string }>>({});
   const [settings, setSettings] = useState({ autoApprove: false, welcomeMessage: "" });
@@ -58,6 +60,7 @@ export default function AdminDashboard() {
     const logs = await getAdminLogs();
     const profiles = await getSellerProfiles();
     const sets = await getAdminSettings();
+    const orders = await getAllOrders();
     
     // Convert timestamps for existing UI compatibility
     const formattedProducts = products.map((p) => ({
@@ -71,10 +74,17 @@ export default function AdminDashboard() {
       timestamp: typeof l.timestamp === "object" && l.timestamp !== null && "toDate" in l.timestamp ? l.timestamp.toDate().toISOString() : String(l.timestamp || new Date().toISOString()),
     })) as AdminLog[];
 
+    const formattedOrders = orders.map(o => ({
+      ...o,
+      createdAt: typeof o.createdAt === "object" && o.createdAt !== null && "toDate" in o.createdAt ? o.createdAt.toDate().toISOString() : String(o.createdAt || new Date().toISOString()),
+      updatedAt: typeof o.updatedAt === "object" && o.updatedAt !== null && "toDate" in o.updatedAt ? o.updatedAt.toDate().toISOString() : String(o.updatedAt || new Date().toISOString()),
+    })) as Order[];
+
     setAllProducts(formattedProducts);
     setAdminLogs(formattedLogs);
     setSellerProfiles(profiles);
     setSettings(sets);
+    setAllOrders(formattedOrders);
   }, []);
 
   useEffect(() => {
@@ -135,6 +145,12 @@ export default function AdminDashboard() {
     await updateProduct(id, { status: "pending" });
     await loadData();
     showToast("Product moved back to pending.");
+  };
+
+  const handleOrderStatusUpdate = async (id: string, newStatus: Order["status"]) => {
+    await updateOrderStatus(id, newStatus);
+    await loadData();
+    showToast(`Order status updated to ${newStatus}`);
   };
 
   const toggleSelect = (id: string) => {
@@ -284,6 +300,7 @@ export default function AdminDashboard() {
 
   const sidebarItems: { key: Tab; label: string; icon: string; badge?: number }[] = [
     { key: "overview", label: "Dashboard", icon: "fa-chart-pie" },
+    { key: "orders", label: "Orders", icon: "fa-shopping-cart", badge: allOrders.filter(o => o.status === "pending").length },
     { key: "pending", label: "Pending Review", icon: "fa-clock", badge: stats.pending },
     { key: "approved", label: "Approved Products", icon: "fa-check-circle" },
     { key: "rejected", label: "Rejected Products", icon: "fa-times-circle" },
@@ -454,6 +471,76 @@ export default function AdminDashboard() {
                    );
                 })}
                 {adminLogs.length === 0 && <div className="p-6 text-center text-brand-muted">No activity yet</div>}
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* SECTION: ORDERS */}
+        {activeTab === "orders" && (
+          <div>
+            <h1 className="text-3xl font-bold font-serif text-brand-green-950 mb-1">Customer Orders</h1>
+            <p className="text-brand-muted mb-6">Manage e-commerce orders, view details, and update statuses.</p>
+            
+            <div className="bg-white rounded-xl border border-brand-line shadow-sm overflow-hidden">
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="bg-gray-50 border-b border-brand-line text-left">
+                      <th className="px-4 py-3 font-medium">Order ID</th>
+                      <th className="px-4 py-3 font-medium">Customer</th>
+                      <th className="px-4 py-3 font-medium">Date</th>
+                      <th className="px-4 py-3 font-medium">Total Amount</th>
+                      <th className="px-4 py-3 font-medium">Items</th>
+                      <th className="px-4 py-3 font-medium">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-brand-line/50">
+                    {allOrders.map(order => (
+                      <tr key={order.id} className="hover:bg-gray-50">
+                        <td className="px-4 py-3 font-mono text-xs text-brand-muted">{order.id}</td>
+                        <td className="px-4 py-3">
+                          <div className="font-medium text-brand-ink">{order.customerName}</div>
+                          <div className="text-xs text-brand-muted">{order.customerEmail}</div>
+                        </td>
+                        <td className="px-4 py-3 text-brand-muted">{new Date((order.createdAt as string) || "").toLocaleDateString()}</td>
+                        <td className="px-4 py-3 font-bold">${order.totalAmount.toFixed(2)}</td>
+                        <td className="px-4 py-3 text-brand-muted">
+                          <div className="text-xs">
+                            {order.items.slice(0, 2).map((item, idx) => (
+                              <div key={idx}>{item.quantity}x {item.productName}</div>
+                            ))}
+                            {order.items.length > 2 && <div>+{order.items.length - 2} more</div>}
+                          </div>
+                        </td>
+                        <td className="px-4 py-3">
+                          <select 
+                            value={order.status} 
+                            onChange={(e) => handleOrderStatusUpdate(order.id!, e.target.value as OrderStatus)}
+                            className={`px-2 py-1 rounded text-xs font-bold border ${
+                              order.status === "pending" ? "bg-amber-100 text-amber-800 border-amber-200" :
+                              order.status === "processing" ? "bg-blue-100 text-blue-800 border-blue-200" :
+                              order.status === "shipped" ? "bg-purple-100 text-purple-800 border-purple-200" :
+                              order.status === "delivered" ? "bg-emerald-100 text-emerald-800 border-emerald-200" :
+                              "bg-red-100 text-red-800 border-red-200"
+                            }`}
+                          >
+                            <option value="pending">Pending</option>
+                            <option value="processing">Processing</option>
+                            <option value="shipped">Shipped</option>
+                            <option value="delivered">Delivered</option>
+                            <option value="cancelled">Cancelled</option>
+                          </select>
+                        </td>
+                      </tr>
+                    ))}
+                    {allOrders.length === 0 && (
+                      <tr>
+                        <td colSpan={6} className="px-4 py-8 text-center text-brand-muted">No orders found.</td>
+                      </tr>
+                    )}
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>

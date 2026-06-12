@@ -28,6 +28,12 @@ interface AuthContextType {
     email?: string,
     password?: string
   ) => Promise<{ success: boolean; error?: string }>;
+  register: (
+    role: UserRole,
+    email: string,
+    password: string,
+    profileData: { displayName: string; companyName: string }
+  ) => Promise<{ success: boolean; error?: string }>;
   logout: () => Promise<void>;
   sendReset: (email: string) => Promise<{ success: boolean; error?: string }>;
 }
@@ -39,6 +45,7 @@ const AuthContext = createContext<AuthContextType>({
   isAuthenticated: false,
   isLoading: true,
   login: async () => ({ success: false }),
+  register: async () => ({ success: false }),
   logout: async () => {},
   sendReset: async () => ({ success: false }),
 });
@@ -95,6 +102,32 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
   };
 
+  const register = async (
+    role: UserRole,
+    userEmail: string,
+    password: string,
+    profileData: { displayName: string; companyName: string }
+  ): Promise<{ success: boolean; error?: string }> => {
+    try {
+      // Import the newly added registerUser function inline to avoid circular dependencies if any, or just call it since it's in authService
+      const { registerUser } = await import("@/lib/authService");
+      const { user, role: fetchedRole } = await registerUser(userEmail, password, role, profileData);
+      setRole(fetchedRole);
+      setEmail(user.email);
+      setUid(user.uid);
+      return { success: true };
+    } catch (err: unknown) {
+      const code = (err as { code?: string }).code || "";
+      let message = "Registration failed. Please try again.";
+      if (code === "auth/email-already-in-use") {
+        message = "This email is already registered.";
+      } else if (code === "auth/weak-password") {
+        message = "Password should be at least 6 characters.";
+      }
+      return { success: false, error: message };
+    }
+  };
+
   const logout = async (): Promise<void> => {
     await signOut();
     setRole(null);
@@ -125,6 +158,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         isAuthenticated: !!role,
         isLoading,
         login,
+        register,
         logout,
         sendReset,
       }}
