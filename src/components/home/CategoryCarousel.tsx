@@ -6,8 +6,6 @@ export default function CategoryCarousel() {
   const categories = [
     { name: "Spices & Condiments", icon: "fa-pepper-hot", image: encodeURI("/products/Farmer Factory/Valluvam/clove.jpg"), search: "Valluvam" },
     { name: "Cereals & Grains", icon: "fa-wheat-awn", image: encodeURI("/products/Farmer Factory/Valluvam/BarnyardMillet.jpg"), search: "Valluvam" },
-    { name: "Fresh Fruits", icon: "fa-apple-whole", image: encodeURI("/products/Farmer Factory/Fruits/SenthooraMango.webp"), search: "Fruits" },
-    { name: "Fresh Vegetables", icon: "fa-carrot", image: encodeURI("/products/Farmer Factory/Vegetables/TomatoBangalore.jfif"), search: "Vegetables" },
     { name: "Field Seeds", icon: "fa-seedling", image: encodeURI("/products/Crop Care/Field Seeds/Groundnut.webp"), search: "Seeds" },
     { name: "Chemical Fertilizers", icon: "fa-flask", image: encodeURI("/products/Crop Care/Chemical Fertilizers/Ammonium_Nitrate.webp"), search: "Fertilizers" },
   ];
@@ -27,9 +25,9 @@ export default function CategoryCarousel() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {categories.map((cat, index) => (
-            <Link href={`/hub/agriculture?tab=${cat.search}`} key={index} className="group flex flex-col h-full rounded-xl overflow-hidden shadow-md hover:shadow-2xl border border-brand-line transition-all duration-300 transform hover:-translate-y-2">
+            <Link href={`/hub/agriculture?search=${cat.search}`} key={index} className="group flex flex-col h-full rounded-xl overflow-hidden shadow-md hover:shadow-2xl border border-brand-line transition-all duration-300 transform hover:-translate-y-2">
               <div className="h-40 w-full relative overflow-hidden">
                 <div className="absolute inset-0 bg-brand-green-950/20 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
                 <img src={cat.image} alt={cat.name} className="w-full h-full object-cover transform group-hover:scale-110 transition duration-700" />

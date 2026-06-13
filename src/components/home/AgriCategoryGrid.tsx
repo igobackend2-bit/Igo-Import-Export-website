@@ -5,18 +5,6 @@ import Link from 'next/link';
 export default function AgriCategoryGrid() {
   const categories = [
     {
-      name: "Fresh Vegetables",
-      image: "https://images.unsplash.com/photo-1566385101042-1a0aa0c1268c?auto=format&fit=crop&w=400&q=80",
-      link: "/category/fresh-vegetables",
-      subItems: ["Red Onion", "Tomatoes", "Green Chillies"]
-    },
-    {
-      name: "Fresh Fruits",
-      image: "https://images.unsplash.com/photo-1610832958506-aa56368176cf?auto=format&fit=crop&w=400&q=80",
-      link: "/category/fresh-fruits",
-      subItems: ["Alphonso Mangoes", "Pomegranates", "Bananas"]
-    },
-    {
       name: "Indian Spices",
       image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=400&q=80",
       link: "/category/indian-spices",
@@ -51,7 +39,7 @@ export default function AgriCategoryGrid() {
           <p className="text-brand-muted max-w-2xl mx-auto text-lg">Explore our massive catalog of verified Indian agricultural exports.</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-4">
           {categories.map((cat, idx) => (
             <div key={idx} className="bg-white rounded-xl shadow-sm border border-brand-line overflow-hidden hover:shadow-lg transition group flex flex-col h-full">
               <div className="h-32 overflow-hidden relative">

@@ -5,13 +5,6 @@ import Link from 'next/link';
 export default function TrendingProducts() {
   const featuredProducts = [
     {
-      id: 1,
-      title: "Senthoora Mango (Farmer Factory)",
-      image: encodeURI("/products/Farmer Factory/Fruits/SenthooraMango.webp"),
-      moq: "1000 kgs",
-      tag: "Fresh Produce"
-    },
-    {
       id: 2,
       title: "Barnyard Millet (Valluvam)",
       image: encodeURI("/products/Farmer Factory/Valluvam/BarnyardMillet.jpg"),
@@ -55,7 +48,7 @@ export default function TrendingProducts() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {featuredProducts.map((prod) => (
             <Link key={prod.id} href={`/product/${prod.id}`} className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl border border-brand-line transition duration-300 group flex flex-col">
               <div className="relative h-56 overflow-hidden bg-white p-4">
