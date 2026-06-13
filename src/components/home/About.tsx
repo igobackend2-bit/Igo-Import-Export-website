@@ -13,35 +13,27 @@ export default function About() {
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center gap-16">
           
-          {/* Image Grid (Asymmetric) */}
-          <div className="w-full lg:w-1/2 grid grid-cols-2 gap-4 relative z-10">
-            <div className="flex flex-col gap-4 pt-12">
-              <div className="rounded-2xl overflow-hidden shadow-2xl h-64 relative group">
-                <img src="/images/gallery_farm_sourcing.png" alt="Sourcing" className="w-full h-full object-cover transform group-hover:scale-110 transition duration-700" />
-              </div>
-              <div className="h-40 md:h-48 rounded-2xl overflow-hidden border-2 border-white shadow-xl mt-8 group">
-                <img src="/images/gallery_port_logistics.png" alt="Logistics" className="w-full h-full object-cover transform group-hover:scale-110 transition duration-700" />
-              </div>
+          {/* Single About Image + Quote Card */}
+          <div className="w-full lg:w-1/2 relative z-10 flex flex-col gap-4">
+            <div className="rounded-2xl overflow-hidden shadow-2xl group">
+              <img
+                src="/images/about_igo.png"
+                alt="IGO Import Export"
+                className="w-full h-full object-cover transform group-hover:scale-105 transition duration-700"
+              />
             </div>
-            <div className="flex flex-col gap-4">
-              <div className="h-48 md:h-64 rounded-2xl overflow-hidden border-2 border-white shadow-xl mb-8 group">
-                <img src="/images/gallery_quality_inspection.png" alt="Quality Control" className="w-full h-full object-cover transform group-hover:scale-110 transition duration-700" />
-                <div className="absolute inset-0 bg-brand-green-950/20"></div>
-              </div>
-              
-              <div className="bg-brand-green-950 rounded-2xl p-6 text-white shadow-2xl flex flex-col justify-center h-full relative overflow-hidden">
-                <i className="fa-solid fa-quote-left text-4xl text-brand-amber/30 absolute top-4 left-4"></i>
-                <h4 className="font-serif font-bold text-xl mb-2 relative z-10">Our Promise</h4>
-                <p className="text-white/80 text-sm relative z-10 leading-relaxed">
-                  We bridge the gap between Indian agriculture and global markets with 100% transparency.
-                </p>
-              </div>
+            <div className="bg-brand-green-950 rounded-2xl p-6 text-white shadow-2xl flex flex-col justify-center relative overflow-hidden">
+              <i className="fa-solid fa-quote-left text-4xl text-brand-amber/30 absolute top-4 left-4"></i>
+              <h4 className="font-serif font-bold text-xl mb-2 relative z-10">Our Promise</h4>
+              <p className="text-white/80 text-sm relative z-10 leading-relaxed">
+                We bridge the gap between Indian agriculture and global markets with 100% transparency.
+              </p>
             </div>
           </div>
 
           {/* Content */}
           <div className="w-full lg:w-1/2 relative z-10">
-            <span className="text-brand-amber font-bold tracking-widest uppercase text-sm mb-4 block flex items-center gap-4">
+            <span className="text-brand-amber font-bold tracking-widest uppercase text-sm mb-4 flex items-center gap-4">
               <div className="h-[1px] w-8 bg-brand-amber"></div>
               About IGO
             </span>
@@ -82,4 +74,3 @@ export default function About() {
     </section>
   );
 }
-
