@@ -56,8 +56,8 @@ export default function Navbar() {
           </span>
           {!isAuthenticated ? (
             <>
-              <Link href="/login?role=buyer" className="hover:text-brand-amber transition">Buyer Login</Link>
-              <Link href="/login?role=seller" className="hover:text-brand-amber transition">Seller Login</Link>
+              <Link href="/login/buyer" className="hover:text-brand-amber transition">Buyer Login</Link>
+              <Link href="/login/seller" className="hover:text-brand-amber transition">Seller Login</Link>
             </>
           ) : (
             <>

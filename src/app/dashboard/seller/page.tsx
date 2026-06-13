@@ -65,7 +65,7 @@ export default function SellerDashboard() {
 
   useEffect(() => {
     if (mounted && (!isAuthenticated || role !== "seller")) {
-      router.push("/login?role=seller");
+      router.push("/login/seller");
     }
   }, [mounted, isAuthenticated, role, router]);
 

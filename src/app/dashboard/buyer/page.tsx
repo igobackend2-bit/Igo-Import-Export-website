@@ -1,8 +1,30 @@
+"use client";
 /* eslint-disable react/no-unescaped-entities */
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
+import { useAuth } from "@/context/AuthContext";
 
 export default function BuyerDashboard() {
+  const router = useRouter();
+  const { role, isAuthenticated, isLoading } = useAuth();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (mounted && !isLoading && (!isAuthenticated || role !== "buyer")) {
+      router.push("/login/buyer");
+    }
+  }, [mounted, isLoading, isAuthenticated, role, router]);
+
+  if (!mounted || isLoading || role !== "buyer") {
+    return null;
+  }
+
   return (
     <div className="min-h-screen bg-brand-paper flex flex-col">
       <Navbar />
@@ -32,7 +54,7 @@ export default function BuyerDashboard() {
               <h1 className="text-3xl font-bold font-serif text-brand-green-950">Overview</h1>
               <p className="text-brand-muted">Welcome back! Here's the status of your import inquiries.</p>
             </div>
-            <Link href="/rfq" className="px-4 py-2 bg-white text-brand-ink font-bold rounded shadow hover:bg-gray-100">
+            <Link href="/#rfq" className="px-4 py-2 bg-white text-brand-ink font-bold rounded shadow hover:bg-gray-100">
               <i className="fa-solid fa-plus mr-2"></i>New RFQ
             </Link>
           </div>
@@ -64,4 +86,3 @@ export default function BuyerDashboard() {
     </div>
   );
 }
-

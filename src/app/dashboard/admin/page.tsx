@@ -94,7 +94,7 @@ export default function AdminDashboard() {
   useEffect(() => {
     console.log("Admin Dashboard - Current Role:", role, "isLoading:", isLoading);
     if (mounted && !isLoading && (!isAuthenticated || role !== "admin")) {
-      router.push("/login?role=admin");
+      router.push("/login/admin");
     }
   }, [mounted, isLoading, isAuthenticated, role, router]);
 
