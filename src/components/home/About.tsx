@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/no-unescaped-entities */
 import React from 'react';
 import Link from 'next/link';
@@ -69,7 +70,7 @@ export default function About() {
             </div>
 
             <div className="mt-12">
-              <Link href="/about" className="inline-flex items-center gap-3 px-8 py-4 bg-brand-green-950 text-white font-bold rounded hover:bg-brand-amber hover:text-brand-ink transition shadow-lg group">
+              <Link href="/about" className="inline-flex items-center gap-3 px-8 py-4 bg-brand-green-950 text-white font-bold rounded hover:bg-white hover:text-brand-ink transition shadow-lg group">
                 Discover Our Ecosystem
                 <i className="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
               </Link>

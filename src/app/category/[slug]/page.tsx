@@ -209,7 +209,7 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
                 </li>
               </ul>
               
-              <button className="w-full mt-6 py-2 border border-brand-amber text-brand-amber font-bold rounded hover:bg-brand-amber hover:text-brand-green-950 transition text-sm">
+              <button className="w-full mt-6 py-2 border border-white text-white font-bold rounded hover:bg-white hover:text-brand-green-950 hover:text-brand-green-950 transition text-sm">
                 Learn About Our Process
               </button>
             </div>

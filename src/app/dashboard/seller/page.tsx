@@ -170,6 +170,7 @@ export default function SellerDashboard() {
             status: "pending",
             editHistory,
             priceHistory
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           } as any);
           showToastMsg("Changes submitted for admin re-approval");
         } else {
@@ -183,6 +184,7 @@ export default function SellerDashboard() {
         ...formData,
         sellerEmail: email,
         status: isAuto ? "approved" : "pending",
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       } as any);
       showToastMsg(isAuto ? "Product automatically approved!" : "Product submitted for admin approval!");
     }

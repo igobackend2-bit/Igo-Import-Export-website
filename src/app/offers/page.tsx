@@ -103,7 +103,7 @@ export default function OffersPage() {
               <p className="text-white/70">Our trade desk sources over 50+ agricultural products. Send us your exact requirements for custom pricing.</p>
             </div>
           </div>
-          <Link href="/contact" className="px-8 py-4 border-2 border-brand-amber text-brand-amber hover:bg-brand-amber hover:text-brand-green-950 font-bold rounded-lg transition-colors whitespace-nowrap">
+          <Link href="/contact" className="px-8 py-4 border-2 border-white text-white hover:bg-white hover:text-brand-green-950 hover:text-brand-green-950 font-bold rounded-lg transition-colors whitespace-nowrap">
             Submit Custom RFQ
           </Link>
         </div>

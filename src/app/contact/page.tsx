@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { submitInquiry } from '@/lib/inquiryService';
+import { sendWhatsAppMessage } from '@/lib/whatsapp';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -21,8 +21,8 @@ export default function ContactPage() {
     setError('');
 
     try {
-      await submitInquiry({
-        type: 'contact',
+      sendWhatsAppMessage({
+        source: 'Contact Form',
         name: formData.name,
         email: formData.email,
         company: formData.company,
@@ -30,7 +30,6 @@ export default function ContactPage() {
         message: formData.message,
       });
       setSuccess(true);
-      setFormData({ name: '', company: '', email: '', product: '', message: '' });
       setTimeout(() => setSuccess(false), 5000);
     } catch (err) {
       console.error(err);

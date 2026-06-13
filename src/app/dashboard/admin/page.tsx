@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useEffect, useCallback, useMemo } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
-import type { SellerProduct, AdminLog, SellerProfile } from "@/types/product";
+import type { SellerProduct, AdminLog } from "@/types/product";
 import {
   getAllProducts,
   approveProduct,
@@ -12,7 +12,6 @@ import {
   getAdminLogs,
   getSellerProfiles,
   toggleSellerActive,
-  isSellerActive,
   getAdminSettings,
   saveAdminSettings,
   updateProduct,
@@ -162,8 +161,8 @@ export default function AdminDashboard() {
     setSelectedIds(next);
   };
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const handleBulkAction = async (action: string) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const handleBulkAction = async (_action: string) => {
     for (const id of Array.from(selectedIds)) {
       await approveProduct(id, adminEmail || "admin@igo.com", adminNote[id]);
     }

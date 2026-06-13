@@ -21,11 +21,12 @@ export async function GET() {
     }, { merge: true });
 
     return NextResponse.json({ success: true, message: "Admin account seeded successfully. You can now login with admin@igo.com / admin123" });
-  } catch (error: any) {
-    if (error.code === 'auth/email-already-in-use') {
+  } catch (error: unknown) {
+    const firebaseError = error as { code?: string; message?: string };
+    if (firebaseError.code === 'auth/email-already-in-use') {
       return NextResponse.json({ success: true, message: "Admin account already exists." });
     }
     console.error("Error seeding admin:", error);
-    return NextResponse.json({ success: false, error: error.message }, { status: 500 });
+    return NextResponse.json({ success: false, error: firebaseError.message }, { status: 500 });
   }
 }

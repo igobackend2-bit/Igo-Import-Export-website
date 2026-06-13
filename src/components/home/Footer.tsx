@@ -21,9 +21,9 @@ export default function Footer() {
               We are not a directory. IGO is India's premier managed trade desk, providing end-to-end sourcing, quality inspection, documentation, and global freight for international buyers.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-amber hover:text-brand-ink transition"><i className="fa-brands fa-linkedin-in"></i></a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-amber hover:text-brand-ink transition"><i className="fa-brands fa-twitter"></i></a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-amber hover:text-brand-ink transition"><i className="fa-brands fa-facebook-f"></i></a>
+              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white hover:text-brand-ink transition"><i className="fa-brands fa-linkedin-in"></i></a>
+              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white hover:text-brand-ink transition"><i className="fa-brands fa-twitter"></i></a>
+              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white hover:text-brand-ink transition"><i className="fa-brands fa-facebook-f"></i></a>
             </div>
           </div>
 
@@ -35,7 +35,7 @@ export default function Footer() {
               <li><Link href="#about" className="hover:text-brand-amber transition">About Us</Link></li>
               <li><Link href="#services" className="hover:text-brand-amber transition">Our Services</Link></li>
               <li><Link href="#products" className="hover:text-brand-amber transition">Export Catalog</Link></li>
-              <li><Link href="#rfq" className="hover:text-brand-amber transition">Send RFQ</Link></li>
+              <li><Link href="/#rfq" className="hover:text-brand-amber transition">Send RFQ</Link></li>
             </ul>
           </div>
 

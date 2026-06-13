@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/no-unescaped-entities */
 import React from 'react';
 import Link from 'next/link';
@@ -45,7 +46,7 @@ export default function Products() {
               We don't just list products. Every category below represents established supply chains where we handle the procurement, quality control, and export paperwork.
             </p>
           </div>
-          <Link href="#rfq" className="hidden md:inline-flex mt-6 md:mt-0 px-6 py-3 bg-brand-green-950 text-white font-bold rounded-lg hover:bg-brand-green-850 transition items-center gap-2">
+          <Link href="/#rfq" className="hidden md:inline-flex mt-6 md:mt-0 px-6 py-3 bg-brand-green-950 text-white font-bold rounded-lg hover:bg-brand-green-850 transition items-center gap-2">
             Request Custom Sourcing <i className="fa-solid fa-arrow-right"></i>
           </Link>
         </div>
@@ -79,7 +80,7 @@ export default function Products() {
         </div>
         
         <div className="mt-10 text-center md:hidden">
-          <Link href="#rfq" className="inline-flex px-6 py-3 bg-brand-green-950 text-white font-bold rounded-lg hover:bg-brand-green-850 transition items-center gap-2">
+          <Link href="/#rfq" className="inline-flex px-6 py-3 bg-brand-green-950 text-white font-bold rounded-lg hover:bg-brand-green-850 transition items-center gap-2">
             Request Custom Sourcing <i className="fa-solid fa-arrow-right"></i>
           </Link>
         </div>

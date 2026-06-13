@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { submitInquiry } from '@/lib/inquiryService';
+import { sendWhatsAppMessage } from '@/lib/whatsapp';
 
 export default function RFQ() {
   const [formData, setFormData] = useState({
@@ -23,19 +23,18 @@ export default function RFQ() {
     setError('');
     
     try {
-      await submitInquiry({
-        type: 'rfq',
+      sendWhatsAppMessage({
+        source: 'RFQ Form',
         name: formData.name,
         email: formData.email,
         message: formData.message || 'No additional specifications provided.',
         product: formData.product,
         quantity: formData.quantity,
         destination: formData.destination,
+        specifications: formData.certifications,
       });
       setSuccess(true);
-      setFormData({
-        product: '', quantity: '', destination: '', certifications: '', message: '', name: '', email: ''
-      });
+      // Preserve entered data as requested
       setTimeout(() => setSuccess(false), 5000);
     } catch (err) {
       console.error(err);

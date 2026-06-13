@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/no-unescaped-entities */
 import React from 'react';
 import Link from 'next/link';
@@ -41,7 +42,7 @@ export default function B2BHero() {
             <button className="flex-1 md:flex-none px-8 py-3 md:py-4 bg-brand-green-950 text-white font-bold rounded-lg hover:bg-brand-green-850 transition text-lg whitespace-nowrap">
               Search Hub
             </button>
-            <Link href="#rfq" className="flex-1 md:flex-none px-6 py-3 md:py-4 bg-brand-amber text-brand-green-950 font-bold rounded-lg hover:bg-amber-400 transition text-lg whitespace-nowrap flex items-center justify-center shadow-lg">
+            <Link href="/#rfq" className="flex-1 md:flex-none px-6 py-3 md:py-4 bg-white text-brand-green-950 font-bold rounded-lg hover:bg-gray-100 transition text-lg whitespace-nowrap flex items-center justify-center shadow-lg">
               <i className="fa-solid fa-paper-plane mr-2"></i> Post RFQ
             </Link>
           </div>

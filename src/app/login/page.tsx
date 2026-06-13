@@ -10,10 +10,7 @@ type LoginTab = "buyer" | "seller" | "admin";
 function LoginForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const initialRole = searchParams.get("role") || "buyer";
-  const [activeTab, setActiveTab] = useState<LoginTab>(
-    initialRole === "admin" ? "admin" : initialRole === "seller" ? "seller" : "buyer"
-  );
+  const [activeTab, setActiveTab] = useState<LoginTab>("buyer");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -27,9 +24,14 @@ function LoginForm() {
   const { login, sendReset } = useAuth();
 
   useEffect(() => {
+    const role = searchParams.get("role");
+    if (role === "admin" || role === "seller" || role === "buyer") {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setActiveTab(role as LoginTab);
+    }
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
-  }, []);
+  }, [searchParams]);
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -223,7 +225,7 @@ function LoginForm() {
             type="submit"
             disabled={isLoading}
             className={`w-full font-bold py-3 rounded-lg transition-all duration-300 flex justify-center items-center gap-2 text-sm shadow-lg hover:shadow-xl active:scale-[0.98] disabled:opacity-70 ${
-              isAdmin ? "bg-brand-amber text-brand-ink hover:bg-amber-400" : "bg-brand-green-700 text-white hover:bg-brand-green-850"
+              isAdmin ? "bg-white text-brand-ink hover:bg-gray-100" : "bg-brand-green-700 text-white hover:bg-brand-green-850"
             }`}
           >
             {isLoading ? (

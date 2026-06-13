@@ -1,7 +1,9 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import React, { useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
+import { useCart } from '@/context/CartContext';
 
 type Product = {
   id: string;
@@ -14,11 +16,7 @@ type Product = {
 function AgricultureHubContent({ allProducts }: { allProducts: Product[] }) {
   const searchParams = useSearchParams();
   const initialSearch = searchParams.get("search") || "";
-  const initialTab = searchParams.get("tab") || "All";
 
-  const TABS = ["All", "Fruits", "Vegetables", "Juices & Drinks", "Fertilizers", "Valluvam", "Seeds", "Plants"];
-  
-  const [activeTab, setActiveTab] = useState(TABS.includes(initialTab) || initialTab !== "All" ? initialTab : "All");
   const [searchQuery, setSearchQuery] = useState(initialSearch);
 
   React.useEffect(() => {
@@ -26,43 +24,25 @@ function AgricultureHubContent({ allProducts }: { allProducts: Product[] }) {
     setSearchQuery(searchParams.get("search") || "");
   }, [searchParams]);
 
-  // Fallback to initial tab if it's not strictly in the predefined array but passed via URL (e.g. "clove" -> Valluvam)
-  // Actually, we'll map any custom url tab to predefined ones if possible.
-  let currentActiveTab = activeTab;
-  if (!TABS.includes(activeTab) && activeTab !== "All") {
-    if (activeTab.toLowerCase() === "clove") currentActiveTab = "Valluvam";
-    if (activeTab.toLowerCase() === "indoor") currentActiveTab = "Plants";
-    if (activeTab.toLowerCase() === "millet") currentActiveTab = "Valluvam";
-  }
-
-  const filteredProducts = allProducts.filter(p => {
-    let matchesTab = true;
-    if (currentActiveTab !== "All") {
-      const t = currentActiveTab.toLowerCase();
-      const cat = p.category.toLowerCase();
-      const origin = p.origin.toLowerCase();
-      
-      if (t === "juices & drinks") {
-        matchesTab = cat.includes("juice") || cat.includes("drink") || origin.includes("cafe");
-      } else if (t === "plants") {
-        matchesTab = cat.includes("nursery") || cat.includes("indoor") || cat.includes("outdoor") || origin.includes("nursery");
-      } else if (t === "seeds") {
-        matchesTab = cat.includes("seed");
-      } else if (t === "valluvam") {
-        matchesTab = cat.includes("valluvam") || origin.includes("farmer factory") && !cat.includes("fruit") && !cat.includes("vegetable");
-      } else if (t === "fertilizers") {
-        matchesTab = cat.includes("fertilizer") || cat.includes("liquid") || cat.includes("powder") || cat.includes("chemical");
-      } else if (t === "fruits") {
-        matchesTab = (cat.includes("fruit") || origin.includes("fruit")) && !cat.includes("seed");
-      } else if (t === "vegetables") {
-        matchesTab = (cat.includes("vegetable") || origin.includes("vegetable")) && !cat.includes("seed");
-      } else {
-        matchesTab = cat.includes(t) || origin.includes(t);
-      }
-    }
-    const matchesSearch = p.name.toLowerCase().includes(searchQuery.toLowerCase()) || p.category.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesTab && matchesSearch;
+  // Remove Fruits, Vegetables, and Juices & Drinks from allProducts completely
+  const validProducts = allProducts.filter(p => {
+    const cat = p.category.toLowerCase();
+    const origin = p.origin.toLowerCase();
+    
+    // Check if it belongs to the removed categories
+    const isJuice = cat.includes("juice") || cat.includes("drink") || origin.includes("cafe");
+    const isFruit = (cat.includes("fruit") || origin.includes("fruit")) && !cat.includes("seed");
+    const isVegetable = (cat.includes("vegetable") || origin.includes("vegetable")) && !cat.includes("seed");
+    
+    return !(isJuice || isFruit || isVegetable);
   });
+
+  const filteredProducts = validProducts.filter(p => {
+    const matchesSearch = p.name.toLowerCase().includes(searchQuery.toLowerCase()) || p.category.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesSearch;
+  });
+
+  const { addToCart } = useCart();
 
   return (
     <div className="container mx-auto px-4 py-12">
@@ -87,23 +67,6 @@ function AgricultureHubContent({ allProducts }: { allProducts: Product[] }) {
               </div>
             </div>
 
-            {/* Category Filters */}
-            <div className="flex flex-wrap gap-2 mb-8">
-              {TABS.map(tab => (
-                <button 
-                  key={tab}
-                  onClick={() => { setActiveTab(tab); setSearchQuery(""); }}
-                  className={`px-4 py-2 rounded-full text-sm font-bold transition ${
-                    currentActiveTab === tab 
-                      ? "bg-brand-green-950 text-white shadow-md" 
-                      : "bg-white border border-brand-line text-brand-muted hover:border-brand-amber hover:text-brand-ink"
-                  }`}
-                >
-                  {tab}
-                </button>
-              ))}
-            </div>
-
             {/* Product Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredProducts.map((prod) => (
@@ -122,7 +85,12 @@ function AgricultureHubContent({ allProducts }: { allProducts: Product[] }) {
                       {prod.name}
                     </h3>
                     <div className="mt-auto pt-4 border-t border-brand-line flex items-center justify-between">
-                      <span className="text-xs text-brand-muted"><i className="fa-solid fa-box mr-1"></i> Bulk Volume</span>
+                      <button 
+                        onClick={() => addToCart({ id: prod.id, name: prod.name, imageUrl: prod.image_url, price: "Quote on Request" })}
+                        className="bg-brand-green-950 text-white text-xs font-bold px-3 py-1.5 rounded hover:bg-brand-green-850 transition flex items-center gap-1"
+                      >
+                        <i className="fa-solid fa-cart-plus"></i> Add To Cart
+                      </button>
                       <button className="text-brand-green-950 text-xs font-bold hover:text-brand-amber transition">
                         Request Quote <i className="fa-solid fa-arrow-right ml-1"></i>
                       </button>
@@ -148,18 +116,41 @@ function AgricultureHubContent({ allProducts }: { allProducts: Product[] }) {
              <h3 className="text-xl font-serif font-bold mb-2 text-brand-green-950">Custom Agri-Sourcing</h3>
              <p className="text-sm text-brand-muted mb-6">Need a specific agricultural commodity not listed? Submit a request directly to our procurement team.</p>
              
-             <form className="space-y-4 relative z-10">
+             <form className="space-y-4 relative z-10" onSubmit={(e) => {
+               e.preventDefault();
+               const form = e.target as HTMLFormElement;
+               const product = (form.elements[0] as HTMLInputElement).value;
+               const quantity = (form.elements[1] as HTMLInputElement).value;
+               const dest = (form.elements[2] as HTMLInputElement).value;
+               const specs = (form.elements[3] as HTMLTextAreaElement).value;
+
+               if(!product || !quantity) {
+                 alert("Product Name and Quantity are required.");
+                 return;
+               }
+
+               import('@/lib/whatsapp').then(({ sendWhatsAppMessage }) => {
+                 sendWhatsAppMessage({
+                   source: 'Procurement Request',
+                   product: product,
+                   quantity: quantity,
+                   destination: dest,
+                   specifications: specs
+                 });
+                 alert("Procurement Request opened in WhatsApp!");
+               });
+             }}>
                <div>
-                 <input type="text" placeholder="Product Name (e.g., Fox Nuts)" className="w-full bg-brand-paper border border-brand-line rounded p-2.5 text-sm focus:outline-none focus:border-brand-amber" />
+                 <input type="text" required placeholder="Product Name (e.g., Fox Nuts)" className="w-full bg-brand-paper border border-brand-line rounded p-2.5 text-sm focus:outline-none focus:border-brand-amber" />
                </div>
                <div className="grid grid-cols-2 gap-3">
-                 <input type="text" placeholder="Quantity (MT)" className="w-full bg-brand-paper border border-brand-line rounded p-2.5 text-sm focus:outline-none focus:border-brand-amber" />
+                 <input type="text" required placeholder="Quantity (MT)" className="w-full bg-brand-paper border border-brand-line rounded p-2.5 text-sm focus:outline-none focus:border-brand-amber" />
                  <input type="text" placeholder="Dest. Port" className="w-full bg-brand-paper border border-brand-line rounded p-2.5 text-sm focus:outline-none focus:border-brand-amber" />
                </div>
                <div>
                  <textarea rows={3} placeholder="Additional Specs (Moisture %, Packaging)" className="w-full bg-brand-paper border border-brand-line rounded p-2.5 text-sm focus:outline-none focus:border-brand-amber"></textarea>
                </div>
-               <button type="button" className="w-full py-3 bg-brand-amber text-brand-green-950 font-bold rounded hover:bg-yellow-400 transition text-sm shadow-md">
+               <button type="submit" className="w-full py-3 bg-white text-brand-green-950 font-bold rounded hover:bg-gray-100 transition text-sm shadow-md">
                  Submit Procurement Request
                </button>
              </form>

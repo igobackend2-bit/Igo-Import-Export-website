@@ -4,11 +4,11 @@ import fs from 'fs';
 import path from 'path';
 import AgricultureHubClient from '@/components/hub/AgricultureHubClient';
 
-import { getApprovedProducts } from '@/lib/productService';
+import { getApprovedProducts, FirestoreProduct } from '@/lib/productService';
 
 // This function runs on the server to read from Firebase
 async function getProducts() {
-  let products: any[] = [];
+  let products: FirestoreProduct[] = [];
   try {
     products = await getApprovedProducts();
   } catch (error) {

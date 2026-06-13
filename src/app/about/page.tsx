@@ -28,7 +28,7 @@ export default function AboutPage() {
               </ul>
             </div>
             <div className="mt-10 text-center">
-              <Link href="/contact" className="px-8 py-3 bg-brand-amber text-brand-ink font-bold rounded hover:bg-amber-400 transition shadow-md inline-block">
+              <Link href="/contact" className="px-8 py-3 bg-white text-brand-ink font-bold rounded hover:bg-gray-100 transition shadow-md inline-block">
                 Contact Our Desk
               </Link>
             </div>

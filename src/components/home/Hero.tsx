@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/no-unescaped-entities */
 "use client";
 
@@ -50,7 +51,7 @@ export default function Hero() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
-            <Link href="#rfq" className="px-8 py-4 bg-gradient-to-r from-brand-amber to-yellow-500 text-brand-green-950 font-bold rounded-lg hover:from-yellow-400 hover:to-brand-amber transition shadow-[0_0_20px_rgba(196,154,58,0.3)] hover:shadow-[0_0_30px_rgba(196,154,58,0.6)] flex items-center justify-center gap-3 group border border-yellow-300">
+            <Link href="/#rfq" className="px-8 py-4 bg-white text-brand-green-950 font-bold rounded-lg hover:bg-gray-100 transition shadow-[0_0_20px_rgba(196,154,58,0.3)] hover:shadow-[0_0_30px_rgba(196,154,58,0.6)] flex items-center justify-center gap-3 group border border-gray-200">
               Post Your Requirement
               <i className="fa-solid fa-arrow-right transform group-hover:translate-x-2 transition-transform"></i>
             </Link>

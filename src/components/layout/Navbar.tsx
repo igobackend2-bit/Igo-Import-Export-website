@@ -4,12 +4,14 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 import { useAuth } from "@/context/AuthContext";
+import { useCart } from "@/context/CartContext";
 
 export default function Navbar() {
   const pathname = usePathname();
   const router = useRouter();
   const [currentLang, setCurrentLang] = useState("en");
   const { role, email, isAuthenticated, logout } = useAuth();
+  const { totalItems } = useCart();
   const truncateEmail = (e: string | null) => e ? (e.length > 20 ? e.slice(0, 20) + "..." : e) : "";
 
   const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -116,22 +118,32 @@ export default function Navbar() {
               className="w-full bg-white/10 border border-white/20 rounded-full py-2 px-5 pl-10 text-sm text-white placeholder-white/50 focus:outline-none focus:border-brand-amber focus:bg-white/20 transition"
             />
             <i className="fa-solid fa-magnifying-glass absolute left-4 top-1/2 transform -translate-y-1/2 text-white/50"></i>
-            <button type="submit" className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-brand-amber text-brand-ink text-xs font-bold px-3 py-1 rounded-full hover:bg-amber-400 transition">Search</button>
+            <button type="submit" className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white text-brand-ink text-xs font-bold px-3 py-1 rounded-full hover:bg-gray-100 transition">Search</button>
           </form>
 
           <div className="flex gap-3">
             {role === "seller" ? (
-              <Link href="/dashboard/seller" className="px-4 py-2 bg-brand-amber text-brand-ink rounded font-bold hover:bg-amber-400 transition text-sm">
+              <Link href="/dashboard/seller" className="px-4 py-2 bg-white text-brand-ink rounded font-bold hover:bg-gray-100 transition text-sm">
                 <i className="fa-solid fa-plus mr-2"></i>Add New Product
               </Link>
             ) : role === "admin" ? (
-              <Link href="/dashboard/admin" className="px-4 py-2 bg-brand-amber text-brand-ink rounded font-bold hover:bg-amber-400 transition text-sm">
+              <Link href="/dashboard/admin" className="px-4 py-2 bg-white text-brand-ink rounded font-bold hover:bg-gray-100 transition text-sm">
                 <i className="fa-solid fa-shield-halved mr-2"></i>Admin Panel
               </Link>
             ) : (
-              <Link href="#rfq" className="px-4 py-2 bg-brand-amber text-brand-ink rounded font-bold hover:bg-amber-400 transition text-sm">
-                <i className="fa-solid fa-file-signature mr-2"></i>Post RFQ (Request for Quote)
-              </Link>
+              <>
+                <Link href="/checkout" className="px-4 py-2 bg-white text-brand-ink rounded font-bold hover:bg-gray-100 transition text-sm relative">
+                  <i className="fa-solid fa-cart-shopping mr-2"></i>Cart
+                  {totalItems > 0 && (
+                    <span className="absolute -top-2 -right-2 bg-brand-coral text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">
+                      {totalItems}
+                    </span>
+                  )}
+                </Link>
+                <Link href="/#rfq" className="px-4 py-2 bg-white text-brand-ink rounded font-bold hover:bg-gray-100 transition text-sm">
+                  <i className="fa-solid fa-file-signature mr-2"></i>Post RFQ (Request for Quote)
+                </Link>
+              </>
             )}
           </div>
         </div>

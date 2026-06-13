@@ -32,7 +32,7 @@ export default function BuyerDashboard() {
               <h1 className="text-3xl font-bold font-serif text-brand-green-950">Overview</h1>
               <p className="text-brand-muted">Welcome back! Here's the status of your import inquiries.</p>
             </div>
-            <Link href="/rfq" className="px-4 py-2 bg-brand-amber text-brand-ink font-bold rounded shadow hover:bg-amber-400">
+            <Link href="/rfq" className="px-4 py-2 bg-white text-brand-ink font-bold rounded shadow hover:bg-gray-100">
               <i className="fa-solid fa-plus mr-2"></i>New RFQ
             </Link>
           </div>
