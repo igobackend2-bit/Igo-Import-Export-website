@@ -183,7 +183,7 @@ export default function Navbar() {
               <Link href="/certificates" className={`transition ${pathname === "/certificates" ? "text-brand-amber" : "hover:text-brand-amber"}`}>Certificates</Link>
               <Link href="/brands" className={`transition ${pathname === "/brands" ? "text-brand-amber" : "hover:text-brand-amber"}`}>Our Brands</Link>
               <Link href="/offers" className={`transition ${pathname === "/offers" ? "text-brand-amber" : "hover:text-brand-amber"}`}>Offers</Link>
-              <Link href="/events" className={`transition ${pathname === "/events" ? "text-brand-amber" : "hover:text-brand-amber"}`}>Trade & Events</Link>
+
               <Link href="/gallery" className={`transition ${pathname === "/gallery" ? "text-brand-amber" : "hover:text-brand-amber"}`}>Gallery</Link>
               <Link href="/contact" className={`transition ${pathname === "/contact" ? "text-brand-amber" : "hover:text-brand-amber"}`}>Contact Us</Link>
             </>
