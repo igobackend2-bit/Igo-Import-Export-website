@@ -137,23 +137,7 @@ function LoginForm() {
         </Link>
       </div>
 
-      {/* Tab Switcher */}
-      <div className="flex bg-white/10 backdrop-blur-sm rounded-xl p-1 mb-6 border border-white/10">
-        {tabs.map((tab) => (
-          <button
-            key={tab.key}
-            onClick={() => { setActiveTab(tab.key); setError(""); setEmail(""); setPassword(""); }}
-            className={`flex-1 py-2.5 px-2 rounded-lg text-sm font-bold transition-all duration-300 ${
-              activeTab === tab.key
-                ? tab.key === "admin" ? "bg-slate-800 text-white shadow-lg" : "bg-white text-brand-green-950 shadow-lg"
-                : "text-white/70 hover:text-white hover:bg-white/5"
-            }`}
-          >
-            <i className={`fa-solid ${tab.icon} mr-1.5`}></i>
-            {tab.label}
-          </button>
-        ))}
-      </div>
+
 
       {/* Card */}
       <div className={`rounded-2xl shadow-2xl border overflow-hidden transition-all duration-500 ${isAdmin ? "bg-slate-900 border-slate-700" : "bg-white border-brand-line"}`}>
