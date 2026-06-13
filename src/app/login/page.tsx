@@ -10,7 +10,10 @@ type LoginTab = "buyer" | "seller" | "admin";
 function LoginForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const [activeTab, setActiveTab] = useState<LoginTab>("buyer");
+  const initialRole = searchParams.get("role") || "buyer";
+  const [activeTab, setActiveTab] = useState<LoginTab>(
+    initialRole === "admin" ? "admin" : initialRole === "seller" ? "seller" : "buyer"
+  );
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -24,14 +27,9 @@ function LoginForm() {
   const { login, sendReset } = useAuth();
 
   useEffect(() => {
-    const role = searchParams.get("role");
-    if (role === "admin" || role === "seller" || role === "buyer") {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
-      setActiveTab(role as LoginTab);
-    }
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
-  }, [searchParams]);
+  }, []);
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();

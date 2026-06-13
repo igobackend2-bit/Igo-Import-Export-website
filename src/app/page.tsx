@@ -1,7 +1,6 @@
 import Hero from "@/components/home/Hero";
 import CategoryCarousel from "@/components/home/CategoryCarousel";
 import TrendingProducts from "@/components/home/TrendingProducts";
-import SellerProducts from "@/components/home/SellerProducts";
 import TrustSignals from "@/components/home/TrustSignals";
 import Stats from "@/components/home/Stats";
 import About from "@/components/home/About";
@@ -18,7 +17,6 @@ export default function Home() {
       <TrustSignals />
       <About />
       <TrendingProducts />
-      <SellerProducts />
       <Stats />
       <Services />
       <Process />
