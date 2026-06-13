@@ -2,12 +2,12 @@ import React from 'react';
 
 export default function GalleryPage() {
   const photos = [
-    { src: "/images/gallery_container_loading.png", title: "Container Loading" },
+    { src: "/images/gallery_v2_container.png", title: "Container Loading" },
     { src: "/images/gallery_quality_inspection.png", title: "Quality Inspection" },
-    { src: "/images/gallery_farm_sourcing.png", title: "Farm Sourcing" },
-    { src: "/images/gallery_port_logistics.png", title: "Port Logistics" },
-    { src: "/images/gallery_warehouse_storage.png", title: "Warehouse Storage" },
-    { src: "/images/gallery_lab_testing.png", title: "Lab Testing" },
+    { src: "/images/gallery_v2_farm.png", title: "Farm Sourcing" },
+    { src: "/images/gallery_v2_port.png", title: "Port Logistics" },
+    { src: "/images/gallery_v2_warehouse.png", title: "Warehouse Storage" },
+    { src: "/images/gallery_v2_lab.png", title: "Lab Testing" },
   ];
 
   return (
