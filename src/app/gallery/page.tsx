@@ -21,9 +21,6 @@ export default function GalleryPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {photos.map((photo, i) => (
             <div key={i} className="group relative h-64 overflow-hidden rounded-xl border border-brand-line">
-              <div className="absolute inset-0 bg-brand-green-950/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 flex items-center justify-center">
-                <span className="text-white font-bold text-lg tracking-wider">{photo.title}</span>
-              </div>
               <img src={photo.src} alt={photo.title} className="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 ease-out" />
             </div>
           ))}
