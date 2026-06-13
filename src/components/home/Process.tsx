@@ -6,13 +6,13 @@ export default function Process() {
       icon: "fa-seedling",
       title: "1. Verified Procurement",
       desc: "We source directly from contract farms and certified millers across India, ensuring traceability at the root level.",
-      image: "https://images.unsplash.com/photo-1599839619722-39751411ea63?auto=format&fit=crop&w=600&q=80"
+      image: "/images/process_procurement.png"
     },
     {
       icon: "fa-microscope",
       title: "2. Quality Inspection",
       desc: "Every container undergoes rigorous 3rd-party testing (SGS/Bureau Veritas) for moisture, ASTA, and pesticide residues.",
-      image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=600&q=80"
+      image: "/images/process_quality.png"
     },
     {
       icon: "fa-file-signature",
@@ -24,7 +24,7 @@ export default function Process() {
       icon: "fa-ship",
       title: "4. Global Freight",
       desc: "FOB and CIF execution. We secure the best ocean freight rates and ensure timely vessel loading at major Indian ports.",
-      image: "https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&w=600&q=80"
+      image: "/images/process_freight.png"
     }
   ];
 
