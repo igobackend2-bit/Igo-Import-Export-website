@@ -17,6 +17,7 @@ import {
   updateProduct,
 } from "@/lib/productService";
 import { getAllOrders, updateOrderStatus, Order, OrderStatus } from "@/lib/orderService";
+import { sendNotification } from "@/lib/notificationService";
 
 type Tab = "overview" | "orders" | "pending" | "approved" | "rejected" | "all" | "sellers" | "activity" | "settings";
 type SortBy = "date" | "status" | "category";
@@ -150,6 +151,25 @@ export default function AdminDashboard() {
 
   const handleOrderStatusUpdate = async (id: string, newStatus: Order["status"]) => {
     await updateOrderStatus(id, newStatus);
+    // Notify the buyer about the status change
+    const order = allOrders.find(o => o.id === id);
+    if (order?.customerEmail) {
+      const statusMessages: Record<string, string> = {
+        processing: `Your order is now being processed. We'll keep you updated!`,
+        shipped: `Great news! Your order has been shipped and is on its way.`,
+        delivered: `Your order has been delivered. Thank you for choosing IGO!`,
+        cancelled: `Your order has been cancelled. Please contact us if you have questions.`,
+        pending: `Your order status has been updated to pending review.`,
+      };
+      await sendNotification({
+        recipientEmail: order.customerEmail,
+        recipientRole: "buyer",
+        type: "status",
+        title: `Order Update: ${newStatus.charAt(0).toUpperCase() + newStatus.slice(1)}`,
+        message: statusMessages[newStatus] || `Your order status has been updated to ${newStatus}.`,
+        link: "/dashboard/buyer#orders",
+      });
+    }
     await loadData();
     showToast(`Order status updated to ${newStatus}`);
   };

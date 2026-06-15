@@ -5,6 +5,7 @@ import Footer from "@/components/home/Footer";
 import GoogleTranslate from "@/components/layout/GoogleTranslate";
 import { AuthProvider } from "@/context/AuthContext";
 import { CartProvider } from "@/context/CartContext";
+import { NotificationProvider } from "@/context/NotificationContext";
 import "./globals.css";
 
 const inter = Inter({
@@ -52,10 +53,12 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col font-sans bg-brand-paper text-brand-ink">
         <AuthProvider>
           <CartProvider>
-            <GoogleTranslate />
-            <Navbar />
-            {children}
-            <Footer />
+            <NotificationProvider>
+              <GoogleTranslate />
+              <Navbar />
+              {children}
+              <Footer />
+            </NotificationProvider>
           </CartProvider>
         </AuthProvider>
       </body>

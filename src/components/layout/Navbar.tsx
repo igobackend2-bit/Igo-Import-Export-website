@@ -5,6 +5,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 import { useAuth } from "@/context/AuthContext";
 import { useCart } from "@/context/CartContext";
+import NotificationBell from "@/components/layout/NotificationBell";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -121,7 +122,9 @@ export default function Navbar() {
             <button type="submit" className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white text-brand-ink text-xs font-bold px-3 py-1 rounded-full hover:bg-gray-100 transition">Search</button>
           </form>
 
-          <div className="flex gap-3">
+          <div className="flex gap-3 items-center">
+            {/* Notification Bell - always visible when logged in */}
+            <NotificationBell />
             {role === "seller" ? (
               <Link href="/dashboard/seller" className="px-4 py-2 bg-white text-brand-ink rounded font-bold hover:bg-gray-100 transition text-sm">
                 <i className="fa-solid fa-plus mr-2"></i>Add New Product

@@ -5,9 +5,15 @@ import { useCart } from '@/context/CartContext';
 import { collection, addDoc } from 'firebase/firestore';
 import { db } from '@/lib/firebase';
 import Link from 'next/link';
+import { sendNotification } from '@/lib/notificationService';
+import { useAuth } from '@/context/AuthContext';
+
+// Admin email to notify on new orders
+const ADMIN_EMAIL = "igobackend2@gmail.com";
 
 export default function CheckoutPage() {
   const { items, removeFromCart, updateQuantity, clearCart, totalItems } = useCart();
+  const { email: loggedInEmail } = useAuth();
   const [formData, setFormData] = useState({
     customerName: '',
     companyName: '',
@@ -55,7 +61,30 @@ export default function CheckoutPage() {
       const cleanOrderData = JSON.parse(JSON.stringify(orderData));
 
       await addDoc(collection(db, 'orders'), cleanOrderData);
-      
+
+      // Notify the buyer
+      const buyerEmail = formData.email || loggedInEmail || '';
+      if (buyerEmail) {
+        await sendNotification({
+          recipientEmail: buyerEmail,
+          recipientRole: 'buyer',
+          type: 'order',
+          title: 'Order Placed Successfully! 🎉',
+          message: `Your order ${uniqueId} has been received. Our team will review and contact you with a quote shortly.`,
+          link: '/dashboard/buyer#orders',
+        });
+      }
+
+      // Notify admin
+      await sendNotification({
+        recipientEmail: ADMIN_EMAIL,
+        recipientRole: 'admin',
+        type: 'order',
+        title: 'New Order Received',
+        message: `Order ${uniqueId} placed by ${formData.customerName} (${buyerEmail}). Items: ${items.map(i => i.name).join(', ')}.`,
+        link: '/dashboard/admin',
+      });
+
       setOrderId(uniqueId);
       setSuccess(true);
       clearCart();
