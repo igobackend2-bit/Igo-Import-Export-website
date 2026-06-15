@@ -34,31 +34,34 @@ export default function CheckoutPage() {
       const uniqueId = 'ORD-' + Date.now().toString().slice(-6) + '-' + Math.floor(Math.random() * 1000);
       const orderData = {
         orderId: uniqueId,
-        customerName: formData.customerName,
-        customerEmail: formData.email, // matches interface
-        companyName: formData.companyName,
-        phone: formData.phone,
-        shippingAddress: `${formData.address}, ${formData.country}`, // matches interface
-        notes: formData.notes,
-        items: items.map(item => ({ // matches interface
-          productId: item.id,
-          productName: item.name,
-          quantity: item.quantity,
-          price: 0 // "Quote on Request" usually, but schema expects number
+        customerName: formData.customerName || '',
+        customerEmail: formData.email || '', 
+        companyName: formData.companyName || '',
+        phone: formData.phone || '',
+        shippingAddress: `${formData.address || ''}, ${formData.country || ''}`, 
+        notes: formData.notes || '',
+        items: items.map(item => ({ 
+          productId: item.id || 'unknown',
+          productName: item.name || 'Unknown Product',
+          quantity: item.quantity || 1,
+          price: 0 
         })),
-        totalAmount: 0, // matches interface
-        status: 'pending', // matches OrderStatus lowercase
+        totalAmount: 0, 
+        status: 'pending', 
         createdAt: new Date().toISOString()
       };
 
-      await addDoc(collection(db, 'orders'), orderData);
+      // Strip any accidental undefined values
+      const cleanOrderData = JSON.parse(JSON.stringify(orderData));
+
+      await addDoc(collection(db, 'orders'), cleanOrderData);
       
       setOrderId(uniqueId);
       setSuccess(true);
       clearCart();
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error creating order: ", error);
-      alert("There was an issue creating your order. Please try again.");
+      alert("There was an issue creating your order: " + (error?.message || "Unknown error"));
     } finally {
       setIsSubmitting(false);
     }
