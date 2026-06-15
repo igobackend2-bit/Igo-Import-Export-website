@@ -18,6 +18,7 @@ function AgricultureHubContent({ allProducts }: { allProducts: Product[] }) {
   const initialSearch = searchParams.get("search") || "";
 
   const [searchQuery, setSearchQuery] = useState(initialSearch);
+  const [selectedCategory, setSelectedCategory] = useState('All');
 
   React.useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
@@ -34,11 +35,15 @@ function AgricultureHubContent({ allProducts }: { allProducts: Product[] }) {
     return !(isJuice || isFruit || isVegetable);
   });
 
+  // Derive unique sorted categories
+  const categories = ['All', ...Array.from(new Set(validProducts.map(p => p.category).filter(Boolean))).sort()];
+
   const filteredProducts = validProducts.filter(p => {
-    return (
+    const matchesSearch =
       p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      p.category.toLowerCase().includes(searchQuery.toLowerCase())
-    );
+      p.category.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesCategory = selectedCategory === 'All' || p.category === selectedCategory;
+    return matchesSearch && matchesCategory;
   });
 
   const { addToCart } = useCart();
@@ -57,19 +62,62 @@ function AgricultureHubContent({ allProducts }: { allProducts: Product[] }) {
         {/* Main Directory Area (Left 8 columns) */}
         <div className="lg:col-span-8 space-y-12">
           <section>
-            <div className="flex flex-col md:flex-row justify-between items-end mb-6 border-b-2 border-brand-green-950 pb-2">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-6 border-b-2 border-brand-green-950 pb-3 gap-4">
               <h2 className="text-2xl font-bold text-brand-ink">Live Export Catalog ({filteredProducts.length})</h2>
-              <div className="relative w-full md:w-64 mt-4 md:mt-0">
-                <input
-                  type="text"
-                  placeholder="Search products..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full border border-brand-line rounded-md py-2 px-3 pr-10 text-sm focus:outline-none focus:border-brand-amber focus:ring-1 focus:ring-brand-amber"
-                />
-                <i className="fa-solid fa-search absolute right-3 top-1/2 transform -translate-y-1/2 text-brand-muted"></i>
+
+              {/* Search + Category Filter */}
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 w-full md:w-auto">
+
+                {/* Category Dropdown */}
+                <div className="relative">
+                  <select
+                    value={selectedCategory}
+                    onChange={(e) => setSelectedCategory(e.target.value)}
+                    className="appearance-none w-full sm:w-44 border border-brand-line rounded-md py-2 pl-3 pr-8 text-sm bg-white focus:outline-none focus:border-brand-amber focus:ring-1 focus:ring-brand-amber text-brand-ink cursor-pointer"
+                  >
+                    {categories.map(cat => (
+                      <option key={cat} value={cat}>{cat}</option>
+                    ))}
+                  </select>
+                  <i className="fa-solid fa-chevron-down absolute right-2.5 top-1/2 -translate-y-1/2 text-brand-muted text-xs pointer-events-none"></i>
+                </div>
+
+                {/* Search Input */}
+                <div className="relative">
+                  <input
+                    type="text"
+                    placeholder="Search products..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="w-full sm:w-52 border border-brand-line rounded-md py-2 px-3 pr-10 text-sm focus:outline-none focus:border-brand-amber focus:ring-1 focus:ring-brand-amber"
+                  />
+                  <i className="fa-solid fa-search absolute right-3 top-1/2 transform -translate-y-1/2 text-brand-muted"></i>
+                </div>
+
+                {/* Clear Filters */}
+                {(selectedCategory !== 'All' || searchQuery) && (
+                  <button
+                    onClick={() => { setSelectedCategory('All'); setSearchQuery(''); }}
+                    className="flex items-center gap-1 text-xs font-bold text-brand-green-700 hover:text-brand-amber transition whitespace-nowrap px-2"
+                  >
+                    <i className="fa-solid fa-xmark"></i> Clear
+                  </button>
+                )}
               </div>
             </div>
+
+            {/* Active Category Badge */}
+            {selectedCategory !== 'All' && (
+              <div className="flex items-center gap-2 mb-4">
+                <span className="inline-flex items-center gap-1.5 bg-brand-green-950 text-white text-xs font-bold px-3 py-1.5 rounded-full">
+                  <i className="fa-solid fa-filter text-brand-amber"></i>
+                  {selectedCategory}
+                  <button onClick={() => setSelectedCategory('All')} className="ml-1 hover:text-brand-amber transition">
+                    <i className="fa-solid fa-xmark"></i>
+                  </button>
+                </span>
+              </div>
+            )}
 
             {/* Product Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

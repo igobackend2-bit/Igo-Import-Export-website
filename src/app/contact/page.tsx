@@ -48,15 +48,20 @@ export default function ContactPage() {
             <p className="text-brand-muted text-lg mb-10">We are a fully operational managed trade desk. Whether you need a quote or have an operational query, our team responds within 24 hours.</p>
             
             <div className="space-y-8">
-              <div className="flex gap-4 items-start">
-                <div className="w-12 h-12 bg-brand-sage rounded-full flex items-center justify-center flex-shrink-0 text-brand-green-700">
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=No+17+Kovalan+street+2nd+main+road+Uthandi+Kanathur+Chennai+600119"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex gap-4 items-start group cursor-pointer"
+              >
+                <div className="w-12 h-12 bg-brand-sage rounded-full flex items-center justify-center flex-shrink-0 text-brand-green-700 group-hover:bg-brand-green-700 group-hover:text-white transition-colors duration-200">
                   <i className="fa-solid fa-location-dot text-xl"></i>
                 </div>
                 <div>
-                  <h3 className="font-bold text-brand-ink text-lg mb-1">Global Trade Hub</h3>
-                  <p className="text-brand-muted">No 17, Kovalan street, 2nd main road,<br/>Uthandi Kanathur, Chennai 600119.</p>
+                  <h3 className="font-bold text-brand-ink text-lg mb-1 group-hover:text-brand-green-700 transition-colors duration-200">Global Trade Hub</h3>
+                  <p className="text-brand-muted group-hover:text-brand-green-700 transition-colors duration-200">No 17, Kovalan street, 2nd main road,<br/>Uthandi Kanathur, Chennai 600119.</p>
                 </div>
-              </div>
+              </a>
 
               <div className="flex gap-4 items-start">
                 <div className="w-12 h-12 bg-brand-sage rounded-full flex items-center justify-center flex-shrink-0 text-brand-green-700">
@@ -64,7 +69,20 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h3 className="font-bold text-brand-ink text-lg mb-1">Email Support</h3>
-                  <p className="text-brand-muted">bankingbackend.indiagreen@gmail.com<br/>bd2@igogroups.com</p>
+                  <div className="flex flex-col gap-1">
+                    <a
+                      href="mailto:bankingbackend.indiagreen@gmail.com"
+                      className="text-brand-muted hover:text-brand-green-700 hover:underline transition-colors duration-200"
+                    >
+                      bankingbackend.indiagreen@gmail.com
+                    </a>
+                    <a
+                      href="mailto:bd2@igogroups.com"
+                      className="text-brand-muted hover:text-brand-green-700 hover:underline transition-colors duration-200"
+                    >
+                      bd2@igogroups.com
+                    </a>
+                  </div>
                 </div>
               </div>
 
@@ -74,7 +92,32 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h3 className="font-bold text-brand-ink text-lg mb-1">Direct Line & WhatsApp</h3>
-                  <p className="text-brand-muted">+91 73977 89803<br/>+91 73977 89804<br/>+91 73977 89805</p>
+                  <div className="flex flex-col gap-1">
+                    <a
+                      href="https://wa.me/917397789803"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-brand-muted hover:text-green-600 hover:underline transition-colors duration-200"
+                    >
+                      +91 73977 89803
+                    </a>
+                    <a
+                      href="https://wa.me/917397789804"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-brand-muted hover:text-green-600 hover:underline transition-colors duration-200"
+                    >
+                      +91 73977 89804
+                    </a>
+                    <a
+                      href="https://wa.me/917397789805"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-brand-muted hover:text-green-600 hover:underline transition-colors duration-200"
+                    >
+                      +91 73977 89805
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
