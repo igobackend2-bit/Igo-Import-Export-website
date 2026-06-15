@@ -117,12 +117,15 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       setUid(user.uid);
       return { success: true };
     } catch (err: unknown) {
+      console.error("Registration error:", err);
       const code = (err as { code?: string }).code || "";
       let message = "Registration failed. Please try again.";
       if (code === "auth/email-already-in-use") {
         message = "This email is already registered.";
       } else if (code === "auth/weak-password") {
         message = "Password should be at least 6 characters.";
+      } else if (err instanceof Error) {
+        message = `Registration failed: ${err.message}`;
       }
       return { success: false, error: message };
     }

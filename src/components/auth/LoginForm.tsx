@@ -19,12 +19,19 @@ export default function LoginForm({ role }: { role: LoginRole }) {
   const [forgotMsg, setForgotMsg] = useState("");
   const [forgotLoading, setForgotLoading] = useState(false);
 
-  const { login, sendReset } = useAuth();
+  const { login, sendReset, isAuthenticated, role: userRole } = useAuth();
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
-  }, []);
+    
+    // Redirect if already logged in
+    if (isAuthenticated) {
+      if (userRole === "seller") router.push("/dashboard/seller");
+      else if (userRole === "admin") router.push("/dashboard/admin");
+      else router.push("/dashboard/buyer");
+    }
+  }, [isAuthenticated, userRole, router]);
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();

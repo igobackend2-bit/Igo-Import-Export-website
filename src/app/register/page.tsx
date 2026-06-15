@@ -3,13 +3,22 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { UserRole } from "@/lib/authService";
 
 export default function RegisterPage() {
   const router = useRouter();
-  const { register } = useAuth();
+  const { register, isAuthenticated, role: userRole } = useAuth();
   
+  // If already logged in, redirect to dashboard
+  useEffect(() => {
+    if (isAuthenticated) {
+      if (userRole === "seller") router.push("/dashboard/seller");
+      else if (userRole === "admin") router.push("/dashboard/admin");
+      else router.push("/dashboard/buyer");
+    }
+  }, [isAuthenticated, userRole, router]);
+
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [companyName, setCompanyName] = useState("");
