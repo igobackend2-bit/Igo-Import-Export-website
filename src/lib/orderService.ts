@@ -4,6 +4,7 @@ import {
   doc,
   updateDoc,
   query,
+  where,
   orderBy,
   serverTimestamp,
   Timestamp,
@@ -66,5 +67,23 @@ export async function updateOrderStatus(
   await updateDoc(doc(db, "orders", id), { 
     status,
     updatedAt: serverTimestamp() 
+  });
+}
+
+/**
+ * Get orders by customer email
+ */
+export async function getOrdersByCustomerEmail(email: string): Promise<Order[]> {
+  const q = query(collection(db, "orders"), where("customerEmail", "==", email));
+  const snapshot = await getDocs(q);
+  const orders = snapshot.docs.map((doc) => ({
+    id: doc.id,
+    ...(doc.data() as Omit<Order, "id">),
+  }));
+  return orders.sort((a, b) => {
+    // Basic local sort to avoid needing a composite index
+    const timeA = a.createdAt ? new Date(a.createdAt as string).getTime() : 0;
+    const timeB = b.createdAt ? new Date(b.createdAt as string).getTime() : 0;
+    return timeB - timeA;
   });
 }
