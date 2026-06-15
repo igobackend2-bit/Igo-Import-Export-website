@@ -25,14 +25,16 @@ function AgricultureHubContent({ allProducts }: { allProducts: Product[] }) {
     setSearchQuery(searchParams.get("search") || "");
   }, [searchParams]);
 
-  // Remove Fruits, Vegetables, and Juices & Drinks from allProducts completely
+  // Remove Fruits, Vegetables, Juices & Drinks, Meat & Seafood, and Narrative from allProducts completely
   const validProducts = allProducts.filter(p => {
     const cat = p.category.toLowerCase();
     const origin = p.origin.toLowerCase();
     const isJuice = cat.includes("juice") || cat.includes("drink") || origin.includes("cafe");
     const isFruit = (cat.includes("fruit") || origin.includes("fruit")) && !cat.includes("seed");
     const isVegetable = (cat.includes("vegetable") || origin.includes("vegetable")) && !cat.includes("seed");
-    return !(isJuice || isFruit || isVegetable);
+    const isMeatSeafood = cat.includes("meat") || cat.includes("seafood") || cat.includes("protein cut");
+    const isNarrative = cat.includes("narrative");
+    return !(isJuice || isFruit || isVegetable || isMeatSeafood || isNarrative);
   });
 
   // Derive unique sorted categories
