@@ -28,7 +28,7 @@ export default function BuyerDashboard() {
   }, [mounted, isLoading, isAuthenticated, role, router]);
 
   useEffect(() => {
-    if (mounted && email && activeTab === "orders") {
+    if (mounted && email) {
       setLoadingOrders(true);
       getOrdersByCustomerEmail(email)
         .then((data) => {
@@ -40,7 +40,7 @@ export default function BuyerDashboard() {
           setLoadingOrders(false);
         });
     }
-  }, [mounted, email, activeTab]);
+  }, [mounted, email]);
 
   if (!mounted || isLoading || role !== "buyer") {
     return null;
@@ -122,15 +122,31 @@ export default function BuyerDashboard() {
                 </div>
               </div>
 
-              <div className="bg-white border border-brand-line rounded-lg shadow-sm">
-                <div className="p-4 border-b border-brand-line font-bold text-brand-ink flex justify-between items-center">
+              <div className="bg-white border border-brand-line rounded-lg shadow-sm overflow-hidden">
+                <div className="p-4 border-b border-brand-line font-bold text-brand-ink flex justify-between items-center bg-gray-50">
                   Recent Orders
-                  <button onClick={() => { setActiveTab("orders"); window.location.hash = "orders"; }} className="text-sm text-brand-green-600 hover:underline">View All</button>
+                  <button onClick={() => { setActiveTab("orders"); window.location.hash = "orders"; }} className="text-sm text-brand-green-600 hover:underline font-semibold">View All</button>
                 </div>
-                <div className="p-8 text-center text-brand-muted">
-                  <i className="fa-solid fa-box-open text-4xl mb-3 text-brand-line"></i>
-                  <p>Click on Order Tracking to view your full history.</p>
-                </div>
+                {orders.length === 0 ? (
+                  <div className="p-8 text-center text-brand-muted">
+                    <i className="fa-solid fa-box-open text-4xl mb-3 text-brand-line"></i>
+                    <p>You haven't placed any orders yet.</p>
+                  </div>
+                ) : (
+                  <div className="divide-y divide-brand-line">
+                    {orders.slice(0, 3).map((order) => (
+                      <div key={order.id} className="p-4 hover:bg-gray-50 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+                        <div>
+                          <div className="font-bold text-brand-ink">Order #{order.id?.slice(-6) || "N/A"}</div>
+                          <div className="text-xs text-brand-muted">Placed: {order.createdAt ? new Date(order.createdAt as string).toLocaleDateString() : 'N/A'}</div>
+                        </div>
+                        <span className={`px-2.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${getStatusColor(order.status)}`}>
+                          {order.status}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
             </>
           )}
