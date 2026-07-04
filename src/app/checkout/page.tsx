@@ -11,6 +11,10 @@ import { useAuth } from '@/context/AuthContext';
 // Admin email to notify on new orders
 const ADMIN_EMAIL = "igobackend2@gmail.com";
 
+// Minimum time (ms) a real visitor needs to fill this form; guards against
+// bot-submitted orders since checkout intentionally allows guest submissions.
+const MIN_SUBMIT_INTERVAL_MS = 3000;
+
 export default function CheckoutPage() {
   const { items, removeFromCart, updateQuantity, clearCart, totalItems } = useCart();
   const { email: loggedInEmail } = useAuth();
@@ -23,6 +27,9 @@ export default function CheckoutPage() {
     country: '',
     notes: '',
   });
+  // Honeypot field — real visitors never see or fill this.
+  const [honeypot, setHoneypot] = useState('');
+  const [formOpenedAt] = useState(() => Date.now());
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
   const [orderId, setOrderId] = useState('');
@@ -35,25 +42,36 @@ export default function CheckoutPage() {
     e.preventDefault();
     if (items.length === 0) return;
 
+    // Bot check #1: honeypot field was filled in — silently drop.
+    if (honeypot) return;
+    // Bot check #2: submitted implausibly fast after the form rendered.
+    if (Date.now() - formOpenedAt < MIN_SUBMIT_INTERVAL_MS) {
+      alert('Please take a moment to review your order before submitting.');
+      return;
+    }
+
     setIsSubmitting(true);
     try {
       const uniqueId = 'ORD-' + Date.now().toString().slice(-6) + '-' + Math.floor(Math.random() * 1000);
       const orderData = {
         orderId: uniqueId,
         customerName: formData.customerName || '',
-        customerEmail: formData.email || '', 
+        customerEmail: formData.email || '',
         companyName: formData.companyName || '',
         phone: formData.phone || '',
-        shippingAddress: `${formData.address || ''}, ${formData.country || ''}`, 
+        shippingAddress: `${formData.address || ''}, ${formData.country || ''}`,
         notes: formData.notes || '',
-        items: items.map(item => ({ 
+        items: items.map(item => ({
           productId: item.id || 'unknown',
           productName: item.name || 'Unknown Product',
           quantity: item.quantity || 1,
-          price: 0 
+          // No fixed price is published per product on this site — pricing is
+          // handled by the trade desk after reviewing the request. Previously
+          // this was hardcoded to 0, which made every order look worthless.
         })),
-        totalAmount: 0, 
-        status: 'pending', 
+        // No fabricated total — this is a quote request, not a priced order.
+        pricingStatus: 'quote_requested',
+        status: 'pending',
         createdAt: new Date().toISOString()
       };
 
@@ -177,6 +195,17 @@ export default function CheckoutPage() {
             <div className="bg-white rounded-2xl shadow-sm border border-brand-line p-8 sticky top-24">
               <h2 className="text-xl font-bold text-brand-ink mb-6 pb-4 border-b border-brand-line">Shipping Details</h2>
               <form onSubmit={handleSubmit} className="space-y-4">
+                {/* Honeypot field — hidden from real visitors, bots tend to fill every field */}
+                <input
+                  type="text"
+                  name="website"
+                  value={honeypot}
+                  onChange={e => setHoneypot(e.target.value)}
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  className="absolute -left-[9999px] w-px h-px overflow-hidden"
+                />
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-bold text-brand-ink mb-1">Customer Name *</label>

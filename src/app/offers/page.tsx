@@ -1,6 +1,17 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from 'react';
 import Link from 'next/link';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Current Offers | IGO Import & Export",
+  description: "Limited-time bulk export offers on rice, spices, and other agri-commodities from IGO Import & Export.",
+  openGraph: {
+    title: "Current Offers | IGO Import & Export",
+    description: "Limited-time bulk export offers on rice, spices, and other agri-commodities.",
+    url: "https://igogroups.com/offers",
+  },
+};
 
 export default function OffersPage() {
   const offers = [

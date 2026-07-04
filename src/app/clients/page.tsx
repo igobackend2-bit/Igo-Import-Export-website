@@ -1,4 +1,15 @@
 import React from 'react';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Our Clients & Global Footprint | IGO Import & Export",
+  description: "IGO ships agri-commodities to buyers across the Middle East, Southeast Asia, Europe, and North America.",
+  openGraph: {
+    title: "Our Clients & Global Footprint | IGO Import & Export",
+    description: "IGO ships agri-commodities to buyers across the Middle East, Southeast Asia, Europe, and North America.",
+    url: "https://igogroups.com/clients",
+  },
+};
 
 export default function ClientsPage() {
   const regions = [

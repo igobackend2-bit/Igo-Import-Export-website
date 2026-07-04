@@ -2,9 +2,20 @@ import React from 'react';
 import Link from 'next/link';
 import fs from 'fs';
 import path from 'path';
+import type { Metadata } from 'next';
 import AgricultureHubClient from '@/components/hub/AgricultureHubClient';
 
 import { getApprovedProducts, FirestoreProduct } from '@/lib/productService';
+
+export const metadata: Metadata = {
+  title: "Agriculture Hub | Live Export Catalog | IGO Import & Export",
+  description: "Browse IGO's live export catalog of Indian agri-commodities — crop care inputs, seeds, and nursery plants — sourced, inspected, and shipped worldwide.",
+  openGraph: {
+    title: "Agriculture Hub | Live Export Catalog | IGO Import & Export",
+    description: "Browse IGO's live export catalog of Indian agri-commodities, sourced, inspected, and shipped worldwide.",
+    url: "https://igogroups.com/hub/agriculture",
+  },
+};
 
 // This function runs on the server to read from Firebase
 async function getProducts() {

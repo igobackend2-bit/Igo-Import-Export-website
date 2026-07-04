@@ -1,5 +1,16 @@
 import React from 'react';
 import TrustSignals from '@/components/home/TrustSignals';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Trade Certificates & Compliance | IGO Import & Export",
+  description: "IGO's export compliance credentials: IEC, GST, APEDA RCMC, FSSAI, Phytosanitary, Fumigation, Spices Board RCMC, and Certificate of Origin.",
+  openGraph: {
+    title: "Trade Certificates & Compliance | IGO Import & Export",
+    description: "IEC, GST, APEDA RCMC, FSSAI, Phytosanitary, Fumigation, Spices Board RCMC, and Certificate of Origin.",
+    url: "https://igogroups.com/certificates",
+  },
+};
 
 export default function CertificatesPage() {
   const certs = [

@@ -1,4 +1,15 @@
 import React from 'react';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Gallery | IGO Import & Export",
+  description: "A look inside IGO's operations: container loading, quality inspection, farm sourcing, port logistics, warehouse storage, and lab testing.",
+  openGraph: {
+    title: "Gallery | IGO Import & Export",
+    description: "A look inside IGO's operations: container loading, quality inspection, farm sourcing, port logistics, warehouse storage, and lab testing.",
+    url: "https://igogroups.com/gallery",
+  },
+};
 
 export default function GalleryPage() {
   const photos = [

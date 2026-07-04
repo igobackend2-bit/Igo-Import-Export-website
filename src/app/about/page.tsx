@@ -1,6 +1,17 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from 'react';
 import Link from 'next/link';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "About Us | IGO Import & Export",
+  description: "Learn about IGO Import & Export, India's managed agri-commodity trade desk handling sourcing, quality inspection, export documentation, and freight for global buyers.",
+  openGraph: {
+    title: "About Us | IGO Import & Export",
+    description: "India's managed agri-commodity trade desk handling sourcing, quality inspection, export documentation, and freight for global buyers.",
+    url: "https://igogroups.com/about",
+  },
+};
 
 export default function AboutPage() {
   return (

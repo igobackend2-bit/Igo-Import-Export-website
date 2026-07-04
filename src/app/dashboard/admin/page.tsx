@@ -93,7 +93,6 @@ export default function AdminDashboard() {
   }, []);
 
   useEffect(() => {
-    console.log("Admin Dashboard - Current Role:", role, "isLoading:", isLoading);
     if (mounted && !isLoading && (!isAuthenticated || role !== "admin")) {
       router.push("/login/admin");
     }
@@ -511,7 +510,7 @@ export default function AdminDashboard() {
                       <th className="px-4 py-3 font-medium">Order ID</th>
                       <th className="px-4 py-3 font-medium">Customer</th>
                       <th className="px-4 py-3 font-medium">Date</th>
-                      <th className="px-4 py-3 font-medium">Total Amount</th>
+                      <th className="px-4 py-3 font-medium">Pricing</th>
                       <th className="px-4 py-3 font-medium">Items</th>
                       <th className="px-4 py-3 font-medium">Status</th>
                     </tr>
@@ -525,7 +524,11 @@ export default function AdminDashboard() {
                           <div className="text-xs text-brand-muted">{order.customerEmail}</div>
                         </td>
                         <td className="px-4 py-3 text-brand-muted">{new Date((order.createdAt as string) || "").toLocaleDateString()}</td>
-                        <td className="px-4 py-3 font-bold">${order.totalAmount.toFixed(2)}</td>
+                        <td className="px-4 py-3 font-bold">
+                          {order.pricingStatus === "priced" && typeof order.totalAmount === "number"
+                            ? `$${order.totalAmount.toFixed(2)}`
+                            : <span className="text-amber-600 font-bold text-xs bg-amber-50 border border-amber-200 rounded-full px-2 py-1">Quote Requested</span>}
+                        </td>
                         <td className="px-4 py-3 text-brand-muted">
                           <div className="text-xs">
                             {order.items.slice(0, 2).map((item, idx) => (

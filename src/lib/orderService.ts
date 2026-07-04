@@ -18,7 +18,10 @@ export interface OrderItem {
   productId: string;
   productName: string;
   quantity: number;
-  price: number;
+  // The catalog is quote-based (no fixed price is published per product), so
+  // there is no real numeric price to attach at order time. This used to be
+  // hardcoded to 0, which made every order look like it was worth $0.
+  price?: number;
 }
 
 export interface Order {
@@ -26,7 +29,12 @@ export interface Order {
   customerName: string;
   customerEmail: string;
   items: OrderItem[];
-  totalAmount: number;
+  // Optional and no longer fabricated as 0 — see pricingStatus below.
+  totalAmount?: number;
+  // "quote_requested" is the normal state for this site (pricing happens via
+  // the trade desk, not at checkout). "priced" is reserved for if/when real
+  // per-order pricing is added later.
+  pricingStatus: "quote_requested" | "priced";
   status: OrderStatus;
   shippingAddress: string;
   createdAt?: Timestamp | string;

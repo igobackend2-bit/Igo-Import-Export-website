@@ -45,10 +45,7 @@ export async function registerUser(
 
   // Send verification email
   try {
-    // Check if running on localhost to log the URL, but Firebase SDK doesn't natively expose the link in client SDK unless we use Admin SDK. 
-    // We'll just call sendEmailVerification and log a message.
     await sendEmailVerification(credential.user);
-    console.log(`[LOCAL DEV FALLBACK] Verification email sent to ${email}. If SMTP is not configured, please check the Firebase console to verify the user manually.`);
   } catch (err) {
     console.error("Failed to send verification email:", err);
   }
@@ -88,12 +85,13 @@ export async function sendPasswordReset(email: string): Promise<void> {
  * Falls back to "buyer" if no role document exists.
  */
 export async function getUserRole(uid: string): Promise<UserRole> {
+  // Role is resolved purely from the user's Firestore profile document.
+  // (Previously this also granted "admin" automatically to any account signed
+  // in as admin@igo.com / admin@yourdomain.com — anyone who registered with
+  // that exact email would have become an admin. That hardcoded bypass has
+  // been removed; admin status is now only ever set server-side via the
+  // protected /api/seed-admin bootstrap route or by an existing admin.)
   try {
-    // 1. Check if the currently logged-in user is the hardcoded admin email
-    if (auth.currentUser?.email === "admin@igo.com" || auth.currentUser?.email === "admin@yourdomain.com") {
-      return "admin";
-    }
-
     const userDoc = await getDoc(doc(db, "users", uid));
     if (userDoc.exists()) {
       return (userDoc.data()?.role as UserRole) || "buyer";
@@ -101,10 +99,6 @@ export async function getUserRole(uid: string): Promise<UserRole> {
     return "buyer";
   } catch (err) {
     console.error("getUserRole error (likely Firestore rules permission denied):", err);
-    // 2. Fallback check again in the catch block just in case
-    if (auth.currentUser?.email === "admin@igo.com" || auth.currentUser?.email === "admin@yourdomain.com") {
-      return "admin";
-    }
     return "buyer";
   }
 }

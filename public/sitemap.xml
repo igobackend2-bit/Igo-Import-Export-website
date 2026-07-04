@@ -2,22 +2,69 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://igogroups.com/</loc>
-    <lastmod>2025-01-01</lastmod>
+    <lastmod>2026-07-04</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://igogroups.com/hub/agriculture</loc>
-    <lastmod>2025-01-01</lastmod>
+    <lastmod>2026-07-04</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://igogroups.com/about</loc>
+    <lastmod>2026-07-04</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://igogroups.com/services</loc>
+    <lastmod>2026-07-04</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://igogroups.com/brands</loc>
+    <lastmod>2026-07-04</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://igogroups.com/offers</loc>
+    <lastmod>2026-07-04</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://igogroups.com/clients</loc>
+    <lastmod>2026-07-04</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://igogroups.com/certificates</loc>
+    <lastmod>2026-07-04</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://igogroups.com/gallery</loc>
+    <lastmod>2026-07-04</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://igogroups.com/contact</loc>
-    <lastmod>2025-01-01</lastmod>
+    <lastmod>2026-07-04</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://igogroups.com/register</loc>
+    <lastmod>2026-07-04</lastmod>
+    <priority>0.4</priority>
+  </url>
+  <url>
     <loc>https://igogroups.com/login</loc>
-    <lastmod>2025-01-01</lastmod>
-    <priority>0.5</priority>
+    <lastmod>2026-07-04</lastmod>
+    <priority>0.4</priority>
   </url>
 </urlset>
+<!--
+  NOTE: /checkout, /dashboard/*, /login/admin|buyer|seller, and /admin are
+  intentionally left out — they are transactional or role-gated pages that
+  shouldn't be indexed by search engines. /category/[slug] pages are dynamic
+  and are intentionally omitted here too; if specific category pages should be
+  indexed, add them individually once their slugs are finalized.
+-->

@@ -3,6 +3,10 @@
 import React, { useState } from 'react';
 import { sendWhatsAppMessage } from '@/lib/whatsapp';
 
+// Minimum time (ms) a real visitor needs to fill this form; submissions
+// faster than this are almost always bots and get silently dropped.
+const MIN_SUBMIT_INTERVAL_MS = 3000;
+
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: '',
@@ -11,12 +15,30 @@ export default function ContactPage() {
     product: '',
     message: ''
   });
+  // Honeypot field: real users never see or fill this (hidden via CSS below).
+  // Bots that auto-fill every input on the page will fill it, and we quietly
+  // drop the submission instead of sending it anywhere.
+  const [honeypot, setHoneypot] = useState('');
+  const [formOpenedAt] = useState(() => Date.now());
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Bot check #1: honeypot field was filled in.
+    if (honeypot) {
+      setSuccess(true);
+      setTimeout(() => setSuccess(false), 5000);
+      return;
+    }
+    // Bot check #2: form submitted implausibly fast after it rendered.
+    if (Date.now() - formOpenedAt < MIN_SUBMIT_INTERVAL_MS) {
+      setError('Please take a moment to review your message before sending.');
+      return;
+    }
+
     setIsSubmitting(true);
     setError('');
 
@@ -127,6 +149,17 @@ export default function ContactPage() {
           <div className="bg-white p-8 rounded-2xl shadow-xl border border-brand-line">
             <h3 className="text-2xl font-bold text-brand-ink mb-6">Send an Inquiry</h3>
             <form className="space-y-4" onSubmit={handleSubmit}>
+              {/* Honeypot field — hidden from real visitors, bots tend to fill every field */}
+              <input
+                type="text"
+                name="website"
+                value={honeypot}
+                onChange={e => setHoneypot(e.target.value)}
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                className="absolute -left-[9999px] w-px h-px overflow-hidden"
+              />
               {success && (
                 <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg text-sm mb-4">
                   <i className="fa-solid fa-circle-check mr-2"></i> Message sent! We will contact you soon.

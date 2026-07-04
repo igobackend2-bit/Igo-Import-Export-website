@@ -1,6 +1,17 @@
 import React from 'react';
 import Services from '@/components/home/Services';
 import Process from '@/components/home/Process';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Trade Services | IGO Import & Export",
+  description: "IGO's end-to-end trade services: farm-level procurement, quality inspection, export documentation, freight, and logistics for global agri-commodity buyers.",
+  openGraph: {
+    title: "Trade Services | IGO Import & Export",
+    description: "End-to-end trade services: procurement, quality inspection, export documentation, freight, and logistics.",
+    url: "https://igogroups.com/services",
+  },
+};
 
 export default function ServicesPage() {
   return (

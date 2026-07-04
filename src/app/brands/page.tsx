@@ -1,4 +1,15 @@
 import React from 'react';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Our Brands | IGO Import & Export",
+  description: "Explore IGO's owned export brands: Farmers Factory (fresh produce & FMCG), IGO Crop Care (agricultural inputs), and IGO Nursery (live plants).",
+  openGraph: {
+    title: "Our Brands | IGO Import & Export",
+    description: "Farmers Factory, IGO Crop Care, and IGO Nursery — IGO's owned and operated export brands.",
+    url: "https://igogroups.com/brands",
+  },
+};
 
 export default function BrandsPage() {
   const brands = [
