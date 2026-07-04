@@ -20,10 +20,9 @@ const firebaseConfig = {
 };
 
 if (!firebaseConfig.apiKey || !firebaseConfig.projectId) {
-  throw new Error(
-    "Firebase environment variables are missing. Copy .env.local.example to " +
-    ".env.local and fill in your Firebase project values (see Firebase Console " +
-    "> Project settings > General > Your apps)."
+  console.warn(
+    "⚠️ Firebase environment variables are missing. Copy .env.local.example to " +
+    ".env.local and fill in your Firebase project values. App may not work correctly."
   );
 }
 
