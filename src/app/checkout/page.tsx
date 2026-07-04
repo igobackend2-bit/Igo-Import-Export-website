@@ -106,7 +106,8 @@ export default function CheckoutPage() {
       setOrderId(uniqueId);
       setSuccess(true);
       clearCart();
-    } catch (error: any) {
+    } catch (err: unknown) {
+      const error = err as Error;
       console.error("Error creating order: ", error);
       alert("There was an issue creating your order: " + (error?.message || "Unknown error"));
     } finally {

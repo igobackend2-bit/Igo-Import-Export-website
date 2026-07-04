@@ -31,6 +31,7 @@ export default function NotificationBell() {
     const date = createdAt instanceof Timestamp
       ? createdAt.toDate()
       : new Date(createdAt as string);
+    // eslint-disable-next-line react-hooks/purity
     const diff = Date.now() - date.getTime();
     const mins = Math.floor(diff / 60000);
     if (mins < 1) return "Just now";
