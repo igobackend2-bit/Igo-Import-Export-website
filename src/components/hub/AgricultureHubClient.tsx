@@ -11,6 +11,11 @@ type Product = {
   category: string;
   origin: string;
   image_url: string;
+  // Optional — only present for seller-listed products that have a real
+  // indicative price on file. Absent for the static catalog until real
+  // figures are added, in which case the card just says "Quote on Request".
+  price?: string;
+  priceUnit?: string;
 };
 
 function AgricultureHubContent({ allProducts }: { allProducts: Product[] }) {
@@ -49,6 +54,14 @@ function AgricultureHubContent({ allProducts }: { allProducts: Product[] }) {
   });
 
   const { addToCart } = useCart();
+
+  // Only renders something when a real price was entered for this listing —
+  // never a fabricated figure. Clearly labeled as indicative, not a firm
+  // checkout price, since final terms are confirmed via quote request.
+  const formatIndicativePrice = (prod: Product): string | null => {
+    if (!prod.price) return null;
+    return prod.priceUnit ? `${prod.price} ${prod.priceUnit}` : prod.price;
+  };
 
   const handleRequestQuote = (prod: Product) => {
     const msg = encodeURIComponent(
@@ -139,12 +152,20 @@ function AgricultureHubContent({ allProducts }: { allProducts: Product[] }) {
                     <span className="text-xs text-brand-amber font-bold tracking-wider uppercase mb-1 block">
                       {prod.category}
                     </span>
-                    <h3 className="font-bold text-brand-ink leading-tight mb-4 group-hover:text-brand-green-700 transition">
+                    <h3 className="font-bold text-brand-ink leading-tight mb-2 group-hover:text-brand-green-700 transition">
                       {prod.name}
                     </h3>
+                    {formatIndicativePrice(prod) ? (
+                      <div className="text-sm font-bold text-brand-green-950 mb-4">
+                        Indicative: {formatIndicativePrice(prod)}{' '}
+                        <span className="text-xs font-normal text-brand-muted">(final quote on request)</span>
+                      </div>
+                    ) : (
+                      <div className="text-xs text-brand-muted italic mb-4">Quote on Request</div>
+                    )}
                     <div className="mt-auto pt-4 border-t border-brand-line flex items-center justify-between gap-2">
                       <button
-                        onClick={() => addToCart({ id: prod.id, name: prod.name, imageUrl: prod.image_url, price: "Quote on Request" })}
+                        onClick={() => addToCart({ id: prod.id, name: prod.name, imageUrl: prod.image_url, price: formatIndicativePrice(prod) || "Quote on Request" })}
                         className="bg-brand-green-950 text-white text-xs font-bold px-3 py-1.5 rounded hover:bg-brand-green-850 transition flex items-center gap-1"
                       >
                         <i className="fa-solid fa-cart-plus"></i> Add To Cart

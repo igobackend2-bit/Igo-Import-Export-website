@@ -71,7 +71,7 @@ export default function Products() {
                     </li>
                   ))}
                 </ul>
-                <Link href={`/hub/agriculture?tab=${cat.search}`} className="w-full text-center py-2 border border-brand-line rounded text-brand-green-950 font-bold hover:bg-brand-green-50 transition mt-auto block">
+                <Link href={`/hub/agriculture?search=${encodeURIComponent(cat.search)}`} className="w-full text-center py-2 border border-brand-line rounded text-brand-green-950 font-bold hover:bg-brand-green-50 transition mt-auto block">
                   View Full Specs
                 </Link>
               </div>

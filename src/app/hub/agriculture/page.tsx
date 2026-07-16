@@ -28,13 +28,18 @@ async function getProducts() {
 
   if (products && products.length > 0) {
     // Map FirestoreProduct to the expected Product type if necessary
-    // Firestore uses 'imageUrl' instead of 'image_url', we should map it
+    // Firestore uses 'imageUrl' instead of 'image_url', we should map it.
+    // Sellers already enter a real price/priceUnit when listing a product —
+    // it was previously dropped here and never reached the storefront.
+    // Passed through now so the catalog can show it as an indicative price.
     return products.map(p => ({
       id: p.id,
       name: p.name,
       category: p.category || '',
       origin: p.originCountry || '',
-      image_url: p.imageUrl || ''
+      image_url: p.imageUrl || '',
+      price: p.price || undefined,
+      priceUnit: p.priceUnit || undefined,
     }));
   }
   

@@ -28,8 +28,11 @@ export default function Navbar() {
   };
 
   // Hide the full navbar on dashboard pages (they have their own sidebar)
+  // and on the admin login page (a focused, standalone login screen doesn't
+  // need the full public site header with nav links, cart, and RFQ button).
   const isDashboard = pathname.startsWith("/dashboard/seller") || pathname.startsWith("/dashboard/admin");
-  if (isDashboard) return null;
+  const isAdminLogin = pathname.startsWith("/login/admin");
+  if (isDashboard || isAdminLogin) return null;
 
   return (
     <header className="w-full bg-brand-green-950 text-white sticky top-0 z-50 shadow-lg">
